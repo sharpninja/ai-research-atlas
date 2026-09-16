@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 $siteRoot = $PSScriptRoot
-$releaseVersion = '16'
-$publishedAtUtc = '2026-09-16T23:06:15Z'
+$releaseVersion = '17'
+$publishedAtUtc = '2026-09-16T23:19:59Z'
 $publishDateLabel = [datetimeoffset]::Parse($publishedAtUtc, [Globalization.CultureInfo]::InvariantCulture).ToUniversalTime().ToString("d MMMM yyyy, HH:mm:ss 'UTC'", [Globalization.CultureInfo]::InvariantCulture)
 $entries = (Import-PowerShellDataFile (Join-Path $siteRoot 'research.psd1')).Entries
 $bibliographyIndex = Get-Content (Join-Path $siteRoot 'bibliography-index.json') -Raw -Encoding UTF8 | ConvertFrom-Json
@@ -125,7 +125,7 @@ for($i=0;$i -lt $entries.Count;$i++) {
     $explore='<div class="source-links"><h3>Explore further</h3><p><a href="'+(EscapeHtml $entry.ExploreUrl)+'">'+(EscapeHtml $entry.ExploreLabel)+'</a></p></div>'
     $content=$content.Replace('</aside>', $explore+'</aside>')
   }
-  $content=$content.Replace('</article>', '</article>'+$lineage)
+  $content=$content.Replace('</aside>', $lineage+'</aside>')
   $tagCloud='<section class="entry-topics" aria-labelledby="entry-topics-title"><div><h2 id="entry-topics-title">AI topics</h2><p>Explore related entries. Larger tags appear on more entries.</p></div><nav class="topic-cloud" aria-label="AI topics">'+(Get-TagLinks $entry.Tags)+'</nav></section>'
   $content=$content.Replace('</header><div class="detail-body">', '</header>'+$tagCloud+'<div class="detail-body">')
   Save-Page ('entries/'+$entry.Slug+'/index.html') $entry.Title $entry.Summary $content

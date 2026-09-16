@@ -20,7 +20,7 @@ function enhance(html) {
     .replaceAll('<a class="next" href="/"><span>Explore</span>', '<a class="next" href="/timeline/"><span>Explore</span>')
     .replace('href="/style.css">','href="/style.css"><link rel="stylesheet" href="/additions.css">')
     .replace('</footer>', '<a class="owner-analytics" data-owner-nav hidden href="/analytics/" target="_top">Analytics</a></footer>')
-    .replace('</body>', '<a class="return-to-top" href="#page-top"><span aria-hidden="true">↑</span> Return to top</a><script src="/comments.js" defer></script></body>');
+    .replace('</body>', '<a class="return-to-top" href="#page-top" aria-label="Return to top" title="Return to top"><span aria-hidden="true">↑</span></a><script src="/navigation.js" defer></script><script src="/comments.js" defer></script></body>');
 }
 const timeline = enhance(readFileSync('dist/index.html','utf8')).replace('<a href="/timeline/">Timeline</a>', '<a href="/timeline/" aria-current="page">Timeline</a>')
   .replace('</body>', '<script src="/topics.js" defer></script></body>');
@@ -42,8 +42,11 @@ for (const entry of entries) {
   const file = 'dist/entries/' + entry + '/index.html';
   let html = enhance(readFileSync(file,'utf8'));
   if (entry === 'the-ai-toy') {
+    const lineage = html.match(/<div class="atlas-citations reading">[\s\S]*?<\/div>(?=<\/aside>)/)?.[0];
+    if (!lineage) throw new Error('The AI Toy citation sidebar is missing');
     html = html.replace('<a href="/entries/the-ai-toy/">The AI Toy</a>', '<a href="/entries/the-ai-toy/" aria-current="page">The AI Toy</a>');
     const body = readFileSync('ai-toy.html','utf8').trim()
+      .replace('</aside>', lineage + '</aside>')
       .replace(/<a href="https?:\/\/[^\"]+"/g, '$& target="_blank" rel="noopener noreferrer"');
     html = html.replace(/<div class="detail-body">[\s\S]*?<\/article>/, body + '</article>');
   }
@@ -81,6 +84,7 @@ writeFileSync('dist/analytics/index.html', withMain(readFileSync('analytics.html
   .replace('</body>', '<script src="/dashboard.js" type="module"></script></body>'));
 cpSync('src/dashboard.js','dist/dashboard.js'); cpSync('src/analytics.css','dist/analytics.css');
 cpSync('src/topics.js','dist/topics.js');
+cpSync('src/navigation.js','dist/navigation.js');
 cpSync('src/comments.js','dist/comments.js'); cpSync('src/additions.css','dist/additions.css'); cpSync('src/submissions.js','dist/submissions.js');
 cpSync('bibliography-index.json','dist/bibliography-index.json'); cpSync('citation-links.json','dist/citation-links.json');
 const assets = {};
@@ -106,4 +110,5 @@ execFileSync(process.execPath,['--check','dist/comments.js'],{stdio:'inherit'});
 execFileSync(process.execPath,['--check','dist/submissions.js'],{stdio:'inherit'});
 execFileSync(process.execPath,['--check','dist/dashboard.js'],{stdio:'inherit'});
 execFileSync(process.execPath,['--check','dist/topics.js'],{stdio:'inherit'});
+execFileSync(process.execPath,['--check','dist/navigation.js'],{stdio:'inherit'});
 console.log(`Built welcome, timeline, ${entries.length} commented entries, authenticated submissions, owner review, and Worker.`);

@@ -46,7 +46,7 @@ function sameOrigin(request, url) {
 export function createWorker(assets, entries) {
   const validEntries = new Set(entries);
   const pageNames = Object.fromEntries(Object.entries(assets).filter(([path]) => path.endsWith('/index.html')).map(([path, asset]) => [path.replace(/index\.html$/, ''), asset.body.match(/<title>(.*?)<\/title>/)?.[1]?.replace(/ \| AI Research Atlas$/, '') || path]));
-  return { async fetch(request, env, ctx) {
+  async function serve(request, env, ctx) {
     const url = new URL(request.url);
     const user = userFrom(request);
     const isModerator = moderator(user, env);
@@ -201,7 +201,8 @@ export function createWorker(assets, entries) {
       // Only public content GETs count. Tracking failures must not prevent reading.
       const canonical = path === '/index.html' ? '/welcome/' : path.replace(/index\.html$/, '');
       const publicPage = canonical === '/welcome/' || canonical === '/timeline/' || /^\/entries\/[^/]+\/$/.test(canonical);
-      if (request.method === 'GET' && status === 200 && isHtml && publicPage && !isModerator && env.DB &&
+      const analyticsExcluded = (request.headers.get('cookie') || '').split(';').some(part => part.trim() === '__Host-atlas_analytics_excluded=1');
+      if (request.method === 'GET' && status === 200 && isHtml && publicPage && !isModerator && !analyticsExcluded && env.DB &&
           !/bot|crawler|spider|slurp|headless/i.test(request.headers.get('user-agent') || '') &&
           !/prefetch|prerender/i.test((request.headers.get('purpose') || '') + (request.headers.get('sec-purpose') || ''))) {
         const recorded = recordPageView(request, env, canonical).catch(() => console.error('Atlas analytics recording unavailable'));
@@ -222,5 +223,16 @@ export function createWorker(assets, entries) {
       const feature = url.pathname.startsWith('/api/submissions') ? 'Submissions' : 'Comments';
       return bad(feature + ' are temporarily unavailable. Please try again; your draft has not been cleared.', 503);
     }
+  }
+  return { async fetch(request, env, ctx) {
+    const response = await serve(request, env, ctx);
+    // A browser preference only, never an authorization credential. Remember
+    // verified owner browsers even when their sign-in later expires or ends.
+    if (moderator(userFrom(request), env)) {
+      response.headers.append('Set-Cookie', '__Host-atlas_analytics_excluded=1; Path=/; Max-Age=31536000; HttpOnly; Secure; SameSite=Lax');
+      response.headers.set('Cache-Control', 'private, no-store');
+      response.headers.set('Vary', 'Cookie');
+    }
+    return response;
   }};
 }

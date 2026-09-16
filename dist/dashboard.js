@@ -44,6 +44,9 @@ async function load() {
     table('analytics-daily', [...data.daily].reverse(), '', (cell,row) => cell.textContent=dateLabel(row.day));
     table('analytics-pages', data.pages, 'No page views recorded in this period.', (cell,row) => {const link=el('a'); link.href=row.path; const decoder=document.createElement('textarea'); decoder.innerHTML=row.title; link.textContent=decoder.value; cell.append(link);});
     table('analytics-referrers', data.referrers, 'No referral sources recorded in this period.', (cell,row) => cell.textContent=row.referrer);
+    const deviceLabels = {desktop:'Desktop',mobile:'Mobile',tablet:'Tablet',unknown:'Unknown / not collected'};
+    table('analytics-devices', data.devices, 'No device data recorded in this period.', (cell,row) => cell.textContent=deviceLabels[row.deviceType] || 'Unknown');
+    document.getElementById('analytics-device-coverage').textContent = (data.deviceStartedAt ? 'Device collection began ' + new Date(data.deviceStartedAt).toLocaleString(undefined, {timeZone:'UTC'}) + ' UTC. ' : 'Device collection starts with the next eligible public visit. ') + 'Estimated from browser signals. Unknown includes older visits and unrecognized devices.';
     chart(data); results.hidden = false;
     notice.textContent = 'Updated ' + new Date(data.generatedAt).toLocaleTimeString(undefined, {timeZone:'UTC'}) + ' UTC.';
   } catch(error) {notice.textContent=error.message;}

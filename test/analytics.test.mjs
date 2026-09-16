@@ -82,6 +82,72 @@ test('production lifecycle retains asynchronous writes with waitUntil',async t=>
   assert.equal((await call('/welcome/',{},'GET',{waitUntil:p=>pending.push(p)})).status,200);
   await Promise.all(pending);assert.equal(pending.length,1);assert.equal((await summary()).totals.pageViews,1);
 });
+test('owner exclusion persists after sign-out without granting owner access',async t=>{
+  const {call,summary}=setup(t);
+  const response=await call('/analytics/',owner);
+  const exclusion=response.headers.getSetCookie().find(value=>value.startsWith('__Host-atlas_analytics_excluded='));
+  assert.ok(exclusion,'owner browsing installs a persistent exclusion preference');
+  for (const flag of ['Path=/','Max-Age=31536000','HttpOnly','Secure','SameSite=Lax']) assert.ok(exclusion.includes(flag));
+  assert.doesNotMatch(exclusion,/Domain=/i);
+  assert.ok(response.headers.getSetCookie().some(value=>value.startsWith('atlas_visited=')));
+  const cookie=exclusion.split(';')[0];
+  await call('/timeline/',{Cookie:cookie});
+  await call('/welcome/',{...reader,Cookie:cookie});
+  assert.equal((await summary()).totals.pageViews,0);
+  assert.equal((await call('/api/analytics',{Cookie:cookie})).status,401);
+  assert.equal((await call('/api/analytics',{...reader,Cookie:cookie})).status,403);
+  await call('/timeline/',reader);
+  await call('/welcome/',{Cookie:'__Host-atlas_analytics_excluded=0'});
+  assert.equal((await summary()).totals.pageViews,2);
+});
+test('owner session checks remember exclusion but readers cannot mark a browser as owner',async t=>{
+  const {call}=setup(t);
+  assert.ok((await call('/api/session',owner)).headers.getSetCookie().some(value=>value.startsWith('__Host-atlas_analytics_excluded=1;')));
+  for (const headers of [{},reader]) assert.ok(!(await call('/api/session',headers)).headers.getSetCookie().some(value=>value.startsWith('__Host-atlas_analytics_excluded=')));
+});
+test('device counts classify common browser signals without storing raw user agents',async t=>{
+  const {call,summary,binding}=setup(t);
+  const agents=[
+    ['Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36','desktop'],
+    ['Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1','mobile'],
+    ['Mozilla/5.0 (Linux; Android 15; Pixel 9) AppleWebKit/537.36 Chrome/140.0.0.0 Mobile Safari/537.36','mobile'],
+    ['Mozilla/5.0 (iPad; CPU OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Mobile/15E148 Safari/604.1','tablet'],
+    ['Mozilla/5.0 (Linux; Android 14; SM-X810) AppleWebKit/537.36 Chrome/140.0.0.0 Safari/537.36','tablet'],
+    ['Mozilla/5.0 (X11; Linux x86_64) Gecko/20100101 Firefox/140.0','desktop'],
+    ['','unknown'],['Custom-client/private-token','unknown'],
+  ];
+  for (const [agent] of agents) await call('/timeline/',{'User-Agent':agent});
+  await call('/timeline/',{'Sec-CH-UA-Mobile':'?1'});
+  const data=await summary();
+  assert.deepEqual(data.devices,[{deviceType:'desktop',views:2},{deviceType:'mobile',views:3},{deviceType:'tablet',views:2},{deviceType:'unknown',views:2}]);
+  assert.equal(data.devices.reduce((sum,row)=>sum+row.views,0),data.totals.pageViews);
+  const stored=binding.sql.prepare('SELECT * FROM device_views_daily').all();
+  assert.deepEqual(Object.keys(stored[0]).sort(),['day','device_type','views']);
+  assert.doesNotMatch(JSON.stringify(stored),/Mozilla|private-token|Pixel|Windows/);
+  assert.ok(data.deviceStartedAt);
+});
+test('legacy views remain unknown and device counts respect the selected date range',async t=>{
+  const {call,summary,binding}=setup(t);
+  const today=new Date().toISOString().slice(0,10);
+  const older=new Date(Date.now()-15*86400000).toISOString().slice(0,10);
+  binding.sql.prepare('INSERT INTO page_views_daily VALUES (?,?,?,?)').run(today,'/welcome/','Direct / unknown',3);
+  binding.sql.prepare('INSERT INTO page_views_daily VALUES (?,?,?,?)').run(older,'/timeline/','Direct / unknown',9);
+  const before=await summary('7');
+  assert.equal(before.deviceStartedAt,null);
+  assert.equal(before.devices.find(row=>row.deviceType==='unknown').views,3);
+  await call('/timeline/',{'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'});
+  assert.deepEqual((await summary('7')).devices,[{deviceType:'desktop',views:1},{deviceType:'mobile',views:0},{deviceType:'tablet',views:0},{deviceType:'unknown',views:3}]);
+  assert.equal((await summary('30')).devices.find(row=>row.deviceType==='unknown').views,12);
+  const plan=binding.sql.prepare('EXPLAIN QUERY PLAN SELECT SUM(views) FROM device_views_daily WHERE day >= ? AND day <= ?').all(older,today);
+  assert.match(JSON.stringify(plan),/USING INDEX/);
+});
+test('page and device counters roll back together when a device write fails',async t=>{
+  const {call,summary,binding}=setup(t);
+  binding.sql.exec("CREATE TRIGGER reject_device BEFORE INSERT ON device_views_daily BEGIN SELECT RAISE(ABORT, 'test unavailable'); END");
+  assert.equal((await call('/timeline/')).status,200);
+  assert.equal((await summary()).totals.pageViews,0);
+  assert.equal(binding.sql.prepare('SELECT COUNT(*) AS n FROM analytics_meta').get().n,0);
+});
 test('traffic counters survive a database reopen',async t=>{
   const dir=mkdtempSync(join(tmpdir(),'atlas-analytics-'));t.after(()=>rmSync(dir,{recursive:true,force:true}));
   const path=join(dir,'analytics.sqlite');const first=database(path);const worker=createWorker(assets,[]);

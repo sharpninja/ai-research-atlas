@@ -12,6 +12,12 @@ export const analyticsMeta = sqliteTable('analytics_meta', {
   value: text('value').notNull(),
 });
 
+export const deviceViewsDaily = sqliteTable('device_views_daily', {
+  day: text('day').notNull(),
+  deviceType: text('device_type', {enum: ['desktop', 'mobile', 'tablet', 'unknown']}).notNull(),
+  views: integer('views').notNull().default(0),
+}, table => [primaryKey({columns: [table.day, table.deviceType]})]);
+
 export const comments = sqliteTable('comments', {
   id: text('id').primaryKey(),
   entry: text('entry').notNull(),
