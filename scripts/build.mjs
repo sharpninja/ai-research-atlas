@@ -10,7 +10,7 @@ const encoded = Buffer.from(generator,'utf16le').toString('base64');
 execFileSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-EncodedCommand',encoded], {stdio:['ignore','pipe','pipe']});
 
 const entries = [...readFileSync('research.psd1','utf8').matchAll(/Slug='([^']+)'/g)].map(m => m[1]);
-const newNav = '<a href="/">Welcome</a><a href="/timeline/">Timeline</a><a href="/entries/the-ai-toy/">The AI Toy</a><a href="/submit/" target="_top">Submit a link</a><a href="/timeline/#methodology">About the sources</a><a href="/moderation/" data-owner-nav hidden>Moderate comments</a>';
+const newNav = '<a href="/welcome/">Welcome</a><a href="/timeline/">Timeline</a><a href="/entries/the-ai-toy/">The AI Toy</a><a href="/submit/" target="_top">Submit a link</a><a href="/timeline/#methodology">About the sources</a>';
 function enhance(html) {
   return html.replace(/<nav class="topnav"[^>]*>[\s\S]*?<\/nav>/, '<nav class="topnav" aria-label="Main navigation">' + newNav + '</nav>')
     .replaceAll('href="/#','href="/timeline/#')
@@ -28,9 +28,10 @@ function withMain(content, title, description) {
     .replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="' + description + '">');
 }
 const welcome = withMain(readFileSync('welcome.html','utf8'), 'Welcome: a plain-language history of AI', 'Follow the history of artificial intelligence from early rules and learning machines to modern language models, with links to original research.')
-  .replace('<a href="/">Welcome</a>', '<a href="/" aria-current="page">Welcome</a>')
+  .replace('<a href="/welcome/">Welcome</a>', '<a href="/welcome/" aria-current="page">Welcome</a>')
   .replace('</body>', '<script src="/welcome.js" defer></script></body>');
 writeFileSync('dist/index.html',welcome);
+mkdirSync('dist/welcome',{recursive:true}); writeFileSync('dist/welcome/index.html',welcome);
 writeFileSync('dist/welcome.js', `const oldSections = new Set(['foundations','representations','learning-at-scale','deep-learning','transformers','scale-and-generation','alignment-and-reasoning','foundation-models','methodology']);\nif (oldSections.has(location.hash.slice(1))) location.replace('/timeline/' + location.hash);\n`);
 for (const entry of entries) {
   const file = 'dist/entries/' + entry + '/index.html';
@@ -44,6 +45,7 @@ for (const entry of entries) {
   const returnTo = encodeURIComponent('/entries/' + entry + '/#comments');
   const comments = `<section class="comments" id="comments" data-comments-entry="${entry}" aria-labelledby="comments-title">
     <h2 id="comments-title">Comments</h2><p>Discuss this research, ask a question, or suggest a correction. Comments appear after the site owner approves them.</p>
+    <p data-owner-nav hidden><a href="/moderation/">Moderate comments</a></p>
     <p id="comments-notice" role="status">Loading comments…</p><div id="comment-list"></div><button class="button secondary" id="comments-more" type="button" hidden>Load more comments</button>
     <div id="comment-signin"><p><a class="button" href="/signin-with-chatgpt?return_to=${returnTo}" target="_top">Sign in with ChatGPT to comment</a></p><p class="small">Use your OpenAI account. Published comments show the display name you choose, not your account email.</p></div>
     <form id="comment-form" class="comment-form" hidden><p id="comment-account" class="small account-line"></p><a class="small" href="/signout-with-chatgpt?return_to=${returnTo}" target="_top">Sign out</a>

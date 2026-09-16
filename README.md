@@ -2,6 +2,8 @@
 
 The welcome page introduces AI research in plain language. `/timeline/` presents a 46-entry chronology; every `/entries/:slug/` page has moderated comments. The 1990 entry, `/entries/the-ai-toy/`, describes Kevin E. Martin's Gazette articles and C64 programs, with its extended narrative in `ai-toy.html`. Legacy homepage era fragments forward to the timeline.
 
+On a first visit, `/` shows the welcome introduction. Successful HTML visits set the host-only `atlas_visited=1` cookie for one year (Secure, HttpOnly, SameSite=Lax). Returning requests to `/` or `/index.html` redirect to `/timeline/`; `/welcome/` always opens the introduction. Clearing the cookie restores first-visit behavior. HTML responses are private and uncached so cookie-setting responses and redirects cannot be shared between visitors. APIs, assets, errors, and HEAD requests do not set the visit cookie. Owner-only comment moderation links appear inside each entry's comments section.
+
 ## Build and validation
 
 `npm ci`, `npm run build`, and `npm test`. Node 22.13+ is required for the local SQLite test adapter. The content generator remains `build.ps1` with `research.psd1`; the build runner reads both as UTF-8 on Windows. `dist/style.css` is the original authored stylesheet. `src/additions.css` extends it.

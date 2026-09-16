@@ -5,8 +5,8 @@ import worker from '../dist/server/index.js';
 const html=[];
 function walk(path) {for(const entry of readdirSync(path,{withFileTypes:true})) {if(['server','.openai'].includes(entry.name))continue;const p=path+'/'+entry.name;if(entry.isDirectory())walk(p);else if(p.endsWith('.html'))html.push(p);}}
 walk('dist');
-test('52 documents retain valid local links, unique headings/IDs, and clean encoding',()=>{
-  assert.equal(html.length,52); let checked=0;
+test('53 documents retain valid local links, unique headings/IDs, and clean encoding',()=>{
+  assert.equal(html.length,53); let checked=0;
   for(const path of html) {
     const content=readFileSync(path,'utf8');
     assert.equal([...content.matchAll(/<h1(?:\s|>)/g)].length,1,path);
@@ -41,10 +41,14 @@ test('welcome has seven narrative chapters and working research links',()=>{
 });
 test('built artifact exports a callable Worker and serves public pages',async()=>{
   assert.equal(typeof worker.fetch,'function');
-  for(const path of ['/','/timeline/','/entries/mcculloch-pitts/','/entries/the-ai-toy/','/entries/deepseek-r1/','/comments.js']) {
+  for(const path of ['/','/welcome/','/timeline/','/entries/mcculloch-pitts/','/entries/the-ai-toy/','/entries/deepseek-r1/','/comments.js']) {
     const response=await worker.fetch(new Request('https://atlas.example'+path),{});assert.equal(response.status,200,path);
   }
   assert.equal((await worker.fetch(new Request('https://atlas.example/no-such-page'),{})).status,404);
+  const returning = await worker.fetch(new Request('https://atlas.example/',{headers:{Cookie:'atlas_visited=1'}}),{});
+  assert.equal(returning.status,302);assert.equal(returning.headers.get('location'),'/timeline/');
+  const introduction = await worker.fetch(new Request('https://atlas.example/welcome/',{headers:{Cookie:'atlas_visited=1'}}),{});
+  assert.equal(introduction.status,200);assert.match(await introduction.text(),/href="\/welcome\/" aria-current="page">Welcome/);
   assert.equal((await worker.fetch(new Request('https://atlas.example/moderation/'),{})).status,302);
   assert.equal((await worker.fetch(new Request('https://atlas.example/submit/'),{})).status,302);
   const signedIn = await worker.fetch(new Request('https://atlas.example/submit/',{headers:{'oai-authenticated-user-id':'reader','oai-authenticated-user-email':'reader@example.test'}}),{});

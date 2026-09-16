@@ -166,6 +166,10 @@ export function createWorker(assets, entries) {
         return bad('Not found.', 404);
       }
       if (!['GET', 'HEAD'].includes(request.method)) return bad('Method not allowed.', 405);
+      const hasVisited = (request.headers.get('cookie') || '').split(';').some(part => part.trim() === 'atlas_visited=1');
+      if ((url.pathname === '/' || url.pathname === '/index.html') && hasVisited) {
+        return new Response(null, {status:302, headers:{Location:'/timeline/', 'Cache-Control':'private, no-store', Vary:'Cookie'}});
+      }
       if (url.pathname === '/submit' || url.pathname.startsWith('/submit/')) {
         if (!user) return new Response(null, {status:302, headers:{Location:'/signin-with-chatgpt?return_to=%2Fsubmit%2F', 'Cache-Control':'private, no-store'}});
       }
@@ -179,9 +183,13 @@ export function createWorker(assets, entries) {
       if (path.endsWith('/')) path += 'index.html';
       const asset = assets[path] || assets['/404.html'];
       const status = assets[path] ? 200 : 404;
+      const isHtml = asset.type.startsWith('text/html');
+      const rememberVisit = request.method === 'GET' && status === 200 && isHtml && !hasVisited;
       return new Response(request.method === 'HEAD' ? null : asset.body, {status, headers:{
         'Content-Type': asset.type, 'X-Content-Type-Options':'nosniff',
-        'Cache-Control': url.pathname.startsWith('/moderation') || url.pathname.startsWith('/submit') ? 'private, no-store' : 'public, max-age=60',
+        'Cache-Control': isHtml || url.pathname.startsWith('/moderation') || url.pathname.startsWith('/submit') ? 'private, no-store' : 'public, max-age=60',
+        ...(isHtml ? {Vary:'Cookie'} : {}),
+        ...(rememberVisit ? {'Set-Cookie':'atlas_visited=1; Path=/; Max-Age=31536000; HttpOnly; Secure; SameSite=Lax'} : {}),
         'Referrer-Policy':'strict-origin-when-cross-origin',
         'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'",
       }});
