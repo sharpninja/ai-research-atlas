@@ -10,7 +10,7 @@ const encoded = Buffer.from(generator,'utf16le').toString('base64');
 execFileSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-EncodedCommand',encoded], {stdio:['ignore','pipe','pipe']});
 
 const entries = [...readFileSync('research.psd1','utf8').matchAll(/Slug='([^']+)'/g)].map(m => m[1]);
-const newNav = '<a href="/">Welcome</a><a href="/timeline/">Timeline</a><a href="/submit/" target="_top">Submit a link</a><a href="/timeline/#methodology">About the sources</a><a href="/moderation/" data-owner-nav hidden>Moderate comments</a>';
+const newNav = '<a href="/">Welcome</a><a href="/timeline/">Timeline</a><a href="/entries/the-ai-toy/">The AI Toy</a><a href="/submit/" target="_top">Submit a link</a><a href="/timeline/#methodology">About the sources</a><a href="/moderation/" data-owner-nav hidden>Moderate comments</a>';
 function enhance(html) {
   return html.replace(/<nav class="topnav"[^>]*>[\s\S]*?<\/nav>/, '<nav class="topnav" aria-label="Main navigation">' + newNav + '</nav>')
     .replaceAll('href="/#','href="/timeline/#')
@@ -36,6 +36,7 @@ for (const entry of entries) {
   const file = 'dist/entries/' + entry + '/index.html';
   let html = enhance(readFileSync(file,'utf8'));
   if (entry === 'the-ai-toy') {
+    html = html.replace('<a href="/entries/the-ai-toy/">The AI Toy</a>', '<a href="/entries/the-ai-toy/" aria-current="page">The AI Toy</a>');
     const body = readFileSync('ai-toy.html','utf8').trim()
       .replace(/<a href="https?:\/\/[^\"]+"/g, '$& target="_blank" rel="noopener noreferrer"');
     html = html.replace(/<div class="detail-body">[\s\S]*?<\/article>/, body + '</article>');
