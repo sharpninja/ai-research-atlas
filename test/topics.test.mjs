@@ -8,10 +8,10 @@ const timeline = () => readFileSync('dist/timeline/index.html', 'utf8');
 const rowsFrom = html => [...html.matchAll(/<li class="entry" data-entry-slug="([^"]+)" data-entry-tags="([^"]+)"/g)]
   .map(([, slug, tags]) => ({slug, dataset: {entryTags: tags}, hidden: false}));
 
-test('all 60 entries have topic clouds that agree with the timeline and its filter options', () => {
+test('all 67 entries have topic clouds that agree with the timeline and its filter options', () => {
   const html = timeline();
   const rows = rowsFrom(html);
-  assert.equal(rows.length, 60);
+  assert.equal(rows.length, 67);
   const options = new Set([...html.matchAll(/<option value="([^"]+)" data-topic-label=/g)].map(m => m[1]));
   for (const row of rows) {
     const entry = readFileSync(`dist/entries/${row.slug}/index.html`, 'utf8');
@@ -24,7 +24,7 @@ test('all 60 entries have topic clouds that agree with the timeline and its filt
     assert.ok(entry.indexOf('class="topic-cloud"') < entry.indexOf('id="comments"'), row.slug);
     assert.ok(entry.indexOf('class="detail-pagination"') < entry.indexOf('id="comments"'), row.slug);
   }
-  assert.equal(readdirSync('dist/entries').length, 60);
+  assert.equal(readdirSync('dist/entries').length, 67);
   assert.match(html, /<label for="topic-select">/);
   assert.match(html, /id="topic-results"[^>]*role="status"/);
   assert.match(html, /<script src="\/topics.js" defer><\/script>/);
@@ -60,7 +60,7 @@ test('a bookmarked memory filter matches exact tags, counts results, and hides e
   assert.ok(visible.some(row => row.slug === 'lstm'));
   assert.ok(!visible.some(row => row.slug === 'alexnet'));
   for (const row of f.rows) assert.equal(!row.hidden, row.dataset.entryTags.split(' ').includes('memory'));
-  assert.match(f.status.textContent, new RegExp(`^${visible.length} of 60 entries`));
+  assert.match(f.status.textContent, new RegExp(`^${visible.length} of 67 entries`));
   for (const group of f.groups) {
     const count = group.rows.filter(row => !row.hidden).length;
     assert.equal(group.hidden, count === 0);
@@ -77,7 +77,7 @@ test('changing and clearing topics updates the URL, and browser Back restores th
   assert.match(f.location.href, /tag=reinforcement-learning/);
   assert.ok(f.rows.filter(row => !row.hidden).some(row => row.slug === 'alphago'));
   f.clear.handlers.click();
-  assert.equal(f.rows.filter(row => !row.hidden).length, 60);
+  assert.equal(f.rows.filter(row => !row.hidden).length, 67);
   assert.equal(new URL(f.location.href).searchParams.has('tag'), false);
   f.location.href = 'https://atlas.example/timeline/?tag=recall#topic-filter';
   f.window.handlers.popstate();
@@ -89,7 +89,7 @@ test('changing and clearing topics updates the URL, and browser Back restores th
 
 test('unknown or hostile tag values safely show all entries and offer a reset', () => {
   const f = fixture('?tag=%3Cscript%3E');
-  assert.equal(f.rows.filter(row => !row.hidden).length, 60);
+  assert.equal(f.rows.filter(row => !row.hidden).length, 67);
   assert.match(f.status.textContent, /Unknown topic/);
   assert.doesNotMatch(f.status.textContent, /<script>/);
   assert.equal(f.clear.hidden, false);

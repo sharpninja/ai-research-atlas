@@ -8,7 +8,7 @@ Successful public HTML requests increment daily D1 counters by canonical path an
 
 The additive analytics migration preserves existing content. Tests cover route/API authorization, missing configuration, aggregate persistence, filtering, referrer minimization, period bounds, failure handling, and the welcome page's closing link to the first chronological entry.
 
-The welcome page introduces AI research in plain language. `/timeline/` presents a 60-entry chronology; every `/entries/:slug/` page has moderated comments. The 1990 entry, `/entries/the-ai-toy/`, describes Kevin E. Martin's Gazette articles and C64 programs, with its extended narrative in `ai-toy.html`. Legacy homepage era fragments forward to the timeline.
+The welcome page introduces AI research in plain language. `/timeline/` presents a 67-entry chronology; every `/entries/:slug/` page has moderated comments. The 1990 entry, `/entries/the-ai-toy/`, describes Kevin E. Martin's Gazette articles and C64 programs, with its extended narrative in `ai-toy.html`. Legacy homepage era fragments forward to the timeline.
 
 On a first visit, `/` shows the welcome introduction. Successful HTML visits set the host-only `atlas_visited=1` cookie for one year (Secure, HttpOnly, SameSite=Lax). Returning requests to `/` or `/index.html` redirect to `/timeline/`; `/welcome/` always opens the introduction. Clearing the cookie restores first-visit behavior. HTML responses are private and uncached so cookie-setting responses and redirects cannot be shared between visitors. APIs, assets, errors, and HEAD requests do not set the visit cookie. Owner-only comment moderation links appear inside each entry's comments section.
 
@@ -45,3 +45,5 @@ Every research record has curated `Tags`. Entry pages show clickable topic cloud
 ## Memory foundations
 
 Fourteen pre-1990 entries extend the chronology with associative memory, semantic networks, persistent neural states, and recurrent sequence learning. Their optional CitedBy records link to existing Atlas entries and original reference lists. Publication versions and citation-title discrepancies are stated explicitly. Content remains in research.psd1; build.ps1 renders the provenance alongside each new entry.
+
+Seven reasoning foundations (1964-1969) extend the same citation-first process: STUDENT, resolution, QA1/QA2, QA3, PLANNER, CARPS, and SAMENLAQ II. Each links to an existing SHRDLU bibliography reference, distinguishes publication versions, and carries topic tags. SAMENLAQ II includes a Persistent memory tag because its original implementation section documents disk storage of memories. STUDENT is supported by its original repository abstract; the other six accounts were checked against original full papers.
