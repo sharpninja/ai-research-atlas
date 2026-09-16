@@ -21,6 +21,7 @@ function Save-Page([string]$file,[string]$title,[string]$description,[string]$co
 $content
 <footer class="wrap footer"><span>AI Research Atlas · Selected publications, 1943–2025</span><a href="/#methodology">Sources &amp; date conventions</a></footer></body></html>
 "@
+  $html = [regex]::Replace($html, '<a href="https?://[^"]+"', '$0 target="_blank" rel="noopener noreferrer"')
   [System.IO.File]::WriteAllText((Join-Path $siteRoot ('dist/' + $file)), $html, [System.Text.UTF8Encoding]::new($false))
 }
 $navItems = for($e=0;$e -lt $eras.Count;$e++) { $era=$eras[$e]; '<li><a href="#'+$era.Id+'"><span>'+ (EscapeHtml $era.Range) +'</span>'+ (EscapeHtml $era.Name) +'</a></li>' }
