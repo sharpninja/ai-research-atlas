@@ -54,7 +54,7 @@ for (const entry of entries) {
     <label for="comment-name">Public display name</label><input id="comment-name" name="name" maxlength="60" required autocomplete="nickname" aria-describedby="comment-name-help"><p id="comment-name-help" class="comment-guidance">Choose the name readers will see. Do not include private contact details.</p>
     <label for="comment-body">Your comment</label><textarea id="comment-body" name="body" maxlength="3000" required rows="5" aria-describedby="comment-body-help"></textarea><p id="comment-body-help" class="comment-guidance">Up to 3,000 characters. Keep comments relevant and respectful. Your comment will be stored for review by the site owner.</p>
     <button class="button" type="submit">Submit for approval</button><p id="comment-feedback" class="comment-feedback" role="status"></p></form><div id="my-comments"></div><noscript><p>Enable JavaScript to load and submit comments. The research entry remains available without it.</p></noscript></section>`;
-  html = html.replace('<nav class="detail-pagination"', comments + '<nav class="detail-pagination"');
+  html = html.replace(/<nav class="detail-pagination"[\s\S]*?<\/nav>/, navigation => navigation + comments);
   writeFileSync(file,html);
 }
 writeFileSync('dist/404.html',enhance(readFileSync('dist/404.html','utf8')));
