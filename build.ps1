@@ -1,5 +1,8 @@
 ﻿$ErrorActionPreference = 'Stop'
 $siteRoot = $PSScriptRoot
+$releaseVersion = '3'
+$publishDate = '2026-09-16'
+$publishDateLabel = [datetime]::ParseExact($publishDate, 'yyyy-MM-dd', [Globalization.CultureInfo]::InvariantCulture).ToString('d MMMM yyyy', [Globalization.CultureInfo]::InvariantCulture)
 $entries = (Import-PowerShellDataFile (Join-Path $siteRoot 'research.psd1')).Entries
 $eras = @(
   @{Id='foundations'; Name='Foundations & symbolic beginnings'; Range='1943–1966'},
@@ -19,7 +22,7 @@ function Save-Page([string]$file,[string]$title,[string]$description,[string]$co
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>$(EscapeHtml $title) | AI Research Atlas</title><meta name="description" content="$(EscapeHtml $description)"><meta name="theme-color" content="#14233b"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"></head>
 <body><a class="skip" href="#main">Skip to content</a><header class="masthead"><div class="wrap masthead-inner"><a class="brand" href="/" aria-label="AI Research Atlas home"><span class="brand-mark" aria-hidden="true">ai</span>AI Research Atlas</a><nav class="topnav" aria-label="Main navigation"><a href="/"$navCurrent>Timeline</a><a href="/#methodology">About the sources</a></nav></div></header>
 $content
-<footer class="wrap footer"><span>AI Research Atlas · Selected publications, 1943–2025</span><a href="/#methodology">Sources &amp; date conventions</a></footer></body></html>
+<footer class="wrap footer"><span>AI Research Atlas · Selected publications, 1943–2025<span class="footer-release">Version $(EscapeHtml $releaseVersion) · Published <time datetime="$publishDate">$(EscapeHtml $publishDateLabel)</time></span></span><a href="/#methodology">Sources &amp; date conventions</a></footer></body></html>
 "@
   $html = [regex]::Replace($html, '<a href="https?://[^"]+"', '$0 target="_blank" rel="noopener noreferrer"')
   [System.IO.File]::WriteAllText((Join-Path $siteRoot ('dist/' + $file)), $html, [System.Text.UTF8Encoding]::new($false))
