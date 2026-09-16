@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 $siteRoot = $PSScriptRoot
-$releaseVersion = '15'
-$publishedAtUtc = '2026-09-16T22:52:08Z'
+$releaseVersion = '16'
+$publishedAtUtc = '2026-09-16T23:06:15Z'
 $publishDateLabel = [datetimeoffset]::Parse($publishedAtUtc, [Globalization.CultureInfo]::InvariantCulture).ToUniversalTime().ToString("d MMMM yyyy, HH:mm:ss 'UTC'", [Globalization.CultureInfo]::InvariantCulture)
 $entries = (Import-PowerShellDataFile (Join-Path $siteRoot 'research.psd1')).Entries
 $bibliographyIndex = Get-Content (Join-Path $siteRoot 'bibliography-index.json') -Raw -Encoding UTF8 | ConvertFrom-Json

@@ -14,12 +14,13 @@ const entries = [...readFileSync('research.psd1','utf8').matchAll(/Slug='([^']+)
 const newNav = '<a href="/welcome/">Welcome</a><a href="/timeline/">Timeline</a><a href="/entries/the-ai-toy/">The AI Toy</a><a href="/submit/" target="_top">Submit a link</a><a href="/timeline/#methodology">About the sources</a>';
 function enhance(html) {
   return html.replace(/<nav class="topnav"[^>]*>[\s\S]*?<\/nav>/, '<nav class="topnav" aria-label="Main navigation">' + newNav + '</nav>')
+    .replace('<header class="masthead">', '<header class="masthead" id="page-top" tabindex="-1">')
     .replaceAll('href="/#','href="/timeline/#')
     .replaceAll('<a href="/"><span>Explore</span>', '<a href="/timeline/"><span>Explore</span>')
     .replaceAll('<a class="next" href="/"><span>Explore</span>', '<a class="next" href="/timeline/"><span>Explore</span>')
     .replace('href="/style.css">','href="/style.css"><link rel="stylesheet" href="/additions.css">')
     .replace('</footer>', '<a class="owner-analytics" data-owner-nav hidden href="/analytics/" target="_top">Analytics</a></footer>')
-    .replace('</body>', '<script src="/comments.js" defer></script></body>');
+    .replace('</body>', '<a class="return-to-top" href="#page-top"><span aria-hidden="true">↑</span> Return to top</a><script src="/comments.js" defer></script></body>');
 }
 const timeline = enhance(readFileSync('dist/index.html','utf8')).replace('<a href="/timeline/">Timeline</a>', '<a href="/timeline/" aria-current="page">Timeline</a>')
   .replace('</body>', '<script src="/topics.js" defer></script></body>');
