@@ -5,8 +5,8 @@ import worker from '../dist/server/index.js';
 const html=[];
 function walk(path) {for(const entry of readdirSync(path,{withFileTypes:true})) {if(['server','.openai'].includes(entry.name))continue;const p=path+'/'+entry.name;if(entry.isDirectory())walk(p);else if(p.endsWith('.html'))html.push(p);}}
 walk('dist');
-test('54 documents retain valid local links, unique headings/IDs, and clean encoding',()=>{
-  assert.equal(html.length,54); let checked=0;
+test('68 documents retain valid local links, unique headings/IDs, and clean encoding',()=>{
+  assert.equal(html.length,68); let checked=0;
   for(const path of html) {
     const content=readFileSync(path,'utf8');
     assert.equal([...content.matchAll(/<h1(?:\s|>)/g)].length,1,path);
@@ -25,8 +25,8 @@ test('54 documents retain valid local links, unique headings/IDs, and clean enco
   }
   console.log('Validated '+checked+' local links across '+html.length+' documents.');
 });
-test('all 46 entry pages have independent comments and top-level OpenAI sign-in links',()=>{
-  const entries=html.filter(p=>p.includes('/entries/')); assert.equal(entries.length,46);
+test('all 60 entry pages have independent comments and top-level OpenAI sign-in links',()=>{
+  const entries=html.filter(p=>p.includes('/entries/')); assert.equal(entries.length,60);
   for(const path of entries) {
     const content=readFileSync(path,'utf8');const slug=path.split('/')[2];
     assert.ok(content.includes('data-comments-entry="'+slug+'"'));assert.match(content,/href="\/signin-with-chatgpt\?return_to=[^"]+" target="_top"/);

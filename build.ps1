@@ -1,12 +1,12 @@
 $ErrorActionPreference = 'Stop'
 $siteRoot = $PSScriptRoot
-$releaseVersion = '11'
-$publishedAtUtc = '2026-09-16T20:13:38Z'
+$releaseVersion = '12'
+$publishedAtUtc = '2026-09-16T21:36:10Z'
 $publishDateLabel = [datetimeoffset]::Parse($publishedAtUtc, [Globalization.CultureInfo]::InvariantCulture).ToUniversalTime().ToString("d MMMM yyyy, HH:mm:ss 'UTC'", [Globalization.CultureInfo]::InvariantCulture)
 $entries = (Import-PowerShellDataFile (Join-Path $siteRoot 'research.psd1')).Entries
 $eras = @(
   @{Id='foundations'; Name='Foundations & symbolic beginnings'; Range='1943–1966'},
-  @{Id='representations'; Name='Knowledge, memory & learning'; Range='1969–1990'},
+  @{Id='representations'; Name='Knowledge, memory & learning'; Range='1968–1990'},
   @{Id='learning-at-scale'; Name='Statistical learning to deep vision'; Range='1995–2012'},
   @{Id='deep-learning'; Name='Deep learning takes shape'; Range='2013–2016'},
   @{Id='transformers'; Name='The Transformer era'; Range='2017–2019'},
@@ -44,7 +44,7 @@ $timelinePage = @"
 <main id="main"><div class="wrap"><section class="intro" aria-labelledby="title"><div><p class="kicker">A history through research and practice</p><h1 id="title">The ideas that shaped<br>artificial intelligence.</h1><p>Trace the publications behind the breakthroughs, from mathematical neurons to reasoning models. Open any entry for the research, its significance, and its limits.</p></div><div class="range-panel"><div class="year-range">1943–2025</div><span class="small">$($entries.Count) selected works<br>Original sources linked throughout</span></div></section><div class="timeline-layout"><nav class="era-nav" aria-label="Timeline eras"><p class="nav-label">Explore the timeline</p><ol>$($navItems -join "`n")</ol></nav><div>$($sections -join "`n")</div></div></div>
 <section class="method" id="methodology" aria-labelledby="method-title"><div class="wrap method-inner"><div><p class="kicker">Reading the timeline</p><h2 id="method-title">Follow the evidence.</h2></div><div><div class="method-columns"><div><h3>Dates belong to publications</h3><p>Years refer to the specific work linked in each entry. For papers first released on arXiv, the timeline uses the first submission year and notes a later conference when applicable. An invention, a software release, and a paper may have different dates.</p></div><div><h3>Claims stay within the source</h3><p>Entries summarize a contribution and its limits. Journal papers, conference papers, preprints, technical reports, a foundational monograph, and a commercial magazine series with programs are labeled separately. Being a primary source does not mean every claim has been independently reproduced.</p></div></div><div class="method-source"><p>This is a curated history of AI research and practice, not an exhaustive catalogue or a ranking of current models. Era names are editorial navigation, not universally agreed scientific periods. Entries within a year are not necessarily ordered by month.</p><p>The selection builds on the <a href="https://drops.mts.now/research-papers/">MTS research-paper timeline</a> and <a href="https://www.preprints.org/manuscript/202511.0637">Tracing the Evolution of Artificial Intelligence</a>, with dates and descriptions checked against the original publications and authoritative records linked on each detail page. The latter review is a preprint; neither overview substitutes for the original evidence.</p><p>Source review: 16 September 2026. Historical coverage ends in 2025. External links may lead to a publisher record, an open manuscript, or a PDF; some publishers restrict full-text access.</p></div></div></div></section></main>
 "@
-Save-Page 'index.html' 'Timeline of artificial intelligence, 1943–2025' 'Explore 46 milestones in AI research and practice, with original publications, historical context, and carefully distinguished publication dates.' $timelinePage $true
+Save-Page 'index.html' 'Timeline of artificial intelligence, 1943–2025' "Explore $($entries.Count) milestones in AI research and practice, with original publications, historical context, and carefully distinguished publication dates." $timelinePage $true
 for($i=0;$i -lt $entries.Count;$i++) {
   $entry=$entries[$i]; $era=$eras[$entry.Era]
   $dir=Join-Path $siteRoot ('dist/entries/'+$entry.Slug)
@@ -52,6 +52,16 @@ for($i=0;$i -lt $entries.Count;$i++) {
   $second=if($entry.SecondUrl){'<li><a href="'+(EscapeHtml $entry.SecondUrl)+'">'+(EscapeHtml $entry.SecondLabel)+' <span aria-hidden="true">↗</span></a></li>'}else{''}
   $prev=if($i -gt 0){$p=$entries[$i-1];'<a href="/entries/'+$p.Slug+'/"><span>Previous · '+$p.Year+'</span>'+(EscapeHtml $p.Title)+'</a>'}else{'<a href="/"><span>Explore</span>Back to the timeline</a>'}
   $next=if($i -lt $entries.Count-1){$n=$entries[$i+1];'<a class="next" href="/entries/'+$n.Slug+'/"><span>Next · '+$n.Year+'</span>'+(EscapeHtml $n.Title)+'</a>'}else{'<a class="next" href="/"><span>Explore</span>Return to the timeline</a>'}
+  $lineage=''
+  if($entry.CitedBy) {
+    $items=foreach($citation in $entry.CitedBy) {
+      $citing=@($entries | Where-Object { $_.Slug -eq $citation.Entry })
+      if($citing.Count -ne 1) { throw ('Unknown citing entry: '+$citation.Entry) }
+      $evidence=if($citation.SourceUrl){' <a href="'+(EscapeHtml $citation.SourceUrl)+'">Check the reference list</a>.'}else{''}
+      '<li><a href="/entries/'+$citing[0].Slug+'/">'+(EscapeHtml $citing[0].Title)+' ('+$citing[0].Year+')</a>. '+(EscapeHtml $citation.Note)+$evidence+'</li>'
+    }
+    $lineage='<section aria-labelledby="cited-by-title"><h2 id="cited-by-title">Cited by later work in the Atlas</h2><ul>'+($items -join '')+'</ul><p class="small">These are verified references to the work or the publication version noted above. A citation alone does not establish that the later system implements the same method.</p></section>'
+  }
   $content=@"
 <main id="main" class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/#$($era.Id)">Timeline</a><span aria-hidden="true">/</span><span aria-current="page">$($entry.Year)</span></nav><article><header class="detail-hero"><div class="detail-year"><time datetime="$($entry.Year)">$($entry.Year)</time><span>$(EscapeHtml $entry.Kind)</span></div><div><p class="kicker">$(EscapeHtml $entry.Topic)</p><h1>$(EscapeHtml $entry.Title)</h1><p class="detail-lede">$(EscapeHtml $entry.Summary)</p><p class="authors">$(EscapeHtml $entry.Authors)</p></div></header><div class="detail-body"><div class="reading"><h2>The contribution</h2><p>$(EscapeHtml $entry.Description)</p><section class="boundary" aria-labelledby="boundary-title"><h2 id="boundary-title">What this does not establish</h2><p>$(EscapeHtml $entry.Caveat)</p></section><h2>Why this date?</h2><p>$(EscapeHtml $entry.DateNote)</p><p class="small">This entry follows the linked publication. <a href="/#methodology">Read the source and date conventions.</a></p></div><aside class="publication" aria-labelledby="publication-title"><h2 id="publication-title">The original work</h2><p class="paper-title">$(EscapeHtml $entry.Paper)</p><dl><dt>Authors</dt><dd>$(EscapeHtml $entry.Authors)</dd><dt>Publication</dt><dd>$(EscapeHtml $entry.Venue)</dd><dt>Source type</dt><dd>$(EscapeHtml $entry.Kind)</dd></dl><ul class="source-links"><li><a href="$(EscapeHtml $entry.Url)">$(EscapeHtml $entry.LinkLabel) <span aria-hidden="true">↗</span></a></li>$second</ul><p class="source-note">The links above support the description and dating of this entry. Full text may be open or publisher-restricted.</p></aside></div></article><nav class="detail-pagination" aria-label="Adjacent timeline entries">$prev$next</nav></main>
 "@
@@ -59,6 +69,7 @@ for($i=0;$i -lt $entries.Count;$i++) {
     $explore='<div class="source-links"><h3>Explore further</h3><p><a href="'+(EscapeHtml $entry.ExploreUrl)+'">'+(EscapeHtml $entry.ExploreLabel)+'</a></p></div>'
     $content=$content.Replace('</aside>', $explore+'</aside>')
   }
+  if($lineage) { $content=$content.Replace('<p class="small">This entry follows', $lineage+'<p class="small">This entry follows') }
   Save-Page ('entries/'+$entry.Slug+'/index.html') $entry.Title $entry.Summary $content
 }
 Save-Page '404.html' 'Page not found' 'Return to the AI Research Atlas timeline.' '<main id="main" class="wrap not-found"><p class="kicker">Page not found</p><h1>Return to the timeline.</h1><p>This address does not match an entry in the atlas.</p><a href="/">Explore the research timeline</a></main>'
