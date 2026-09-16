@@ -1,0 +1,8 @@
+{
+  "name": "ai-research-atlas",
+  "version": "5.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"build": "node scripts/build.mjs", "test": "node --test test/*.test.mjs", "db:generate": "drizzle-kit generate"},
+  "devDependencies": {"drizzle-kit": "0.31.10", "drizzle-orm": "0.45.2"}
+}

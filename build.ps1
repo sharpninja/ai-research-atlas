@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
 $siteRoot = $PSScriptRoot
-$releaseVersion = '4'
-$publishedAtUtc = '2026-09-16T17:22:55Z'
+$releaseVersion = '5'
+$publishedAtUtc = '2026-09-16T17:51:00Z'
 $publishDateLabel = [datetimeoffset]::Parse($publishedAtUtc, [Globalization.CultureInfo]::InvariantCulture).ToUniversalTime().ToString("d MMMM yyyy, HH:mm:ss 'UTC'", [Globalization.CultureInfo]::InvariantCulture)
 $entries = (Import-PowerShellDataFile (Join-Path $siteRoot 'research.psd1')).Entries
 $eras = @(

@@ -1,0 +1,74 @@
+import {readFileSync, writeFileSync, readdirSync, mkdirSync, cpSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import {resolve} from 'node:path';
+
+// Keep the existing PowerShell content generator. Read UTF-8 explicitly on Windows 5.1.
+let generator = readFileSync('build.ps1','utf8');
+generator = generator.replace('$siteRoot = $PSScriptRoot', "$siteRoot = '" + process.cwd().replaceAll("'", "''") + "'");
+generator = generator.replace("Import-PowerShellDataFile (Join-Path $siteRoot 'research.psd1')", "& ([scriptblock]::Create([IO.File]::ReadAllText((Join-Path $siteRoot 'research.psd1'))))");
+const encoded = Buffer.from(generator,'utf16le').toString('base64');
+execFileSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-EncodedCommand',encoded], {stdio:['ignore','pipe','pipe']});
+
+const entries = [...readFileSync('research.psd1','utf8').matchAll(/Slug='([^']+)'/g)].map(m => m[1]);
+const newNav = '<a href="/">Welcome</a><a href="/timeline/">Timeline</a><a href="/timeline/#methodology">About the sources</a><a href="/moderation/" data-owner-nav hidden>Moderate comments</a>';
+function enhance(html) {
+  return html.replace(/<nav class="topnav"[^>]*>[\s\S]*?<\/nav>/, '<nav class="topnav" aria-label="Main navigation">' + newNav + '</nav>')
+    .replaceAll('href="/#','href="/timeline/#')
+    .replaceAll('<a href="/"><span>Explore</span>', '<a href="/timeline/"><span>Explore</span>')
+    .replaceAll('<a class="next" href="/"><span>Explore</span>', '<a class="next" href="/timeline/"><span>Explore</span>')
+    .replace('href="/style.css">','href="/style.css"><link rel="stylesheet" href="/additions.css">')
+    .replace('</body>', '<script src="/comments.js" defer></script></body>');
+}
+const timeline = enhance(readFileSync('dist/index.html','utf8')).replace('<a href="/timeline/">Timeline</a>', '<a href="/timeline/" aria-current="page">Timeline</a>');
+mkdirSync('dist/timeline',{recursive:true}); writeFileSync('dist/timeline/index.html',timeline);
+const shell = enhance(readFileSync('dist/index.html','utf8'));
+function withMain(content, title, description) {
+  return shell.replace(/<main[\s\S]*<\/main>/, content)
+    .replace(/<title>[^<]*<\/title>/, '<title>' + title + ' | AI Research Atlas</title>')
+    .replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="' + description + '">');
+}
+const welcome = withMain(readFileSync('welcome.html','utf8'), 'Welcome: a plain-language history of AI', 'Follow the history of artificial intelligence from early rules and learning machines to modern language models, with links to original research.')
+  .replace('<a href="/">Welcome</a>', '<a href="/" aria-current="page">Welcome</a>')
+  .replace('</body>', '<script src="/welcome.js" defer></script></body>');
+writeFileSync('dist/index.html',welcome);
+writeFileSync('dist/welcome.js', `const oldSections = new Set(['foundations','representations','learning-at-scale','deep-learning','transformers','scale-and-generation','alignment-and-reasoning','foundation-models','methodology']);\nif (oldSections.has(location.hash.slice(1))) location.replace('/timeline/' + location.hash);\n`);
+for (const entry of entries) {
+  const file = 'dist/entries/' + entry + '/index.html';
+  let html = enhance(readFileSync(file,'utf8'));
+  const returnTo = encodeURIComponent('/entries/' + entry + '/#comments');
+  const comments = `<section class="comments" id="comments" data-comments-entry="${entry}" aria-labelledby="comments-title">
+    <h2 id="comments-title">Comments</h2><p>Discuss this research, ask a question, or suggest a correction. Comments appear after the site owner approves them.</p>
+    <p id="comments-notice" role="status">Loading comments…</p><div id="comment-list"></div><button class="button secondary" id="comments-more" type="button" hidden>Load more comments</button>
+    <div id="comment-signin"><p><a class="button" href="/signin-with-chatgpt?return_to=${returnTo}" target="_top">Sign in with ChatGPT to comment</a></p><p class="small">Use your OpenAI account. Published comments show the display name you choose, not your account email.</p></div>
+    <form id="comment-form" class="comment-form" hidden><p id="comment-account" class="small account-line"></p><a class="small" href="/signout-with-chatgpt?return_to=${returnTo}" target="_top">Sign out</a>
+    <label for="comment-name">Public display name</label><input id="comment-name" name="name" maxlength="60" required autocomplete="nickname" aria-describedby="comment-name-help"><p id="comment-name-help" class="comment-guidance">Choose the name readers will see. Do not include private contact details.</p>
+    <label for="comment-body">Your comment</label><textarea id="comment-body" name="body" maxlength="3000" required rows="5" aria-describedby="comment-body-help"></textarea><p id="comment-body-help" class="comment-guidance">Up to 3,000 characters. Keep comments relevant and respectful. Your comment will be stored for review by the site owner.</p>
+    <button class="button" type="submit">Submit for approval</button><p id="comment-feedback" class="comment-feedback" role="status"></p></form><div id="my-comments"></div><noscript><p>Enable JavaScript to load and submit comments. The research entry remains available without it.</p></noscript></section>`;
+  html = html.replace('<nav class="detail-pagination"', comments + '<nav class="detail-pagination"');
+  writeFileSync(file,html);
+}
+writeFileSync('dist/404.html',enhance(readFileSync('dist/404.html','utf8')));
+mkdirSync('dist/moderation',{recursive:true});
+writeFileSync('dist/moderation/index.html',withMain(`<main id="main" class="wrap moderation"><p class="kicker">Site owner</p><h1>Comment moderation</h1><p>Review comments from every research entry. Only approved comments are public. Removed and rejected comments can be returned to review.</p><section id="moderation-panel" aria-label="Moderation queue"><p id="moderation-counts" class="small"></p><div class="moderation-toolbar"><label for="moderation-status">Show comments<select id="moderation-status"><option value="pending">Awaiting approval</option><option value="approved">Published</option><option value="rejected">Not approved</option><option value="removed">Removed</option></select></label><button type="button" class="button secondary" id="moderation-refresh">Refresh</button><a href="/signout-with-chatgpt?return_to=%2F" target="_top">Sign out</a></div><p id="moderation-notice" role="status">Loading comments…</p><div id="moderation-list"></div><div class="moderation-pagination"><button class="button secondary" id="moderation-previous" type="button" disabled>Previous</button><button class="button secondary" id="moderation-next" type="button" disabled>Next</button></div></section></main>`, 'Comment moderation', 'Review comments submitted to AI Research Atlas.'));
+cpSync('src/comments.js','dist/comments.js'); cpSync('src/additions.css','dist/additions.css');
+const assets = {};
+function collect(directory) {
+  for (const item of readdirSync(directory,{withFileTypes:true})) {
+    if (['server','.openai'].includes(item.name)) continue;
+    const path = directory + '/' + item.name;
+    if(item.isDirectory()) collect(path);
+    else {
+      const ext = path.split('.').at(-1); const type = {html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'application/javascript; charset=utf-8',svg:'image/svg+xml'}[ext];
+      if (!type) throw new Error('Unexpected public asset: ' + path);
+      assets['/' + path.slice(5)] = {body:readFileSync(path,'utf8'),type};
+    }
+  }
+}
+collect('dist');
+mkdirSync('dist/server',{recursive:true}); mkdirSync('dist/.openai',{recursive:true});
+const source = readFileSync('src/worker.js','utf8').replace('export function createWorker','function createWorker');
+writeFileSync('dist/server/index.js',source + '\nconst assets = ' + JSON.stringify(assets) + ';\nexport default createWorker(assets, ' + JSON.stringify(entries) + ');\n');
+cpSync('.openai/hosting.json','dist/.openai/hosting.json'); cpSync('drizzle','dist/.openai/drizzle',{recursive:true});
+execFileSync(process.execPath,['--check','dist/server/index.js'],{stdio:'inherit'});
+execFileSync(process.execPath,['--check','dist/comments.js'],{stdio:'inherit'});
+console.log('Built welcome, timeline, 45 commented entries, owner moderation, and Worker with durable comments.');

@@ -1,0 +1,59 @@
+<main id="main" class="wrap welcome">
+  <header class="welcome-intro">
+    <p class="kicker">Welcome to AI Research Atlas</p>
+    <h1>How did we get from simple rules to talking machines?</h1>
+    <p class="welcome-lede">Artificial intelligence did not arrive in a single breakthrough. It grew through decades of experiments with a question: how can a machine solve problems that people use intelligence to solve?</p>
+    <p>You do not need a background in programming or advanced math to follow this story. Start here, then follow the links to meet the researchers, explore their ideas, and read the original work.</p>
+    <a class="button" href="/timeline/">Explore the research timeline</a>
+    <p class="small welcome-scope">A guided introduction to selected research, 1943–2025.</p>
+  </header>
+  <div class="story-layout">
+    <nav class="story-nav" aria-label="Chapters in this introduction"><p class="nav-label">The story</p><ol>
+      <li><a href="#early-questions">Can a machine think?</a></li>
+      <li><a href="#rules-and-learning">Rules or examples?</a></li>
+      <li><a href="#learning-networks">Learning in layers</a></li>
+      <li><a href="#data-and-computing">More data, more computing</a></li>
+      <li><a href="#attention-and-language">Connecting words and ideas</a></li>
+      <li><a href="#creating-and-following">Creating and following instructions</a></li>
+      <li><a href="#open-questions">What progress does—and does not—mean</a></li>
+    </ol></nav>
+    <article class="story" aria-label="A short history of AI research">
+      <section id="early-questions"><p class="kicker">1943–1950</p><h2>First, ask what a machine could do.</h2>
+        <p>A computer follows instructions. The difficult part is deciding what those instructions should be when the task is recognizing a face, holding a conversation, or solving an unfamiliar problem. AI research explores ways to make those tasks possible.</p>
+        <p>One early idea came from the brain. In 1943, <a href="/entries/mcculloch-pitts/">Warren McCulloch and Walter Pitts described a mathematical neuron</a>: a simplified unit that could be on or off. They showed how networks of these units could perform logical operations. This was a useful model for thinking about computation, not a working copy of a human brain.</p>
+        <p>In 1950, <a href="/entries/turing/">Alan Turing proposed the imitation game</a>. Instead of arguing only about the meaning of “thinking,” he asked how well a machine could take part in a written conversation. The question shifted attention toward behavior we could test. Sounding human, however, would not by itself prove that a machine was conscious.</p>
+      </section>
+      <section id="rules-and-learning"><p class="kicker">1950s–1970s</p><h2>Give it rules—or let it learn from examples.</h2>
+        <p>Early researchers explored two broad approaches. One was to write down rules and let a program work through them. The <a href="/entries/logic-theory-machine/">Logic Theory Machine</a> searched for proofs in mathematics. Rather than try every possible step, it used rules of thumb to choose promising ones. This approach became known as <strong>symbolic AI</strong>: working with symbols and explicit rules.</p>
+        <p>Some programs used detailed knowledge in a narrow setting. <a href="/entries/shrdlu/">SHRDLU</a> connected language with actions in a small world of blocks. <a href="/entries/mycin/">Early MYCIN research</a> explored how expert knowledge could become rules for advice about bacterial infections. These systems showed what carefully organized knowledge could achieve. Their success in a limited setting did not mean they could handle everyday life.</p>
+        <p>The other approach was to learn from examples. Imagine showing a program many labeled pictures and letting it adjust how it sorts them. <a href="/entries/perceptron/">Frank Rosenblatt’s perceptron</a> was an early model of this idea. Instead of someone writing every rule, a training process adjusted numbers called <strong>weights</strong>, which control how much influence different inputs have.</p>
+        <p>Both approaches had limits. <a href="/entries/eliza/">ELIZA</a> showed how pattern matching could create the appearance of conversation. And <a href="/entries/perceptrons/">a study of restricted perceptron models</a> showed that some learning systems could not represent even certain simple patterns. A convincing demonstration was not the same as a general solution.</p>
+      </section>
+      <section id="learning-networks"><p class="kicker">1980s–1990s</p><h2>Learning gets more layers.</h2>
+        <p>A single decision rule can only do so much. A <strong>neural network</strong> connects many small computing units, often in layers. Each layer transforms information before passing it along. The name comes from an inspiration in biology; these networks are mathematical systems, not miniature human brains.</p>
+        <p>The challenge was teaching the layers to work together. A <a href="/entries/backpropagation/">1986 paper on backpropagation</a> helped demonstrate how to do this. During training, the system measures an error and works backward through the network to calculate how its weights should change. Repeating that process can help the network find useful patterns that no one listed in advance.</p>
+        <p>Different problems needed different designs. <a href="/entries/lstm/">Long Short-Term Memory networks</a> helped retain useful information across a sequence, such as words in a sentence. <a href="/entries/document-recognition/">Convolutional networks</a> used repeated pattern detectors to recognize things such as handwritten characters. Other methods, including <a href="/entries/support-vector-networks/">support-vector networks</a>, learned boundaries between categories. Neural networks were one important branch of a wider field.</p>
+      </section>
+      <section id="data-and-computing"><p class="kicker">2000s–2010s</p><h2>Good ideas meet larger datasets and faster computers.</h2>
+        <p>Learning methods need examples, and large experiments need computing power. <a href="/entries/imagenet/">ImageNet</a> provided a large collection of labeled images. In 2012, <a href="/entries/alexnet/">AlexNet</a> used a deep neural network trained with graphics processors to greatly improve results in a major image-recognition competition. <strong>Deep learning</strong> means learning through multiple layers; it does not mean a system thinks deeply in the human sense.</p>
+        <p>Researchers also made deeper networks easier to train. <a href="/entries/resnet/">Residual connections</a> provided shortcuts through layers, helping information move through very deep models. Shared tools such as <a href="/entries/scikit-learn/">scikit-learn</a>, <a href="/entries/tensorflow/">TensorFlow</a>, and <a href="/entries/pytorch/">PyTorch</a> made it easier for others to run experiments and build on existing work.</p>
+        <p>Not every lesson came from labeled examples. In <strong>reinforcement learning</strong>, a system learns to choose actions using rewards. Research on <a href="/entries/deep-q-learning/">video games</a> and <a href="/entries/alphago/">AlphaGo</a> showed how learning could support difficult decisions. AlphaGo combined neural networks with a search through possible moves. Winning a game demonstrated skill under that game’s rules, not mastery of every kind of problem.</p>
+      </section>
+      <section id="attention-and-language"><p class="kicker">2017–2020</p><h2>Language models learn which parts of an input matter.</h2>
+        <p>Consider the sentence, “The dog dropped the ball because it was tired.” Understanding what “it” refers to depends on connections between words. A method called <strong>attention</strong> lets a model give different parts of its input different amounts of influence. In 2017, the <a href="/entries/transformer/">Transformer paper</a> made attention central to a new design for processing sequences.</p>
+        <p>That design supported different ways to learn from text. <a href="/entries/bert/">BERT</a> learned by predicting hidden text using surrounding context. <a href="/entries/gpt-2/">GPT-2</a> and <a href="/entries/gpt-3/">GPT-3</a> explored how predicting the next piece of text could support many tasks. A piece of text, called a <strong>token</strong>, might be a word, part of a word, or punctuation.</p>
+        <p>Training changes the model’s internal weights. A <strong>prompt</strong> is the input you give it afterward. GPT-3 research showed that examples inside a prompt could guide a task without changing those weights. Meanwhile, <a href="/entries/scaling-laws/">research on scaling</a> measured how model size, training data, and computing effort affected prediction results. Bigger experiments opened possibilities, but size alone did not guarantee truth.</p>
+      </section>
+      <section id="creating-and-following"><p class="kicker">2020–2025</p><h2>From recognizing patterns to creating responses.</h2>
+        <p>AI systems increasingly generated images as well as text. <a href="/entries/ddpm/">Diffusion research</a> trained models to reverse a process that gradually adds noise to images. You can picture training as learning to restore a picture after it has been increasingly obscured. Once trained, the process can start with noise and produce a new image. <a href="/entries/latent-diffusion/">Latent diffusion</a> made this work more efficient by operating on a compressed representation.</p>
+        <p>Other research connected different kinds of information. <a href="/entries/clip/">CLIP</a> learned relationships between images and text. Reports on <a href="/entries/gpt-4/">GPT-4</a> and <a href="/entries/gemini-1-5/">Gemini 1.5</a> explored systems that could process more than one type of input. This is called <strong>multimodal</strong> AI: working with combinations such as text, pictures, audio, or video.</p>
+        <p>Producing likely text is not the same as following a person’s request. <a href="/entries/instructgpt/">InstructGPT research</a> used examples and human preferences to improve instruction following. Work on <a href="/entries/chain-of-thought/">reasoning examples in prompts</a> and later <a href="/entries/deepseek-r1/">reinforcement learning for reasoning</a> studied ways to improve problem solving. Better test scores still did not make every answer correct.</p>
+      </section>
+      <section id="open-questions"><h2>Read each breakthrough with two questions.</h2>
+        <p>First: <strong>what did this work make possible?</strong> Second: <strong>what did it actually demonstrate?</strong> A result may depend on a particular dataset, test, or set of conditions. A model can give a fluent answer that is false, miss important context, or perform unevenly across situations.</p>
+        <p>This history is a set of connected research paths, not a straight march toward a machine that can do everything. Rules, learning, search, data, and human judgment continue to play different roles. Each entry in this atlas explains a contribution, states its limits, and links to the original publication. The years refer to those publications, which may differ from product-release dates.</p>
+        <p>Choose an idea that interests you and follow it. Start with <a href="/entries/turing/">Turing’s question about conversation</a>, see <a href="/entries/backpropagation/">how a network learns from errors</a>, or <a href="/timeline/">browse all 45 entries in the timeline</a>.</p>
+      </section>
+    </article>
+  </div>
+</main>
