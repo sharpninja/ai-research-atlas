@@ -1,6 +1,6 @@
 # AI Research Atlas
 
-The welcome page introduces AI research in plain language. `/timeline/` preserves the 45-entry chronology; every `/entries/:slug/` page has moderated comments. Legacy homepage era fragments forward to the timeline.
+The welcome page introduces AI research in plain language. `/timeline/` presents a 46-entry chronology; every `/entries/:slug/` page has moderated comments. The 1990 entry, `/entries/the-ai-toy/`, describes Kevin E. Martin's Gazette articles and C64 programs, with its extended narrative in `ai-toy.html`. Legacy homepage era fragments forward to the timeline.
 
 ## Build and validation
 

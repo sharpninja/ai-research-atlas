@@ -35,6 +35,11 @@ writeFileSync('dist/welcome.js', `const oldSections = new Set(['foundations','re
 for (const entry of entries) {
   const file = 'dist/entries/' + entry + '/index.html';
   let html = enhance(readFileSync(file,'utf8'));
+  if (entry === 'the-ai-toy') {
+    const body = readFileSync('ai-toy.html','utf8').trim()
+      .replace(/<a href="https?:\/\/[^\"]+"/g, '$& target="_blank" rel="noopener noreferrer"');
+    html = html.replace(/<div class="detail-body">[\s\S]*?<\/article>/, body + '</article>');
+  }
   const returnTo = encodeURIComponent('/entries/' + entry + '/#comments');
   const comments = `<section class="comments" id="comments" data-comments-entry="${entry}" aria-labelledby="comments-title">
     <h2 id="comments-title">Comments</h2><p>Discuss this research, ask a question, or suggest a correction. Comments appear after the site owner approves them.</p>
@@ -71,4 +76,4 @@ writeFileSync('dist/server/index.js',source + '\nconst assets = ' + JSON.stringi
 cpSync('.openai/hosting.json','dist/.openai/hosting.json'); cpSync('drizzle','dist/.openai/drizzle',{recursive:true});
 execFileSync(process.execPath,['--check','dist/server/index.js'],{stdio:'inherit'});
 execFileSync(process.execPath,['--check','dist/comments.js'],{stdio:'inherit'});
-console.log('Built welcome, timeline, 45 commented entries, owner moderation, and Worker with durable comments.');
+console.log(`Built welcome, timeline, ${entries.length} commented entries, owner moderation, and Worker with durable comments.`);

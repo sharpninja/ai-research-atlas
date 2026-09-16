@@ -1,4 +1,5 @@
 [hidden]{display:none!important}
+.publication code{overflow-wrap:anywhere}
 .button{display:inline-block;border:1px solid var(--blue);border-radius:3px;background:var(--blue);color:#fff;padding:.7rem 1rem;font:600 .95rem/1.4 var(--sans);text-decoration:none;cursor:pointer}
 .button:hover{background:#173ba8;color:#fff}.button.secondary{background:#fff;color:var(--blue)}.button.secondary:hover{background:var(--wash)}button:disabled{opacity:.55;cursor:wait}
 button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
