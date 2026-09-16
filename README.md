@@ -1,5 +1,13 @@
 # AI Research Atlas
 
+## Owner analytics
+
+`/analytics/` and `GET /api/analytics?days=7|30|90` use the same server-enforced owner identity as moderation. Anonymous requests are sent to ChatGPT sign-in; other accounts receive 403. Missing owner configuration denies access. Dashboard/API responses are private and uncached; a footer link appears for the signed-in owner.
+
+Successful public HTML requests increment daily D1 counters by canonical path and referring domain. The Worker excludes recognized owner traffic, known bots, prefetch, private pages, redirects, errors, assets, and HEAD requests. These are page views, not unique visitors. No new cookies, IP addresses, user identifiers, or full referrer URLs are stored. `waitUntil` retains writes after the response; failures do not prevent reading. Tracking starts with the first eligible view, with no historical traffic backfill. Dates use UTC, with unavailable earlier days distinguished from observed zeroes. Comment/submission period totals use existing creation dates; pending queues cover all dates.
+
+The additive analytics migration preserves existing content. Tests cover route/API authorization, missing configuration, aggregate persistence, filtering, referrer minimization, period bounds, failure handling, and the welcome page's closing link to the first chronological entry.
+
 The welcome page introduces AI research in plain language. `/timeline/` presents a 46-entry chronology; every `/entries/:slug/` page has moderated comments. The 1990 entry, `/entries/the-ai-toy/`, describes Kevin E. Martin's Gazette articles and C64 programs, with its extended narrative in `ai-toy.html`. Legacy homepage era fragments forward to the timeline.
 
 On a first visit, `/` shows the welcome introduction. Successful HTML visits set the host-only `atlas_visited=1` cookie for one year (Secure, HttpOnly, SameSite=Lax). Returning requests to `/` or `/index.html` redirect to `/timeline/`; `/welcome/` always opens the introduction. Clearing the cookie restores first-visit behavior. HTML responses are private and uncached so cookie-setting responses and redirects cannot be shared between visitors. APIs, assets, errors, and HEAD requests do not set the visit cookie. Owner-only comment moderation links appear inside each entry's comments section.

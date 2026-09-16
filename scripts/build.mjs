@@ -17,6 +17,7 @@ function enhance(html) {
     .replaceAll('<a href="/"><span>Explore</span>', '<a href="/timeline/"><span>Explore</span>')
     .replaceAll('<a class="next" href="/"><span>Explore</span>', '<a class="next" href="/timeline/"><span>Explore</span>')
     .replace('href="/style.css">','href="/style.css"><link rel="stylesheet" href="/additions.css">')
+    .replace('</footer>', '<a class="owner-analytics" data-owner-nav hidden href="/analytics/" target="_top">Analytics</a></footer>')
     .replace('</body>', '<script src="/comments.js" defer></script></body>');
 }
 const timeline = enhance(readFileSync('dist/index.html','utf8')).replace('<a href="/timeline/">Timeline</a>', '<a href="/timeline/" aria-current="page">Timeline</a>');
@@ -28,6 +29,7 @@ function withMain(content, title, description) {
     .replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="' + description + '">');
 }
 const welcome = withMain(readFileSync('welcome.html','utf8'), 'Welcome: a plain-language history of AI', 'Follow the history of artificial intelligence from early rules and learning machines to modern language models, with links to original research.')
+  .replace('</head>', '<link rel="stylesheet" href="/analytics.css"></head>')
   .replace('<a href="/welcome/">Welcome</a>', '<a href="/welcome/" aria-current="page">Welcome</a>')
   .replace('</body>', '<script src="/welcome.js" defer></script></body>');
 writeFileSync('dist/index.html',welcome);
@@ -70,6 +72,11 @@ for (const [route,source,title,description] of [
   if (route === 'submit') html = html.replace('href="/submit/" target="_top"','href="/submit/" target="_top" aria-current="page"');
   writeFileSync('dist/'+route+'/index.html',html);
 }
+mkdirSync('dist/analytics',{recursive:true});
+writeFileSync('dist/analytics/index.html', withMain(readFileSync('analytics.html','utf8'), 'Analytics', 'Private analytics for the owner of AI Research Atlas.')
+  .replace('</head>', '<meta name="robots" content="noindex, nofollow"><link rel="stylesheet" href="/analytics.css"></head>')
+  .replace('</body>', '<script src="/dashboard.js" type="module"></script></body>'));
+cpSync('src/dashboard.js','dist/dashboard.js'); cpSync('src/analytics.css','dist/analytics.css');
 cpSync('src/comments.js','dist/comments.js'); cpSync('src/additions.css','dist/additions.css'); cpSync('src/submissions.js','dist/submissions.js');
 const assets = {};
 function collect(directory) {
@@ -86,10 +93,11 @@ function collect(directory) {
 }
 collect('dist');
 mkdirSync('dist/server',{recursive:true}); mkdirSync('dist/.openai',{recursive:true});
-const source = readFileSync('src/worker.js','utf8').replace('export function createWorker','function createWorker');
+const source = readFileSync('src/analytics.js','utf8').replaceAll('export async function','async function') + '\n' + readFileSync('src/worker.js','utf8').replace("import {recordPageView, analyticsSummary} from './analytics.js';", '').replace('export function createWorker','function createWorker');
 writeFileSync('dist/server/index.js',source + '\nconst assets = ' + JSON.stringify(assets) + ';\nexport default createWorker(assets, ' + JSON.stringify(entries) + ');\n');
 cpSync('.openai/hosting.json','dist/.openai/hosting.json'); cpSync('drizzle','dist/.openai/drizzle',{recursive:true});
 execFileSync(process.execPath,['--check','dist/server/index.js'],{stdio:'inherit'});
 execFileSync(process.execPath,['--check','dist/comments.js'],{stdio:'inherit'});
 execFileSync(process.execPath,['--check','dist/submissions.js'],{stdio:'inherit'});
+execFileSync(process.execPath,['--check','dist/dashboard.js'],{stdio:'inherit'});
 console.log(`Built welcome, timeline, ${entries.length} commented entries, authenticated submissions, owner review, and Worker.`);

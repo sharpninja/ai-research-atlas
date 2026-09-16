@@ -1,3 +1,4 @@
+import {recordPageView, analyticsSummary} from './analytics.js';
 // The Sites dispatcher owns sign-in and supplies the trusted identity headers.
 // Never deploy this handler behind a proxy that passes visitor-supplied identity headers.
 function userFrom(request) {
@@ -44,12 +45,21 @@ function sameOrigin(request, url) {
 }
 export function createWorker(assets, entries) {
   const validEntries = new Set(entries);
-  return { async fetch(request, env) {
+  const pageNames = Object.fromEntries(Object.entries(assets).filter(([path]) => path.endsWith('/index.html')).map(([path, asset]) => [path.replace(/index\.html$/, ''), asset.body.match(/<title>(.*?)<\/title>/)?.[1]?.replace(/ \| AI Research Atlas$/, '') || path]));
+  return { async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const user = userFrom(request);
     const isModerator = moderator(user, env);
     try {
       if (url.pathname.startsWith('/api/')) {
+        if (url.pathname === '/api/analytics') {
+          if (!user) return bad('Sign in with ChatGPT to continue.', 401);
+          if (!isModerator) return bad('Analytics are limited to the site owner.', 403);
+          if (request.method !== 'GET') return bad('Method not allowed.', 405);
+          const days = Number(url.searchParams.get('days') || 30);
+          if (![7, 30, 90].includes(days)) return bad('Choose 7, 30, or 90 days.');
+          return json(await analyticsSummary({DB: db(env)}, days, pageNames));
+        }
         if (!['GET', 'POST'].includes(request.method)) return bad('Method not allowed.', 405);
         if (request.method === 'POST') {
           if (!user) return bad('Sign in with ChatGPT to continue.', 401);
@@ -166,6 +176,10 @@ export function createWorker(assets, entries) {
         return bad('Not found.', 404);
       }
       if (!['GET', 'HEAD'].includes(request.method)) return bad('Method not allowed.', 405);
+      if (url.pathname === '/analytics' || url.pathname.startsWith('/analytics/')) {
+        if (!user) return new Response(null, {status:302, headers:{Location:'/signin-with-chatgpt?return_to=%2Fanalytics%2F', 'Cache-Control':'private, no-store'}});
+        if (!isModerator) return new Response('Analytics are limited to the site owner.', {status:403, headers:{'Content-Type':'text/plain; charset=utf-8','Cache-Control':'private, no-store'}});
+      }
       const hasVisited = (request.headers.get('cookie') || '').split(';').some(part => part.trim() === 'atlas_visited=1');
       if ((url.pathname === '/' || url.pathname === '/index.html') && hasVisited) {
         return new Response(null, {status:302, headers:{Location:'/timeline/', 'Cache-Control':'private, no-store', Vary:'Cookie'}});
@@ -184,6 +198,15 @@ export function createWorker(assets, entries) {
       const asset = assets[path] || assets['/404.html'];
       const status = assets[path] ? 200 : 404;
       const isHtml = asset.type.startsWith('text/html');
+      // Only public content GETs count. Tracking failures must not prevent reading.
+      const canonical = path === '/index.html' ? '/welcome/' : path.replace(/index\.html$/, '');
+      const publicPage = canonical === '/welcome/' || canonical === '/timeline/' || /^\/entries\/[^/]+\/$/.test(canonical);
+      if (request.method === 'GET' && status === 200 && isHtml && publicPage && !isModerator && env.DB &&
+          !/bot|crawler|spider|slurp|headless/i.test(request.headers.get('user-agent') || '') &&
+          !/prefetch|prerender/i.test((request.headers.get('purpose') || '') + (request.headers.get('sec-purpose') || ''))) {
+        const recorded = recordPageView(request, env, canonical).catch(() => console.error('Atlas analytics recording unavailable'));
+        if (ctx?.waitUntil) ctx.waitUntil(recorded); else await recorded;
+      }
       const rememberVisit = request.method === 'GET' && status === 200 && isHtml && !hasVisited;
       return new Response(request.method === 'HEAD' ? null : asset.body, {status, headers:{
         'Content-Type': asset.type, 'X-Content-Type-Options':'nosniff',
@@ -195,6 +218,7 @@ export function createWorker(assets, entries) {
       }});
     } catch (error) {
       console.error('Atlas request failed', error instanceof Error ? error.message : 'Unknown error');
+      if (url.pathname.startsWith('/api/analytics')) return bad('Analytics are temporarily unavailable. Please refresh to try again.', 503);
       const feature = url.pathname.startsWith('/api/submissions') ? 'Submissions' : 'Comments';
       return bad(feature + ' are temporarily unavailable. Please try again; your draft has not been cleared.', 503);
     }

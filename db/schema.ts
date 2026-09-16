@@ -1,4 +1,16 @@
-import { sqliteTable, text, integer, index, uniqueIndex } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text, integer, index, uniqueIndex, primaryKey } from 'drizzle-orm/sqlite-core';
+
+export const pageViewsDaily = sqliteTable('page_views_daily', {
+  day: text('day').notNull(),
+  path: text('path').notNull(),
+  referrer: text('referrer').notNull(),
+  views: integer('views').notNull().default(0),
+}, table => [primaryKey({columns: [table.day, table.path, table.referrer]})]);
+
+export const analyticsMeta = sqliteTable('analytics_meta', {
+  key: text('key').primaryKey(),
+  value: text('value').notNull(),
+});
 
 export const comments = sqliteTable('comments', {
   id: text('id').primaryKey(),

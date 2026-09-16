@@ -5,8 +5,8 @@ import worker from '../dist/server/index.js';
 const html=[];
 function walk(path) {for(const entry of readdirSync(path,{withFileTypes:true})) {if(['server','.openai'].includes(entry.name))continue;const p=path+'/'+entry.name;if(entry.isDirectory())walk(p);else if(p.endsWith('.html'))html.push(p);}}
 walk('dist');
-test('53 documents retain valid local links, unique headings/IDs, and clean encoding',()=>{
-  assert.equal(html.length,53); let checked=0;
+test('54 documents retain valid local links, unique headings/IDs, and clean encoding',()=>{
+  assert.equal(html.length,54); let checked=0;
   for(const path of html) {
     const content=readFileSync(path,'utf8');
     assert.equal([...content.matchAll(/<h1(?:\s|>)/g)].length,1,path);
