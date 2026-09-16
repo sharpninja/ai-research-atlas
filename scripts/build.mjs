@@ -6,8 +6,9 @@ import {resolve} from 'node:path';
 let generator = readFileSync('build.ps1','utf8');
 generator = generator.replace('$siteRoot = $PSScriptRoot', "$siteRoot = '" + process.cwd().replaceAll("'", "''") + "'");
 generator = generator.replace("Import-PowerShellDataFile (Join-Path $siteRoot 'research.psd1')", "& ([scriptblock]::Create([IO.File]::ReadAllText((Join-Path $siteRoot 'research.psd1'))))");
-const encoded = Buffer.from(generator,'utf16le').toString('base64');
-execFileSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-EncodedCommand',encoded], {stdio:['ignore','pipe','pipe']});
+// Send the growing template on stdin to stay below Windows' command-line limit.
+const encoded = Buffer.from("$ErrorActionPreference='Stop'; [Console]::InputEncoding=[Text.UTF8Encoding]::new($false); & ([scriptblock]::Create([Console]::In.ReadToEnd()))",'utf16le').toString('base64');
+execFileSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-EncodedCommand',encoded], {input:generator,encoding:'utf8',stdio:['pipe','pipe','pipe']});
 
 const entries = [...readFileSync('research.psd1','utf8').matchAll(/Slug='([^']+)'/g)].map(m => m[1]);
 const newNav = '<a href="/welcome/">Welcome</a><a href="/timeline/">Timeline</a><a href="/entries/the-ai-toy/">The AI Toy</a><a href="/submit/" target="_top">Submit a link</a><a href="/timeline/#methodology">About the sources</a>';
@@ -20,7 +21,8 @@ function enhance(html) {
     .replace('</footer>', '<a class="owner-analytics" data-owner-nav hidden href="/analytics/" target="_top">Analytics</a></footer>')
     .replace('</body>', '<script src="/comments.js" defer></script></body>');
 }
-const timeline = enhance(readFileSync('dist/index.html','utf8')).replace('<a href="/timeline/">Timeline</a>', '<a href="/timeline/" aria-current="page">Timeline</a>');
+const timeline = enhance(readFileSync('dist/index.html','utf8')).replace('<a href="/timeline/">Timeline</a>', '<a href="/timeline/" aria-current="page">Timeline</a>')
+  .replace('</body>', '<script src="/topics.js" defer></script></body>');
 mkdirSync('dist/timeline',{recursive:true}); writeFileSync('dist/timeline/index.html',timeline);
 const shell = enhance(readFileSync('dist/index.html','utf8'));
 function withMain(content, title, description) {
@@ -77,6 +79,7 @@ writeFileSync('dist/analytics/index.html', withMain(readFileSync('analytics.html
   .replace('</head>', '<meta name="robots" content="noindex, nofollow"><link rel="stylesheet" href="/analytics.css"></head>')
   .replace('</body>', '<script src="/dashboard.js" type="module"></script></body>'));
 cpSync('src/dashboard.js','dist/dashboard.js'); cpSync('src/analytics.css','dist/analytics.css');
+cpSync('src/topics.js','dist/topics.js');
 cpSync('src/comments.js','dist/comments.js'); cpSync('src/additions.css','dist/additions.css'); cpSync('src/submissions.js','dist/submissions.js');
 const assets = {};
 function collect(directory) {
@@ -100,4 +103,5 @@ execFileSync(process.execPath,['--check','dist/server/index.js'],{stdio:'inherit
 execFileSync(process.execPath,['--check','dist/comments.js'],{stdio:'inherit'});
 execFileSync(process.execPath,['--check','dist/submissions.js'],{stdio:'inherit'});
 execFileSync(process.execPath,['--check','dist/dashboard.js'],{stdio:'inherit'});
+execFileSync(process.execPath,['--check','dist/topics.js'],{stdio:'inherit'});
 console.log(`Built welcome, timeline, ${entries.length} commented entries, authenticated submissions, owner review, and Worker.`);

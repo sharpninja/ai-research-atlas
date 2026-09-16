@@ -38,6 +38,10 @@ Tests use local SQLite with the actual generated migrations. They cover anonymou
 
 Submissions use bounded JSON input, prepared SQL, same-origin writes, per-account rate limits, retry keys, private uncached responses, text-only rendering of user content, paginated lists, and an audit trail for review changes. Submitted URLs are stored and displayed; the server does not fetch them. The additive migration preserves existing comment tables. Tests exercise authentication, privacy, URL validation, owner actions, stale updates, retry behavior, rate limiting, persistence, and query indexes.
 
+## Topic navigation
+
+Every research record has curated `Tags`. Entry pages show clickable topic clouds; tag size reflects the number of matching Atlas entries. Timeline rows expose the same tags. The timeline topic selector filters entries and era navigation, updates counts, supports clearing, and stores the selection in `?tag=` for bookmarks and browser history. Unknown tags show all entries with a notice. Without JavaScript, the complete timeline remains readable. The build rejects missing, duplicate, or conflicting tag labels.
+
 ## Memory foundations
 
 Fourteen pre-1990 entries extend the chronology with associative memory, semantic networks, persistent neural states, and recurrent sequence learning. Their optional CitedBy records link to existing Atlas entries and original reference lists. Publication versions and citation-title discrepancies are stated explicitly. Content remains in research.psd1; build.ps1 renders the provenance alongside each new entry.
