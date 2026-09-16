@@ -25,3 +25,28 @@ export const moderationEvents = sqliteTable('moderation_events', {
   status: text('status').notNull(),
   createdAt: integer('created_at').notNull(),
 }, table => [index('idx_moderation_events_comment').on(table.commentId)]);
+
+export const timelineSubmissions = sqliteTable('timeline_submissions', {
+  id: text('id').primaryKey(),
+  authorId: text('author_id').notNull(),
+  url: text('url').notNull(),
+  title: text('title').notNull(),
+  reason: text('reason').notNull(),
+  status: text('status', {enum: ['pending', 'shortlisted', 'declined']}).notNull().default('pending'),
+  createdAt: integer('created_at').notNull(),
+  reviewedAt: integer('reviewed_at'),
+  reviewedBy: text('reviewed_by'),
+  submissionKey: text('submission_key').notNull(),
+}, table => [
+  index('idx_submissions_author_created').on(table.authorId, table.createdAt),
+  index('idx_submissions_status_created').on(table.status, table.createdAt),
+  uniqueIndex('idx_submissions_author_key').on(table.authorId, table.submissionKey),
+]);
+
+export const submissionEvents = sqliteTable('submission_events', {
+  id: text('id').primaryKey(),
+  submissionId: text('submission_id').notNull().references(() => timelineSubmissions.id),
+  actorId: text('actor_id').notNull(),
+  status: text('status').notNull(),
+  createdAt: integer('created_at').notNull(),
+}, table => [index('idx_submission_events_submission').on(table.submissionId)]);

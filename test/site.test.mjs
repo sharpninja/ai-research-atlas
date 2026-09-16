@@ -5,8 +5,8 @@ import worker from '../dist/server/index.js';
 const html=[];
 function walk(path) {for(const entry of readdirSync(path,{withFileTypes:true})) {if(['server','.openai'].includes(entry.name))continue;const p=path+'/'+entry.name;if(entry.isDirectory())walk(p);else if(p.endsWith('.html'))html.push(p);}}
 walk('dist');
-test('50 documents retain valid local links, unique headings/IDs, and clean encoding',()=>{
-  assert.equal(html.length,50); let checked=0;
+test('52 documents retain valid local links, unique headings/IDs, and clean encoding',()=>{
+  assert.equal(html.length,52); let checked=0;
   for(const path of html) {
     const content=readFileSync(path,'utf8');
     assert.equal([...content.matchAll(/<h1(?:\s|>)/g)].length,1,path);
@@ -46,4 +46,9 @@ test('built artifact exports a callable Worker and serves public pages',async()=
   }
   assert.equal((await worker.fetch(new Request('https://atlas.example/no-such-page'),{})).status,404);
   assert.equal((await worker.fetch(new Request('https://atlas.example/moderation/'),{})).status,302);
+  assert.equal((await worker.fetch(new Request('https://atlas.example/submit/'),{})).status,302);
+  const signedIn = await worker.fetch(new Request('https://atlas.example/submit/',{headers:{'oai-authenticated-user-id':'reader','oai-authenticated-user-email':'reader@example.test'}}),{});
+  assert.equal(signedIn.status,200);assert.match(await signedIn.text(),/id="submission-form"/);
+  const ownerReview = await worker.fetch(new Request('https://atlas.example/moderation/submissions/',{headers:{'oai-authenticated-user-id':'owner','oai-authenticated-user-email':'owner@example.test'}}),{COMMENT_MODERATOR_EMAIL:'owner@example.test'});
+  assert.equal(ownerReview.status,200);assert.match(await ownerReview.text(),/data-submission-list="review"/);
 });

@@ -21,3 +21,9 @@ New comments are pending. Only approved comments are public. A signed-in author 
 POSTs require authenticated identity, matching Origin, and JSON. Body sizes are bounded, SQL is parameterized, public text is rendered using textContent, and five submissions per ten minutes are allowed per account. Idempotency keys prevent duplicate retries. API responses and moderation pages are never publicly cached.
 
 Tests use local SQLite with the actual generated migrations. They cover anonymous/author/owner permissions, private pending comments, approval and removal, audit history, CSRF, validation, retries, rate limits, persistence, pagination, links, every entry, and the built Worker. Tests do not log into a real OpenAI account.
+
+## Timeline submissions
+
+`/submit/` requires OpenAI sign-in and accepts an HTTP(S) source URL, title, and explanation. Suggestions are stored in D1 and visible only to their submitter and the site owner. The owner reviews them at `/moderation/submissions/`, using the same server-enforced owner identity as comment moderation. States are pending, shortlisted, and declined; shortlisting does not automatically change the editorial timeline.
+
+Submissions use bounded JSON input, prepared SQL, same-origin writes, per-account rate limits, retry keys, private uncached responses, text-only rendering of user content, paginated lists, and an audit trail for review changes. Submitted URLs are stored and displayed; the server does not fetch them. The additive migration preserves existing comment tables. Tests exercise authentication, privacy, URL validation, owner actions, stale updates, retry behavior, rate limiting, persistence, and query indexes.

@@ -10,7 +10,7 @@ const encoded = Buffer.from(generator,'utf16le').toString('base64');
 execFileSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-EncodedCommand',encoded], {stdio:['ignore','pipe','pipe']});
 
 const entries = [...readFileSync('research.psd1','utf8').matchAll(/Slug='([^']+)'/g)].map(m => m[1]);
-const newNav = '<a href="/">Welcome</a><a href="/timeline/">Timeline</a><a href="/timeline/#methodology">About the sources</a><a href="/moderation/" data-owner-nav hidden>Moderate comments</a>';
+const newNav = '<a href="/">Welcome</a><a href="/timeline/">Timeline</a><a href="/submit/" target="_top">Submit a link</a><a href="/timeline/#methodology">About the sources</a><a href="/moderation/" data-owner-nav hidden>Moderate comments</a>';
 function enhance(html) {
   return html.replace(/<nav class="topnav"[^>]*>[\s\S]*?<\/nav>/, '<nav class="topnav" aria-label="Main navigation">' + newNav + '</nav>')
     .replaceAll('href="/#','href="/timeline/#')
@@ -55,7 +55,19 @@ for (const entry of entries) {
 writeFileSync('dist/404.html',enhance(readFileSync('dist/404.html','utf8')));
 mkdirSync('dist/moderation',{recursive:true});
 writeFileSync('dist/moderation/index.html',withMain(`<main id="main" class="wrap moderation"><p class="kicker">Site owner</p><h1>Comment moderation</h1><p>Review comments from every research entry. Only approved comments are public. Removed and rejected comments can be returned to review.</p><section id="moderation-panel" aria-label="Moderation queue"><p id="moderation-counts" class="small"></p><div class="moderation-toolbar"><label for="moderation-status">Show comments<select id="moderation-status"><option value="pending">Awaiting approval</option><option value="approved">Published</option><option value="rejected">Not approved</option><option value="removed">Removed</option></select></label><button type="button" class="button secondary" id="moderation-refresh">Refresh</button><a href="/signout-with-chatgpt?return_to=%2F" target="_top">Sign out</a></div><p id="moderation-notice" role="status">Loading comments…</p><div id="moderation-list"></div><div class="moderation-pagination"><button class="button secondary" id="moderation-previous" type="button" disabled>Previous</button><button class="button secondary" id="moderation-next" type="button" disabled>Next</button></div></section></main>`, 'Comment moderation', 'Review comments submitted to AI Research Atlas.'));
-cpSync('src/comments.js','dist/comments.js'); cpSync('src/additions.css','dist/additions.css');
+const moderationFile = 'dist/moderation/index.html';
+writeFileSync(moderationFile,readFileSync(moderationFile,'utf8').replace('<section id="moderation-panel"','<p><a href="/moderation/submissions/">Review timeline submissions</a></p><section id="moderation-panel"'));
+for (const [route,source,title,description] of [
+  ['submit','submit.html','Suggest a timeline entry','Submit a link to an original AI work for the site owner to consider for the timeline.'],
+  ['moderation/submissions','submission-review.html','Review timeline submissions','Review suggested sources for the AI Research Atlas timeline.'],
+]) {
+  mkdirSync('dist/'+route,{recursive:true});
+  let html = withMain(readFileSync(source,'utf8'),title,description)
+    .replace('</body>','<script src="/submissions.js" type="module"></script></body>');
+  if (route === 'submit') html = html.replace('href="/submit/" target="_top"','href="/submit/" target="_top" aria-current="page"');
+  writeFileSync('dist/'+route+'/index.html',html);
+}
+cpSync('src/comments.js','dist/comments.js'); cpSync('src/additions.css','dist/additions.css'); cpSync('src/submissions.js','dist/submissions.js');
 const assets = {};
 function collect(directory) {
   for (const item of readdirSync(directory,{withFileTypes:true})) {
@@ -76,4 +88,5 @@ writeFileSync('dist/server/index.js',source + '\nconst assets = ' + JSON.stringi
 cpSync('.openai/hosting.json','dist/.openai/hosting.json'); cpSync('drizzle','dist/.openai/drizzle',{recursive:true});
 execFileSync(process.execPath,['--check','dist/server/index.js'],{stdio:'inherit'});
 execFileSync(process.execPath,['--check','dist/comments.js'],{stdio:'inherit'});
-console.log(`Built welcome, timeline, ${entries.length} commented entries, owner moderation, and Worker with durable comments.`);
+execFileSync(process.execPath,['--check','dist/submissions.js'],{stdio:'inherit'});
+console.log(`Built welcome, timeline, ${entries.length} commented entries, authenticated submissions, owner review, and Worker.`);

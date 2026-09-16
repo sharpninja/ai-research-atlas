@@ -1,0 +1,30 @@
+<main id="main" class="wrap submission-page">
+  <p class="kicker">Help shape the Atlas</p>
+  <h1>Suggest a timeline entry</h1>
+  <p>Share a paper, article, program, or other original work that belongs in the history of AI. Include a link and tell us what makes it significant.</p>
+  <p class="small">Your suggestion is private to you and the site owner. The owner reviews submissions before deciding what to add to the timeline.</p>
+  <p id="submission-account" class="small account-line"></p>
+  <form id="submission-form" class="comment-form">
+    <label for="submission-url">Link to the work</label>
+    <input id="submission-url" name="url" type="url" maxlength="2048" required placeholder="https://..." aria-describedby="submission-url-help">
+    <p id="submission-url-help" class="comment-guidance">Prefer the original publication, an author's copy, or a reliable archive.</p>
+    <label for="submission-title">Title</label>
+    <input id="submission-title" name="title" maxlength="200" required>
+    <label for="submission-reason">Why should it be included?</label>
+    <textarea id="submission-reason" name="reason" maxlength="2000" required rows="6" aria-describedby="submission-reason-help"></textarea>
+    <p id="submission-reason-help" class="comment-guidance">Describe its contribution to AI, including the publication year if known. Up to 2,000 characters.</p>
+    <button class="button" type="submit">Submit for review</button>
+    <p id="submission-feedback" class="comment-feedback" role="status" aria-live="polite"></p>
+  </form>
+  <section aria-labelledby="submissions-title" data-submission-list="mine">
+    <h2 id="submissions-title">Your suggestions</h2>
+    <p class="small">Shortlisted means the owner is considering the work for a future entry.</p>
+    <button class="button secondary" id="submissions-refresh" type="button">Refresh suggestions</button>
+    <p id="submissions-notice" role="status">Loading suggestions...</p>
+    <div id="submissions-list"></div>
+    <div class="moderation-pagination"><button class="button secondary" id="submissions-previous" type="button" disabled>Previous</button><button class="button secondary" id="submissions-next" type="button" disabled>Next</button></div>
+  </section>
+  <p class="submission-footer"><a href="/moderation/submissions/" data-owner-nav hidden>Review all timeline submissions</a></p>
+  <p><a href="/signout-with-chatgpt?return_to=%2F" target="_top">Sign out</a></p>
+  <noscript><p>Enable JavaScript to submit a link and view your suggestions.</p></noscript>
+</main>
