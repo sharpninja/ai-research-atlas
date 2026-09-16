@@ -81,6 +81,7 @@ writeFileSync('dist/analytics/index.html', withMain(readFileSync('analytics.html
 cpSync('src/dashboard.js','dist/dashboard.js'); cpSync('src/analytics.css','dist/analytics.css');
 cpSync('src/topics.js','dist/topics.js');
 cpSync('src/comments.js','dist/comments.js'); cpSync('src/additions.css','dist/additions.css'); cpSync('src/submissions.js','dist/submissions.js');
+cpSync('bibliography-index.json','dist/bibliography-index.json'); cpSync('citation-links.json','dist/citation-links.json');
 const assets = {};
 function collect(directory) {
   for (const item of readdirSync(directory,{withFileTypes:true})) {
@@ -88,7 +89,7 @@ function collect(directory) {
     const path = directory + '/' + item.name;
     if(item.isDirectory()) collect(path);
     else {
-      const ext = path.split('.').at(-1); const type = {html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'application/javascript; charset=utf-8',svg:'image/svg+xml'}[ext];
+      const ext = path.split('.').at(-1); const type = {html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'application/javascript; charset=utf-8',json:'application/json; charset=utf-8',svg:'image/svg+xml'}[ext];
       if (!type) throw new Error('Unexpected public asset: ' + path);
       assets['/' + path.slice(5)] = {body:readFileSync(path,'utf8'),type};
     }

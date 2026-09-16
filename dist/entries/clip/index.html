@@ -1,7 +1,322 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CLIP connects images with natural language | AI Research Atlas</title><meta name="description" content="Contrastive learning from image-text pairs enabled transfer through natural-language descriptions."><meta name="theme-color" content="#14233b"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="/additions.css"></head>
 <body><a class="skip" href="#main">Skip to content</a><header class="masthead"><div class="wrap masthead-inner"><a class="brand" href="/" aria-label="AI Research Atlas home"><span class="brand-mark" aria-hidden="true">ai</span>AI Research Atlas</a><nav class="topnav" aria-label="Main navigation"><a href="/welcome/">Welcome</a><a href="/timeline/">Timeline</a><a href="/entries/the-ai-toy/">The AI Toy</a><a href="/submit/" target="_top">Submit a link</a><a href="/timeline/#methodology">About the sources</a></nav></div></header>
-<main id="main" class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/timeline/#scale-and-generation">Timeline</a><span aria-hidden="true">/</span><span aria-current="page">2021</span></nav><article><header class="detail-hero"><div class="detail-year"><time datetime="2021">2021</time><span>Preprint / conference paper</span></div><div><p class="kicker">Multimodal models</p><h1>CLIP connects images with natural language</h1><p class="detail-lede">Contrastive learning from image-text pairs enabled transfer through natural-language descriptions.</p><p class="authors">Alec Radford and colleagues</p></div></header><section class="entry-topics" aria-labelledby="entry-topics-title"><div><h2 id="entry-topics-title">AI topics</h2><p>Explore related entries. Larger tags appear on more entries.</p></div><nav class="topic-cloud" aria-label="AI topics"><a class="topic-tag topic-size-small" href="/timeline/?tag=multimodal-ai#topic-filter" title="3 entries in the Atlas">Multimodal AI</a><a class="topic-tag topic-size-medium" href="/timeline/?tag=computer-vision#topic-filter" title="8 entries in the Atlas">Computer vision</a><a class="topic-tag topic-size-medium" href="/timeline/?tag=natural-language-processing#topic-filter" title="12 entries in the Atlas">Natural language processing</a><a class="topic-tag topic-size-small" href="/timeline/?tag=representation-learning#topic-filter" title="6 entries in the Atlas">Representation learning</a><a class="topic-tag topic-size-small" href="/timeline/?tag=transfer-learning#topic-filter" title="4 entries in the Atlas">Transfer learning</a></nav></section><div class="detail-body"><div class="reading"><h2>The contribution</h2><p>CLIP learned to associate images with their accompanying text. By comparing an image with text descriptions of candidate classes, the model could perform zero-shot classification without fitting a separate classifier to each evaluated dataset.</p><section class="boundary" aria-labelledby="boundary-title"><h2 id="boundary-title">What this does not establish</h2><p>Transfer performance depends on the task and prompts. Associations learned from web data are not equivalent to grounded or unbiased understanding.</p></section><h2>Why this date?</h2><p>The arXiv record lists a first submission of 26 February 2021, despite its 2103 identifier.</p><p class="small">This entry follows the linked publication. <a href="/timeline/#methodology">Read the source and date conventions.</a></p></div><aside class="publication" aria-labelledby="publication-title"><h2 id="publication-title">The original work</h2><p class="paper-title">Learning Transferable Visual Models From Natural Language Supervision</p><dl><dt>Authors</dt><dd>Alec Radford and colleagues</dd><dt>Publication</dt><dd>arXiv:2103.00020; ICML 2021</dd><dt>Source type</dt><dd>Preprint / conference paper</dd></dl><ul class="source-links"><li><a href="https://arxiv.org/abs/2103.00020" target="_blank" rel="noopener noreferrer">Paper and version history <span aria-hidden="true">↗</span></a></li></ul><p class="source-note">The links above support the description and dating of this entry. Full text may be open or publisher-restricted.</p></aside></div></article><nav class="detail-pagination" aria-label="Adjacent timeline entries"><a href="/entries/ddpm/"><span>Previous · 2020</span>Denoising diffusion produces high-quality images</a><a class="next" href="/entries/latent-diffusion/"><span>Next · 2021</span>Diffusion moves into a compressed latent space</a></nav><section class="comments" id="comments" data-comments-entry="clip" aria-labelledby="comments-title">
+<main id="main" class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/timeline/#scale-and-generation">Timeline</a><span aria-hidden="true">/</span><span aria-current="page">2021</span></nav><article><header class="detail-hero"><div class="detail-year"><time datetime="2021">2021</time><span>Preprint / conference paper</span></div><div><p class="kicker">Multimodal models</p><h1>CLIP connects images with natural language</h1><p class="detail-lede">Contrastive learning from image-text pairs enabled transfer through natural-language descriptions.</p><p class="authors">Alec Radford and colleagues</p></div></header><section class="entry-topics" aria-labelledby="entry-topics-title"><div><h2 id="entry-topics-title">AI topics</h2><p>Explore related entries. Larger tags appear on more entries.</p></div><nav class="topic-cloud" aria-label="AI topics"><a class="topic-tag topic-size-small" href="/timeline/?tag=multimodal-ai#topic-filter" title="3 entries in the Atlas">Multimodal AI</a><a class="topic-tag topic-size-medium" href="/timeline/?tag=computer-vision#topic-filter" title="8 entries in the Atlas">Computer vision</a><a class="topic-tag topic-size-medium" href="/timeline/?tag=natural-language-processing#topic-filter" title="12 entries in the Atlas">Natural language processing</a><a class="topic-tag topic-size-small" href="/timeline/?tag=representation-learning#topic-filter" title="6 entries in the Atlas">Representation learning</a><a class="topic-tag topic-size-small" href="/timeline/?tag=transfer-learning#topic-filter" title="4 entries in the Atlas">Transfer learning</a></nav></section><div class="detail-body"><div class="reading"><h2>The contribution</h2><p>CLIP learned to associate images with their accompanying text. By comparing an image with text descriptions of candidate classes, the model could perform zero-shot classification without fitting a separate classifier to each evaluated dataset.</p><section class="boundary" aria-labelledby="boundary-title"><h2 id="boundary-title">What this does not establish</h2><p>Transfer performance depends on the task and prompts. Associations learned from web data are not equivalent to grounded or unbiased understanding.</p></section><h2>Why this date?</h2><p>The arXiv record lists a first submission of 26 February 2021, despite its 2103 identifier.</p><p class="small">This entry follows the linked publication. <a href="/timeline/#methodology">Read the source and date conventions.</a></p></div><aside class="publication" aria-labelledby="publication-title"><h2 id="publication-title">The original work</h2><p class="paper-title">Learning Transferable Visual Models From Natural Language Supervision</p><dl><dt>Authors</dt><dd>Alec Radford and colleagues</dd><dt>Publication</dt><dd>arXiv:2103.00020; ICML 2021</dd><dt>Source type</dt><dd>Preprint / conference paper</dd></dl><ul class="source-links"><li><a href="https://arxiv.org/abs/2103.00020" target="_blank" rel="noopener noreferrer">Paper and version history <span aria-hidden="true">↗</span></a></li></ul><p class="source-note">The links above support the description and dating of this entry. Full text may be open or publisher-restricted.</p></aside></div></article><div class="atlas-citations reading"><section aria-labelledby="cited-by-title"><h2 id="cited-by-title">Cited By</h2><p>Atlas entries whose reference lists cite this work or the publication version noted below.</p><p>No Atlas entries are currently recorded as citing this work.</p></section><section aria-labelledby="citations-title"><h2 id="citations-title">Citations</h2><p>Works in the Atlas cited by this entry.</p><ul class="citation-list"><li><a href="/entries/imagenet/">ImageNet: A Large-Scale Hierarchical Image Database (2009)</a><p class="small">Listed in the source bibliography. <a href="https://arxiv.org/pdf/2103.00020" target="_blank" rel="noopener noreferrer">Check the reference list</a>.</p></li><li><a href="/entries/scikit-learn/">Scikit-learn: Machine Learning in Python (2011)</a><p class="small">Listed in the source bibliography. <a href="https://arxiv.org/pdf/2103.00020" target="_blank" rel="noopener noreferrer">Check the reference list</a>.</p></li><li><a href="/entries/alexnet/">ImageNet Classification with Deep Convolutional Neural Networks (2012)</a><p class="small">Listed in the source bibliography. <a href="https://arxiv.org/pdf/2103.00020" target="_blank" rel="noopener noreferrer">Check the reference list</a>.</p></li><li><a href="/entries/resnet/">Deep Residual Learning for Image Recognition (2015)</a><p class="small">Listed in the source bibliography. <a href="https://arxiv.org/pdf/2103.00020" target="_blank" rel="noopener noreferrer">Check the reference list</a>.</p></li><li><a href="/entries/tensorflow/">TensorFlow: A system for large-scale machine learning (2016)</a><p class="small">Listed in the source bibliography. <a href="https://arxiv.org/pdf/2103.00020" target="_blank" rel="noopener noreferrer">Check the reference list</a>.</p></li><li><a href="/entries/transformer/">Attention Is All You Need (2017)</a><p class="small">Listed in the source bibliography. <a href="https://arxiv.org/pdf/2103.00020" target="_blank" rel="noopener noreferrer">Check the reference list</a>.</p></li><li><a href="/entries/bert/">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding (2018)</a><p class="small">Listed in the source bibliography. <a href="https://arxiv.org/pdf/2103.00020" target="_blank" rel="noopener noreferrer">Check the reference list</a>.</p></li><li><a href="/entries/gpt-2/">Language Models are Unsupervised Multitask Learners (2019)</a><p class="small">Listed in the source bibliography. <a href="https://arxiv.org/pdf/2103.00020" target="_blank" rel="noopener noreferrer">Check the reference list</a>.</p></li><li><a href="/entries/pytorch/">PyTorch: An Imperative Style, High-Performance Deep Learning Library (2019)</a><p class="small">Listed in the source bibliography. <a href="https://arxiv.org/pdf/2103.00020" target="_blank" rel="noopener noreferrer">Check the reference list</a>.</p></li><li><a href="/entries/gpt-3/">Language Models are Few-Shot Learners (2020)</a><p class="small">Listed in the source bibliography. <a href="https://arxiv.org/pdf/2103.00020" target="_blank" rel="noopener noreferrer">Check the reference list</a>.</p></li><li><a href="/entries/scaling-laws/">Scaling Laws for Neural Language Models (2020)</a><p class="small">Listed in the source bibliography. <a href="https://arxiv.org/pdf/2103.00020" target="_blank" rel="noopener noreferrer">Check the reference list</a>.</p></li></ul><p class="bibliography-coverage"><strong>Bibliography coverage:</strong> Reference section indexed. <a href="https://arxiv.org/pdf/2103.00020" target="_blank" rel="noopener noreferrer">Open the source</a>.</p><p class="small">Raw extraction retains OCR errors, ligatures, page headers and column-order artifacts. Entries have not all been normalized or individually verified.</p><p class="small">Non-reference conclusion/acknowledgment paragraphs interleaved by column extraction were excluded.</p><details class="bibliography"><summary>Read the indexed bibliography</summary><h3>Reference section 1 (PDF pages 27)</h3><div class="bibliography-text">Abadi, M., Barham, P., Chen, J., Chen, Z., Davis, A., Dean, J., Devin, M., Ghemawat, S., Irving, G., Isard, M., et al. Tensorﬂow: A system for large-scale machine learning. In 12th {USENIX} symposium on operating systems design and implementation ({OSDI} 16), pp. 265–283, 2016.
+Alayrac, J.-B., Recasens, A., Schneider, R., Arandjelovic&#180;, R., Ramapuram, J., De Fauw, J., Smaira, L., Dieleman, S., and Zisserman, A. Self-supervised multimodal versatile networks. arXiv preprint arXiv:2006.16228, 2020.
+Alcorn, M. A., Li, Q., Gong, Z., Wang, C., Mai, L., Ku, W.S., and Nguyen, A. Strike (with) a pose: Neural networks are easily fooled by strange poses of familiar objects. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 4845–4854, 2019.
+Andreas, J., Klein, D., and Levine, S. Learning with latent language. arXiv preprint arXiv:1711.00482, 2017.</div><h3>Reference section 2 (PDF pages 27)</h3><div class="bibliography-text">Assiri, Y. Stochastic optimization of plain convolutional neural networks with simple methods. arXiv preprint arXiv:2001.08856, 2020.
+Bachman, P., Hjelm, R. D., and Buchwalter, W. Learning representations by maximizing mutual information across views. In Advances in Neural Information Processing Systems, pp. 15535–15545, 2019.
+Barbu, A., Mayo, D., Alverio, J., Luo, W., Wang, C., Gutfreund, D., Tenenbaum, J., and Katz, B. Objectnet: A large-scale bias-controlled dataset for pushing the limits of object recognition models. In Advances in Neural Information Processing Systems, pp. 9453–9463, 2019.</div><h3>Reference section 3 (PDF pages 27, 28, 29, 30, 31, 32, 33, 34, 35, 36)</h3><div class="bibliography-text">Barnard, K., Duygulu, P., Forsyth, D., Freitas, N. d., Blei, D. M., and Jordan, M. I. Matching words and pictures. Journal of machine learning research, 3(Feb):1107–1135, 2003.
+Bechmann, A. and Bowker, G. C. Unsupervised by any other name: Hidden layers of knowledge production in artiﬁcial intelligence on social media. Big Data &amp; Society, 6(1):205395171881956, January 2019. doi: 10.1177/ 2053951718819569. URL https://doi.org/10. 1177/2053951718819569.
+Bengio, Y., Ducharme, R., Vincent, P., and Jauvin, C. A neural probabilistic language model. Journal of machine learning research, 3(Feb):1137–1155, 2003.
+Bhargava, S. and Forsyth, D. Exposing and correcting the gender bias in image captioning datasets and models. arXiv preprint arXiv:1912.00578, 2019.
+
+
+Learning Transferable Visual Models From Natural Language Supervision
+
+28
+
+Blei, D. M., Ng, A. Y., and Jordan, M. I. Latent dirichlet allocation. Journal of machine Learning research, 3(Jan): 993–1022, 2003.
+
+Chen, X., Fan, H., Girshick, R., and He, K. Improved baselines with momentum contrastive learning. arXiv preprint arXiv:2003.04297, 2020d.
+
+Bolukbasi, T., Chang, K.-W., Zou, J. Y., Saligrama, V., and Kalai, A. T. Man is to computer programmer as woman is to homemaker? debiasing word embeddings. Advances in neural information processing systems, 29:4349–4357, 2016.
+Bowker, G. C. and Star, S. L. Sorting things out: Classiﬁcation and its consequences. MIT press, 2000.
+Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., et al. Language models are few-shot learners. arXiv preprint arXiv:2005.14165, 2020.
+Browne, S. Dark Matters: Surveillance of Blackness. Duke University Press, 2015.
+Bulent Sariyildiz, M., Perez, J., and Larlus, D. Learning visual representations with caption annotations. arXiv e-prints, pp. arXiv–2008, 2020.
+Buolamwini, J. and Gebru, T. Gender shades: Intersectional accuracy disparities in commercial gender classiﬁcation. In Conference on fairness, accountability and transparency, pp. 77–91, 2018.
+Carreira, J., Noland, E., Hillier, C., and Zisserman, A. A short note on the kinetics-700 human action dataset. arXiv preprint arXiv:1907.06987, 2019.
+Chen, M., Radford, A., Child, R., Wu, J., Jun, H., Luan, D., and Sutskever, I. Generative pretraining from pixels. In International Conference on Machine Learning, pp. 1691–1703. PMLR, 2020a.
+Chen, T., Xu, B., Zhang, C., and Guestrin, C. Training deep nets with sublinear memory cost. arXiv preprint arXiv:1604.06174, 2016.
+Chen, T., Kornblith, S., Norouzi, M., and Hinton, G. A simple framework for contrastive learning of visual representations. arXiv preprint arXiv:2002.05709, 2020b.
+Chen, T., Kornblith, S., Swersky, K., Norouzi, M., and Hinton, G. Big self-supervised models are strong semisupervised learners. arXiv preprint arXiv:2006.10029, 2020c.
+Chen, X. and Gupta, A. Webly supervised learning of convolutional networks. In Proceedings of the IEEE International Conference on Computer Vision, pp. 1431– 1439, 2015.
+
+Chen, Y.-C., Li, L., Yu, L., Kholy, A. E., Ahmed, F., Gan, Z., Cheng, Y., and Liu, J. Uniter: Learning universal imagetext representations. arXiv preprint arXiv:1909.11740, 2019.
+Cheng, G., Han, J., and Lu, X. Remote sensing image scene classiﬁcation: Benchmark and state of the art. Proceedings of the IEEE, 105(10):1865–1883, 2017.
+Choi, D., Shallue, C. J., Nado, Z., Lee, J., Maddison, C. J., and Dahl, G. E. On empirical comparisons of optimizers for deep learning. arXiv preprint arXiv:1910.05446, 2019.
+Coates, A., Ng, A., and Lee, H. An analysis of singlelayer networks in unsupervised feature learning. In Proceedings of the fourteenth international conference on artiﬁcial intelligence and statistics, pp. 215–223, 2011.
+Crawford, K. The trouble with bias. NIPS 2017 Keynote, 2017. URL https://www.youtube.com/ watch?v=fMym_BKWQzk.
+Dai, A. M. and Le, Q. V. Semi-supervised sequence learning. In Advances in neural information processing systems, pp. 3079–3087, 2015.
+D’Amour, A., Heller, K., Moldovan, D., Adlam, B., Alipanahi, B., Beutel, A., Chen, C., Deaton, J., Eisenstein, J., Hoffman, M. D., et al. Underspeciﬁcation presents challenges for credibility in modern machine learning. arXiv preprint arXiv:2011.03395, 2020.
+Deng, J., Dong, W., Socher, R., Li, L.-J., Li, K., and FeiFei, L. ImageNet: A Large-Scale Hierarchical Image Database. In CVPR09, 2009.
+Deng, J., Berg, A. C., Satheesh, S., Su, H., Khosla, A., and Fei-Fei, L. Ilsvrc 2012, 2012. URL http://www. image-net.org/challenges/LSVRC/2012/.
+Desai, K. and Johnson, J. Virtex: Learning visual representations from textual annotations. arXiv preprint arXiv:2006.06666, 2020.
+Devlin, J., Chang, M.-W., Lee, K., and Toutanova, K. Bert: Pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805, 2018.
+Dhariwal, P., Jun, H., Payne, C., Kim, J. W., Radford, A., and Sutskever, I. Jukebox: A generative model for music. arXiv preprint arXiv:2005.00341, 2020.
+
+
+Learning Transferable Visual Models From Natural Language Supervision
+
+29
+
+Divvala, S. K., Farhadi, A., and Guestrin, C. Learning everything about anything: Webly-supervised visual concept learning. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 3270– 3277, 2014.
+Dodge, S. and Karam, L. A study and comparison of human and deep learning recognition performance under visual distortions. In 2017 26th international conference on computer communication and networks (ICCCN), pp. 1– 7. IEEE, 2017.
+Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner, T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S., et al. An image is worth 16x16 words: Transformers for image recognition at scale. arXiv preprint arXiv:2010.11929, 2020.
+Elhoseiny, M., Saleh, B., and Elgammal, A. Write a classiﬁer: Zero-shot learning using purely textual descriptions. In Proceedings of the IEEE International Conference on Computer Vision, pp. 2584–2591, 2013.
+Faghri, F., Fleet, D. J., Kiros, J. R., and Fidler, S. Vse++: Improving visual-semantic embeddings with hard negatives. arXiv preprint arXiv:1707.05612, 2017.
+Fergus, R., Fei-Fei, L., Perona, P., and Zisserman, A. Learning object categories from google’s image search. In Tenth IEEE International Conference on Computer Vision (ICCV’05) Volume 1, volume 2, pp. 1816–1823. IEEE, 2005.
+Frome, A., Corrado, G. S., Shlens, J., Bengio, S., Dean, J., Ranzato, M., and Mikolov, T. Devise: A deep visualsemantic embedding model. In Advances in neural information processing systems, pp. 2121–2129, 2013.
+Gan, Z., Chen, Y.-C., Li, L., Zhu, C., Cheng, Y., and Liu, J. Large-scale adversarial training for vision-and-language representation learning. arXiv preprint arXiv:2006.06195, 2020.
+Gao, T., Fisch, A., and Chen, D. Making pre-trained language models better few-shot learners. arXiv preprint arXiv:2012.15723, 2020.
+Garvie, C., May 2019. URL https://www. flawedfacedata.com/.
+Geiger, A., Lenz, P., and Urtasun, R. Are we ready for autonomous driving? the kitti vision benchmark suite. In Conference on Computer Vision and Pattern Recognition (CVPR), 2012.
+Geirhos, R., Rubisch, P., Michaelis, C., Bethge, M., Wichmann, F. A., and Brendel, W. Imagenet-trained cnns are
+
+biased towards texture; increasing shape bias improves accuracy and robustness. arXiv preprint arXiv:1811.12231, 2018.
+Geirhos, R., Jacobsen, J.-H., Michaelis, C., Zemel, R., Brendel, W., Bethge, M., and Wichmann, F. A. Shortcut learning in deep neural networks. arXiv preprint arXiv:2004.07780, 2020.
+Gomez, L., Patel, Y., Rusin˜ol, M., Karatzas, D., and Jawahar, C. Self-supervised learning of visual features through embedding images into text topic spaces. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 4230–4239, 2017.
+Goodfellow, I. J., Shlens, J., and Szegedy, C. Explaining and harnessing adversarial examples. arXiv preprint arXiv:1412.6572, 2014.
+Goodfellow, I. J., Erhan, D., Carrier, P. L., Courville, A., Mirza, M., Hamner, B., Cukierski, W., Tang, Y., Thaler, D., Lee, D.-H., et al. Challenges in representation learning: A report on three machine learning contests. Neural Networks, 64:59–63, 2015.
+Google. Google cloud api: Celebrity recognition. URL https://cloud.google.com/vision/docs/ celebrity-recognition.
+Griewank, A. and Walther, A. Algorithm 799: revolve: an implementation of checkpointing for the reverse or adjoint mode of computational differentiation. ACM Transactions on Mathematical Software (TOMS), 26(1):19–45, 2000.
+Grill, J.-B., Strub, F., Altche&#180;, F., Tallec, C., Richemond, P. H., Buchatskaya, E., Doersch, C., Pires, B. A., Guo, Z. D., Azar, M. G., et al. Bootstrap your own latent: A new approach to self-supervised learning. arXiv preprint arXiv:2006.07733, 2020.
+Ha, D., Dai, A., and Le, Q. V. Hypernetworks. arXiv preprint arXiv:1609.09106, 2016.
+Hancock, B., Bringmann, M., Varma, P., Liang, P., Wang, S., and Re&#180;, C. Training classiﬁers with natural language explanations. In Proceedings of the conference. Association for Computational Linguistics. Meeting, volume 2018, pp. 1884. NIH Public Access, 2018.
+Hancock, B., Bordes, A., Mazare, P.-E., and Weston, J. Learning from dialogue after deployment: Feed yourself, chatbot! arXiv preprint arXiv:1901.05415, 2019.
+Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., Wieser, E., Taylor, J., Berg, S., Smith, N. J., Kern, R., Picus, M., Hoyer, S., van Kerkwijk, M. H., Brett, M., Haldane, A., Ferna&#180;ndez del
+
+
+Learning Transferable Visual Models From Natural Language Supervision
+
+30
+
+R&#180;ıo, J., Wiebe, M., Peterson, P., Ge&#180;rard-Marchant, P., Sheppard, K., Reddy, T., Weckesser, W., Abbasi, H., Gohlke, C., and Oliphant, T. E. Array programming with NumPy. Nature, 585:357–362, 2020. doi: 10.1038/ s41586-020-2649-2.
+Hays, J. and Efros, A. A. Im2gps: estimating geographic information from a single image. In 2008 ieee conference on computer vision and pattern recognition, pp. 1–8. IEEE, 2008.
+He, K., Zhang, X., Ren, S., and Sun, J. Delving deep into rectiﬁers: Surpassing human-level performance on imagenet classiﬁcation. In Proceedings of the IEEE international conference on computer vision, pp. 1026–1034, 2015.
+He, K., Zhang, X., Ren, S., and Sun, J. Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 770–778, 2016a.
+He, K., Zhang, X., Ren, S., and Sun, J. Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 770–778, 2016b.
+He, K., Fan, H., Wu, Y., Xie, S., and Girshick, R. Momentum contrast for unsupervised visual representation learning. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 9729– 9738, 2020.
+He, T., Zhang, Z., Zhang, H., Zhang, Z., Xie, J., and Li, M. Bag of tricks for image classiﬁcation with convolutional neural networks. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 558– 567, 2019.
+He, X. and Peng, Y. Fine-grained image classiﬁcation via combining vision and language. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 5994–6002, 2017.
+Helber, P., Bischke, B., Dengel, A., and Borth, D. Eurosat: A novel dataset and deep learning benchmark for land use and land cover classiﬁcation. IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 12(7):2217–2226, 2019.
+Henaff, O. Data-efﬁcient image recognition with contrastive predictive coding. In International Conference on Machine Learning, pp. 4182–4192. PMLR, 2020.
+Hendrycks, D. and Dietterich, T. Benchmarking neural network robustness to common corruptions and perturbations. arXiv preprint arXiv:1903.12261, 2019.
+
+Hendrycks, D. and Gimpel, K. Gaussian error linear units (gelus). arXiv preprint arXiv:1606.08415, 2016.
+Hendrycks, D., Zhao, K., Basart, S., Steinhardt, J., and Song, D. Natural adversarial examples. arXiv preprint arXiv:1907.07174, 2019.
+Hendrycks, D., Basart, S., Mu, N., Kadavath, S., Wang, F., Dorundo, E., Desai, R., Zhu, T., Parajuli, S., Guo, M., et al. The many faces of robustness: A critical analysis of out-of-distribution generalization. arXiv preprint arXiv:2006.16241, 2020a.
+Hendrycks, D., Liu, X., Wallace, E., Dziedzic, A., Krishnan, R., and Song, D. Pretrained transformers improve out-ofdistribution robustness. arXiv preprint arXiv:2004.06100, 2020b.
+Hestness, J., Narang, S., Ardalani, N., Diamos, G., Jun, H., Kianinejad, H., Patwary, M., Ali, M., Yang, Y., and Zhou, Y. Deep learning scaling is predictable, empirically. arXiv preprint arXiv:1712.00409, 2017.
+Hill, F., Lampinen, A., Schneider, R., Clark, S., Botvinick, M., McClelland, J. L., and Santoro, A. Environmental drivers of systematicity and generalization in a situated agent. In International Conference on Learning Representations, 2019.
+Hodosh, M., Young, P., and Hockenmaier, J. Framing image description as a ranking task: Data, models and evaluation metrics. Journal of Artiﬁcial Intelligence Research, 47: 853–899, 2013.
+Hongsuck Seo, P., Weyand, T., Sim, J., and Han, B. Cplanet: Enhancing image geolocalization by combinatorial partitioning of maps. In Proceedings of the European Conference on Computer Vision (ECCV), pp. 536–551, 2018.
+Howard, J. and Ruder, S. Universal language model ﬁne-tuning for text classiﬁcation. arXiv preprint arXiv:1801.06146, 2018.
+Ilyas, A., Santurkar, S., Tsipras, D., Engstrom, L., Tran, B., and Madry, A. Adversarial examples are not bugs, they are features. In Advances in Neural Information Processing Systems, pp. 125–136, 2019.
+Ioffe, S. and Szegedy, C. Batch normalization: Accelerating deep network training by reducing internal covariate shift. arXiv preprint arXiv:1502.03167, 2015.
+Jaderberg, M., Simonyan, K., Vedaldi, A., and Zisserman, A. Deep structured output learning for unconstrained text recognition. arXiv preprint arXiv:1412.5903, 2014.
+Jaderberg, M., Simonyan, K., Zisserman, A., et al. Spatial transformer networks. Advances in neural information processing systems, 28:2017–2025, 2015.
+
+
+Learning Transferable Visual Models From Natural Language Supervision
+
+31
+
+Johnson, J., Hariharan, B., van der Maaten, L., Fei-Fei, L., Lawrence Zitnick, C., and Girshick, R. Clevr: A diagnostic dataset for compositional language and elementary visual reasoning. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 2901–2910, 2017.
+
+Krishna, R., Zhu, Y., Groth, O., Johnson, J., Hata, K., Kravitz, J., Chen, S., Kalantidis, Y., Li, L.-J., Shamma, D. A., et al. Visual genome: Connecting language and vision using crowdsourced dense image annotations. International journal of computer vision, 123(1):32–73, 2017.
+
+Joulin, A., Van Der Maaten, L., Jabri, A., and Vasilache, N. Learning visual features from large weakly supervised data. In European Conference on Computer Vision, pp. 67–84. Springer, 2016.
+Kalfaoglu, M., Kalkan, S., and Alatan, A. A. Late temporal modeling in 3d cnn architectures with bert for action recognition. arXiv preprint arXiv:2008.01232, 2020.
+Kaplan, J., McCandlish, S., Henighan, T., Brown, T. B., Chess, B., Child, R., Gray, S., Radford, A., Wu, J., and Amodei, D. Scaling laws for neural language models. arXiv preprint arXiv:2001.08361, 2020.
+Karpathy, A., Joulin, A., and Fei-Fei, L. F. Deep fragment embeddings for bidirectional image sentence mapping. In Advances in neural information processing systems, pp. 1889–1897, 2014.
+Keyes, O. The misgendering machines: Trans/hci implications of automatic gender recognition. Proceedings of the ACM on Human-Computer Interaction, 2(CSCW):1–22, 2018.
+Kiela, D., Firooz, H., Mohan, A., Goswami, V., Singh, A., Ringshia, P., and Testuggine, D. The hateful memes challenge: Detecting hate speech in multimodal memes. arXiv preprint arXiv:2005.04790, 2020.
+Kingma, D. P. and Ba, J. Adam: A method for stochastic optimization. arXiv preprint arXiv:1412.6980, 2014.
+Kiros, R., Salakhutdinov, R., and Zemel, R. S. Unifying visual-semantic embeddings with multimodal neural language models. arXiv preprint arXiv:1411.2539, 2014.
+Kiros, R., Zhu, Y., Salakhutdinov, R. R., Zemel, R., Urtasun, R., Torralba, A., and Fidler, S. Skip-thought vectors. Advances in neural information processing systems, 28: 3294–3302, 2015.
+Kolesnikov, A., Beyer, L., Zhai, X., Puigcerver, J., Yung, J., Gelly, S., and Houlsby, N. Large scale learning of general visual representations for transfer. arXiv preprint arXiv:1912.11370, 2019.
+Kornblith, S., Shlens, J., and Le, Q. V. Do better imagenet models transfer better? In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 2661–2671, 2019.
+
+Krizhevsky, A., Sutskever, I., and Hinton, G. E. Imagenet classiﬁcation with deep convolutional neural networks. In Advances in neural information processing systems, pp. 1097–1105, 2012.
+Kuhnle, A. and Copestake, A. Shapeworld-a new test methodology for multimodal language understanding. arXiv preprint arXiv:1704.04517, 2017.
+Ka&#168;rkka&#168;inen, K. and Joo, J. Fairface: Face attribute dataset for balanced race, gender, and age, 2019.
+Lake, B. M., Ullman, T. D., Tenenbaum, J. B., and Gershman, S. J. Building machines that learn and think like people, 2016.
+Lampert, C. H., Nickisch, H., and Harmeling, S. Learning to detect unseen object classes by between-class attribute transfer. In 2009 IEEE Conference on Computer Vision and Pattern Recognition, pp. 951–958. IEEE, 2009.
+Larochelle, H., Erhan, D., and Bengio, Y. Zero-data learning of new tasks. 2008.
+Le, Q. and Mikolov, T. Distributed representations of sentences and documents. In International conference on machine learning, pp. 1188–1196, 2014.
+LeCun, Y. The mnist database of handwritten digits. http://yann. lecun. com/exdb/mnist/.
+Lee, D.-H. Pseudo-label: The simple and efﬁcient semisupervised learning method for deep neural networks.
+Lei Ba, J., Swersky, K., Fidler, S., et al. Predicting deep zero-shot convolutional neural networks using textual descriptions. In Proceedings of the IEEE International Conference on Computer Vision, pp. 4247–4255, 2015.
+Li, A., Jabri, A., Joulin, A., and van der Maaten, L. Learning visual n-grams from web data. In Proceedings of the IEEE International Conference on Computer Vision, pp. 4183–4192, 2017.
+Li, G., Duan, N., Fang, Y., Gong, M., and Jiang, D. Unicoder-vl: A universal encoder for vision and language by cross-modal pre-training. 2020a.
+Li, J., Miller, A. H., Chopra, S., Ranzato, M., and Weston, J. Learning through dialogue interactions by asking questions. arXiv preprint arXiv:1612.04936, 2016.
+
+
+Learning Transferable Visual Models From Natural Language Supervision
+
+32
+
+Li, X., Yin, X., Li, C., Hu, X., Zhang, P., Zhang, L., Wang, L., Hu, H., Dong, L., Wei, F., et al. Oscar: Objectsemantics aligned pre-training for vision-language tasks. arXiv preprint arXiv:2004.06165, 2020b.
+
+Liang, W., Zou, J., and Yu, Z. Alice: Active learning with contrastive natural language explanations. arXiv preprint arXiv:2009.10259, 2020.
+
+Lin, T.-Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Dolla&#180;r, P., and Zitnick, C. L. Microsoft coco: Common objects in context. In European conference on computer vision, pp. 740–755. Springer, 2014.
+
+Linzen, T. How can we accelerate progress towards human-like linguistic generalization? arXiv preprint arXiv:2005.00955, 2020.
+
+Lippe, P., Holla, N., Chandra, S., Rajamanickam, S., Antoniou, G., Shutova, E., and Yannakoudakis, H. A multimodal framework for the detection of hateful memes. arXiv preprint arXiv:2012.12871, 2020.
+
+Liu, P. J., Saleh, M., Pot, E., Goodrich, B., Sepassi, R., Kaiser, L., and Shazeer, N. Generating wikipedia by summarizing long sequences. arXiv preprint arXiv:1801.10198, 2018.
+
+Locatello, F., Bauer, S., Lucic, M., Ra&#168;tsch, G., Gelly, S., Scho&#168;lkopf, B., and Bachem, O. A sober look at the unsupervised learning of disentangled representations and their evaluation. arXiv preprint arXiv:2010.14766, 2020.
+
+Loshchilov, I. and Hutter, F. Sgdr: dient descent with warm restarts. arXiv:1608.03983, 2016.
+
+Stochastic graarXiv preprint
+
+Loshchilov, I. and Hutter, F. Decoupled weight decay regularization. arXiv preprint arXiv:1711.05101, 2017.
+
+Lu, J., Batra, D., Parikh, D., and Lee, S. Vilbert: Pretraining task-agnostic visiolinguistic representations for visionand-language tasks. In Advances in Neural Information Processing Systems, pp. 13–23, 2019.
+
+Lu, Z., Xiong, X., Li, Y., Stroud, J., and Ross, D. Leveraging weakly supervised data and pose representation for action recognition, 2020. URL https://www.youtube. com/watch?v=KOQFxbPPLOE&amp;t=1390s.
+
+Lucic, M., Kurach, K., Michalski, M., Gelly, S., and Bousquet, O. Are gans created equal? a large-scale study. Advances in neural information processing systems, 31: 700–709, 2018.
+
+Mahajan, D., Girshick, R., Ramanathan, V., He, K., Paluri, M., Li, Y., Bharambe, A., and van der Maaten, L. Exploring the limits of weakly supervised pretraining. In
+
+Proceedings of the European Conference on Computer Vision (ECCV), pp. 181–196, 2018.
+McCann, B., Bradbury, J., Xiong, C., and Socher, R. Learned in translation: Contextualized word vectors. In Advances in neural information processing systems, pp. 6294–6305, 2017.
+McCann, B., Keskar, N. S., Xiong, C., and Socher, R. The natural language decathlon: Multitask learning as question answering. arXiv preprint arXiv:1806.08730, 2018.
+Micikevicius, P., Narang, S., Alben, J., Diamos, G., Elsen, E., Garcia, D., Ginsburg, B., Houston, M., Kuchaiev, O., Venkatesh, G., et al. Mixed precision training. arXiv preprint arXiv:1710.03740, 2017.
+Miech, A., Zhukov, D., Alayrac, J.-B., Tapaswi, M., Laptev, I., and Sivic, J. Howto100m: Learning a text-video embedding by watching hundred million narrated video clips. In Proceedings of the IEEE international conference on computer vision, pp. 2630–2640, 2019.
+Miech, A., Alayrac, J.-B., Laptev, I., Sivic, J., and Zisserman, A. Rareact: A video dataset of unusual interactions. arXiv preprint arXiv:2008.01018, 2020a.
+Miech, A., Alayrac, J.-B., Smaira, L., Laptev, I., Sivic, J., and Zisserman, A. End-to-end learning of visual representations from uncurated instructional videos. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 9879–9889, 2020b.
+Mikolov, T., Sutskever, I., Chen, K., Corrado, G. S., and Dean, J. Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems, 26:3111–3119, 2013.
+Miller, J., Krauth, K., Recht, B., and Schmidt, L. The effect of natural distribution shift on question answering models. arXiv preprint arXiv:2004.14444, 2020.
+Mishra, A., Alahari, K., and Jawahar, C. Scene text recognition using higher order language priors. 2012.
+Mithun, N. C., Panda, R., Papalexakis, E. E., and RoyChowdhury, A. K. Webly supervised joint embedding for cross-modal image-text retrieval. In Proceedings of the 26th ACM international conference on Multimedia, pp. 1856–1864, 2018.
+Mori, Y., Takahashi, H., and Oka, R. Image-to-word transformation based on dividing and vector quantizing images with words. Citeseer, 1999.
+Mu, J., Liang, P., and Goodman, N. Shaping visual representations with language for few-shot classiﬁcation. arXiv preprint arXiv:1911.02683, 2019.
+
+
+Learning Transferable Visual Models From Natural Language Supervision
+
+33
+
+Muller-Budack, E., Pustu-Iren, K., and Ewerth, R. Geolocation estimation of photos using a hierarchical model and scene classiﬁcation. In Proceedings of the European Conference on Computer Vision (ECCV), pp. 563–579, 2018.
+Murty, S., Koh, P. W., and Liang, P. Expbert: Representation engineering with natural language explanations. arXiv preprint arXiv:2005.01932, 2020.
+Narasimhan, K., Kulkarni, T., and Barzilay, R. Language understanding for text-based games using deep reinforcement learning. arXiv preprint arXiv:1506.08941, 2015.
+Netzer, Y., Wang, T., Coates, A., Bissacco, A., Wu, B., and Ng, A. Y. Reading digits in natural images with unsupervised feature learning. 2011.
+Noble, S. U. Algorithms of oppression: How search engines reinforce racism. 2018.
+Nosek, B. A., Banaji, M. R., and Greenwald, A. G. Harvesting implicit group attitudes and beliefs from a demonstration web site. Group Dynamics: Theory, Research, and Practice, 6(1):101, 2002.
+Oh, S., Hoogs, A., Perera, A., Cuntoor, N., Chen, C.-C., Lee, J. T., Mukherjee, S., Aggarwal, J., Lee, H., Davis, L., et al. A large-scale benchmark dataset for event recognition in surveillance video. In CVPR 2011, pp. 3153–3160. IEEE, 2011.
+Oliver, A., Odena, A., Raffel, C. A., Cubuk, E. D., and Goodfellow, I. Realistic evaluation of deep semi-supervised learning algorithms. Advances in neural information processing systems, 31:3235–3246, 2018.
+Oord, A. v. d., Li, Y., and Vinyals, O. Representation learning with contrastive predictive coding. arXiv preprint arXiv:1807.03748, 2018.
+Ordonez, V., Kulkarni, G., and Berg, T. Im2text: Describing images using 1 million captioned photographs. Advances in neural information processing systems, 24:1143–1151, 2011.
+pandas development team, T. pandas-dev/pandas: Pandas, February 2020. URL https://doi.org/10. 5281/zenodo.3509134.
+Parkhi, O. M., Vedaldi, A., Zisserman, A., and Jawahar, C. V. Cats and dogs. In IEEE Conference on Computer Vision and Pattern Recognition, 2012.
+Paszke, A., Gross, S., Massa, F., Lerer, A., Bradbury, J., Chanan, G., Killeen, T., Lin, Z., Gimelshein, N., Antiga, L., Desmaison, A., Kopf, A., Yang, E., DeVito, Z., Raison, M., Tejani, A., Chilamkurthy, S., Steiner, B., Fang, L.,
+
+Bai, J., and Chintala, S. Pytorch: An imperative style, high-performance deep learning library. In Advances in Neural Information Processing Systems 32, pp. 8024– 8035, 2019.
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., and Duchesnay, E. Scikit-learn: Machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.
+Pennington, J., Socher, R., and Manning, C. D. Glove: Global vectors for word representation. In Proceedings of the 2014 conference on empirical methods in natural language processing (EMNLP), pp. 1532–1543, 2014.
+Peters, M. E., Neumann, M., Iyyer, M., Gardner, M., Clark, C., Lee, K., and Zettlemoyer, L. Deep contextualized word representations. arXiv preprint arXiv:1802.05365, 2018.
+Qi, D., Su, L., Song, J., Cui, E., Bharti, T., and Sacheti, A. Imagebert: Cross-modal pre-training with largescale weak-supervised image-text data. arXiv preprint arXiv:2001.07966, 2020.
+Quattoni, A., Collins, M., and Darrell, T. Learning visual representations using images with captions. In 2007 IEEE Conference on Computer Vision and Pattern Recognition, pp. 1–8. IEEE, 2007.
+Radford, A., Narasimhan, K., Salimans, T., and Sutskever, I. Improving language understanding by generative pretraining, 2018.
+Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., and Sutskever, I. Language models are unsupervised multitask learners. 2019.
+Raffel, C., Shazeer, N., Roberts, A., Lee, K., Narang, S., Matena, M., Zhou, Y., Li, W., and Liu, P. J. Exploring the limits of transfer learning with a uniﬁed text-to-text transformer. arXiv preprint arXiv:1910.10683, 2019.
+Raji, I. D., Gebru, T., Mitchell, M., Buolamwini, J., Lee, J., and Denton, E. Saving face: Investigating the ethical concerns of facial recognition auditing, 2020.
+Ramanathan, V., Liang, P., and Fei-Fei, L. Video event understanding using natural language descriptions. In Proceedings of the IEEE International Conference on Computer Vision, pp. 905–912, 2013.
+Rashtchian, C., Young, P., Hodosh, M., and Hockenmaier, J. Collecting image annotations using amazon’s mechanical turk. In Proceedings of the NAACL HLT 2010 Workshop on Creating Speech and Language Data with Amazon’s Mechanical Turk, pp. 139–147, 2010.
+
+
+Learning Transferable Visual Models From Natural Language Supervision
+
+34
+
+Recht, B., Roelofs, R., Schmidt, L., and Shankar, V. Do imagenet classiﬁers generalize to imagenet? arXiv preprint arXiv:1902.10811, 2019.
+Salimans, T. and Kingma, D. P. Weight normalization: A simple reparameterization to accelerate training of deep neural networks. In Advances in neural information processing systems, pp. 901–909, 2016.
+Scheuerman, M. K., Paul, J. M., and Brubaker, J. R. How computers see gender: An evaluation of gender classiﬁcation in commercial facial analysis services. Proceedings of the ACM on Human-Computer Interaction, 3(CSCW): 1–33, 2019.
+Schwemmer, C., Knight, C., Bello-Pardo, E. D., Oklobdzija, S., Schoonvelde, M., and Lockhart, J. W. Diagnosing gender bias in image recognition systems. Socius, 6: 2378023120967171, 2020.
+Sennrich, R., Haddow, B., and Birch, A. Neural machine translation of rare words with subword units. arXiv preprint arXiv:1508.07909, 2015.
+Shankar, V., Dave, A., Roelofs, R., Ramanan, D., Recht, B., and Schmidt, L. Do image classiﬁers generalize across time? arXiv preprint arXiv:1906.02168, 2019.
+Sharma, P., Ding, N., Goodman, S., and Soricut, R. Conceptual captions: A cleaned, hypernymed, image alt-text dataset for automatic image captioning. In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 2556– 2565, 2018.
+Singh, A., Natarajan, V., Shah, M., Jiang, Y., Chen, X., Batra, D., Parikh, D., and Rohrbach, M. Towards vqa models that can read. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 8317–8326, 2019.
+Socher, R. and Fei-Fei, L. Connecting modalities: Semisupervised segmentation and annotation of images using unaligned text corpora. In 2010 IEEE Computer Society Conference on Computer Vision and Pattern Recognition, pp. 966–973. IEEE, 2010.
+Socher, R., Perelygin, A., Wu, J., Chuang, J., Manning, C. D., Ng, A. Y., and Potts, C. Recursive deep models for semantic compositionality over a sentiment treebank. In Proceedings of the 2013 conference on empirical methods in natural language processing, pp. 1631–1642, 2013.
+Socher, R., Karpathy, A., Le, Q. V., Manning, C. D., and Ng, A. Y. Grounded compositional semantics for ﬁnding and describing images with sentences. Transactions of the Association for Computational Linguistics, 2:207–218, 2014.
+
+Sohn, K. Improved deep metric learning with multi-class n-pair loss objective. In Advances in neural information processing systems, pp. 1857–1865, 2016.
+Solaiman, I., Brundage, M., Clark, J., Askell, A., HerbertVoss, A., Wu, J., Radford, A., Krueger, G., Kim, J. W., Kreps, S., McCain, M., Newhouse, A., Blazakis, J., McGufﬁe, K., and Wang, J. Release strategies and the social impacts of language models, 2019.
+Soomro, K., Zamir, A. R., and Shah, M. Ucf101: A dataset of 101 human actions classes from videos in the wild. arXiv preprint arXiv:1212.0402, 2012.
+Speer, R. ftfy. Zenodo, 2019. URL https://doi.org/ 10.5281/zenodo.2591652. Version 5.5.
+Srivastava, N. and Salakhutdinov, R. Multimodal learning with deep boltzmann machines. In NIPS, 2012.
+Srivastava, S., Labutov, I., and Mitchell, T. Joint concept learning and semantic parsing from natural language explanations. In Proceedings of the 2017 conference on empirical methods in natural language processing, pp. 1527–1536, 2017.
+Stallkamp, J., Schlipsing, M., Salmen, J., and Igel, C. The German Trafﬁc Sign Recognition Benchmark: A multiclass classiﬁcation competition. In IEEE International Joint Conference on Neural Networks, pp. 1453–1460, 2011.
+Stroud, J. C., Ross, D. A., Sun, C., Deng, J., Sukthankar, R., and Schmid, C. Learning video representations from textual web supervision. arXiv preprint arXiv:2007.14937, 2020.
+Szegedy, C., Ioffe, S., Vanhoucke, V., and Alemi, A. Inception-v4, inception-resnet and the impact of residual connections on learning. arXiv preprint arXiv:1602.07261, 2016.
+Tan, H. and Bansal, M. Lxmert: Learning cross-modality encoder representations from transformers. arXiv preprint arXiv:1908.07490, 2019.
+Tan, M. and Le, Q. V. Efﬁcientnet: Rethinking model scaling for convolutional neural networks. arXiv preprint arXiv:1905.11946, 2019.
+Taori, R., Dave, A., Shankar, V., Carlini, N., Recht, B., and Schmidt, L. Measuring robustness to natural distribution shifts in image classiﬁcation. arXiv preprint arXiv:2007.00644, 2020.
+Thomee, B., Shamma, D. A., Friedland, G., Elizalde, B., Ni, K., Poland, D., Borth, D., and Li, L.-J. Yfcc100m: The new data in multimedia research. Communications of the ACM, 59(2):64–73, 2016.
+
+
+Learning Transferable Visual Models From Natural Language Supervision
+
+35
+
+Tian, Y., Krishnan, D., and Isola, P. Contrastive multiview coding. arXiv preprint arXiv:1906.05849, 2019.
+Tian, Y., Wang, Y., Krishnan, D., Tenenbaum, J. B., and Isola, P. Rethinking few-shot image classiﬁcation: a good embedding is all you need? arXiv preprint arXiv:2003.11539, 2020.
+Torralba, A., Fergus, R., and Freeman, W. T. 80 million tiny images: A large data set for nonparametric object and scene recognition. IEEE transactions on pattern analysis and machine intelligence, 30(11):1958–1970, 2008.
+Touvron, H., Vedaldi, A., Douze, M., and Je&#180;gou, H. Fixing the train-test resolution discrepancy. In Advances in neural information processing systems, pp. 8252–8262, 2019.
+Varadarajan, J. and Odobez, J.-M. Topic models for scene analysis and abnormality detection. In 2009 IEEE 12th International Conference on Computer Vision Workshops, ICCV Workshops, pp. 1338–1345. IEEE, 2009.
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., and Polosukhin, I. Attention is all you need. In Advances in neural information processing systems, pp. 5998–6008, 2017.
+Veeling, B. S., Linmans, J., Winkens, J., Cohen, T., and Welling, M. Rotation equivariant CNNs for digital pathology. June 2018.
+Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T., Cournapeau, D., Burovski, E., Peterson, P., Weckesser, W., Bright, J., van der Walt, S. J., Brett, M., Wilson, J., Millman, K. J., Mayorov, N., Nelson, A. R. J., Jones, E., Kern, R., Larson, E., Carey, C. J., Polat, ˙I., Feng, Y., Moore, E. W., VanderPlas, J., Laxalde, D., Perktold, J., Cimrman, R., Henriksen, I., Quintero, E. A., Harris, C. R., Archibald, A. M., Ribeiro, A. H., Pedregosa, F., van Mulbregt, P., and SciPy 1.0 Contributors. SciPy 1.0: Fundamental Algorithms for Scientiﬁc Computing in Python. Nature Methods, 17:261–272, 2020. doi: 10.1038/s41592-019-0686-2.
+Vo, N., Jacobs, N., and Hays, J. Revisiting im2gps in the deep learning era. In Proceedings of the IEEE International Conference on Computer Vision, pp. 2621–2630, 2017.
+Wang, A., Singh, A., Michael, J., Hill, F., Levy, O., and Bowman, S. R. Glue: A multi-task benchmark and analysis platform for natural language understanding. arXiv preprint arXiv:1804.07461, 2018.
+Wang, H., Ge, S., Lipton, Z., and Xing, E. P. Learning robust global representations by penalizing local predictive power. In Advances in Neural Information Processing Systems, pp. 10506–10518, 2019.
+
+Wang, H., Lu, P., Zhang, H., Yang, M., Bai, X., Xu, Y., He, M., Wang, Y., and Liu, W. All you need is boundary: Toward arbitrary-shaped text spotting. In Proceedings of the AAAI Conference on Artiﬁcial Intelligence, volume 34, pp. 12160–12167, 2020.
+
+Wang, J., Markert, K., and Everingham, M. Learning models for object recognition from natural language descriptions. In BMVC, volume 1, pp. 2, 2009.
+
+Weston, J., Bengio, S., and Usunier, N. Large scale image annotation: learning to rank with joint word-image embeddings. Machine learning, 81(1):21–35, 2010.
+
+Weston, J. E. Dialog-based language learning. In Advances in Neural Information Processing Systems, pp. 829–837, 2016.
+
+Weyand, T., Kostrikov, I., and Philbin, J. Planet-photo geolocation with convolutional neural networks. In European Conference on Computer Vision, pp. 37–55. Springer, 2016.
+
+Wu, Y., Kirillov, A., Massa, F., Lo, W.-Y., and Girshick, R. Detectron2. https://github.com/ facebookresearch/detectron2, 2019.
+
+Wu, Z., Xiong, Y., Yu, S., and Lin, D. Unsupervised feature learning via non-parametric instance-level discrimination. arXiv preprint arXiv:1805.01978, 2018.
+
+Xie, Q., Luong, M.-T., Hovy, E., and Le, Q. V. Self-training with noisy student improves imagenet classiﬁcation. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 10687–10698, 2020.
+
+y Arcas, B. A., Mitchell, M., and Todorov,
+
+A.
+
+Physiognomy’s new clothes.
+
+2017.
+
+URL
+
+https://medium.com/@blaisea/
+
+physiognomys-new-clothes-f2d4b59fdd6a.
+
+Yang, Z., Lu, Y., Wang, J., Yin, X., Florencio, D., Wang, L., Zhang, C., Zhang, L., and Luo, J. Tap: Text-aware pre-training for text-vqa and text-caption. arXiv preprint arXiv:2012.04638, 2020.
+
+Yogatama, D., d’Autume, C. d. M., Connor, J., Kocisky, T., Chrzanowski, M., Kong, L., Lazaridou, A., Ling, W., Yu, L., Dyer, C., et al. Learning and evaluating general linguistic intelligence. arXiv preprint arXiv:1901.11373, 2019.
+
+Young, P., Lai, A., Hodosh, M., and Hockenmaier, J. From image descriptions to visual denotations: New similarity metrics for semantic inference over event descriptions. Transactions of the Association for Computational Linguistics, 2:67–78, 2014.
+
+
+Learning Transferable Visual Models From Natural Language Supervision
+
+36
+
+Yu, F., Tang, J., Yin, W., Sun, Y., Tian, H., Wu, H., and Wang, H. Ernie-vil: Knowledge enhanced visionlanguage representations through scene graph. arXiv preprint arXiv:2006.16934, 2020.
+Zeiler, M. D. and Fergus, R. Visualizing and understanding convolutional networks. In European conference on computer vision, pp. 818–833. Springer, 2014.
+Zhai, X., Puigcerver, J., Kolesnikov, A., Ruyssen, P., Riquelme, C., Lucic, M., Djolonga, J., Pinto, A. S., Neumann, M., Dosovitskiy, A., et al. A large-scale study of representation learning with the visual task adaptation benchmark. arXiv preprint arXiv:1910.04867, 2019.
+Zhang, R. Making convolutional networks shift-invariant again. arXiv preprint arXiv:1904.11486, 2019.
+Zhang, Y., Jiang, H., Miura, Y., Manning, C. D., and Langlotz, C. P. Contrastive learning of medical visual representations from paired images and text. arXiv preprint arXiv:2010.00747, 2020.
+Zuboff, S. Big other: surveillance capitalism and the prospects of an information civilization. Journal of Information Technology, 30(1):75–89, 2015.</div></details><p class="small"><a href="/bibliography-index.json" download>Download the bibliography index</a> · <a href="/citation-links.json" download>Download Atlas citation links</a></p></section><p class="small">These links cover verified matches within the Atlas. They are not total scholarly citation counts. A citation alone does not establish that the later system implements the same method.</p></div><nav class="detail-pagination" aria-label="Adjacent timeline entries"><a href="/entries/ddpm/"><span>Previous · 2020</span>Denoising diffusion produces high-quality images</a><a class="next" href="/entries/latent-diffusion/"><span>Next · 2021</span>Diffusion moves into a compressed latent space</a></nav><section class="comments" id="comments" data-comments-entry="clip" aria-labelledby="comments-title">
     <h2 id="comments-title">Comments</h2><p>Discuss this research, ask a question, or suggest a correction. Comments appear after the site owner approves them.</p>
     <p data-owner-nav hidden><a href="/moderation/">Moderate comments</a></p>
     <p id="comments-notice" role="status">Loading comments…</p><div id="comment-list"></div><button class="button secondary" id="comments-more" type="button" hidden>Load more comments</button>
@@ -10,4 +325,4 @@
     <label for="comment-name">Public display name</label><input id="comment-name" name="name" maxlength="60" required autocomplete="nickname" aria-describedby="comment-name-help"><p id="comment-name-help" class="comment-guidance">Choose the name readers will see. Do not include private contact details.</p>
     <label for="comment-body">Your comment</label><textarea id="comment-body" name="body" maxlength="3000" required rows="5" aria-describedby="comment-body-help"></textarea><p id="comment-body-help" class="comment-guidance">Up to 3,000 characters. Keep comments relevant and respectful. Your comment will be stored for review by the site owner.</p>
     <button class="button" type="submit">Submit for approval</button><p id="comment-feedback" class="comment-feedback" role="status"></p></form><div id="my-comments"></div><noscript><p>Enable JavaScript to load and submit comments. The research entry remains available without it.</p></noscript></section></main>
-<footer class="wrap footer"><span>AI Research Atlas · Selected works, 1943–2025<span class="footer-release">Version 14 · Published <time datetime="2026-09-16T22:18:46Z">16 September 2026, 22:18:46 UTC</time></span></span><a href="/timeline/#methodology">Sources &amp; date conventions</a><a class="owner-analytics" data-owner-nav hidden href="/analytics/" target="_top">Analytics</a></footer><script src="/comments.js" defer></script></body></html>
+<footer class="wrap footer"><span>AI Research Atlas · Selected works, 1943–2025<span class="footer-release">Version 15 · Published <time datetime="2026-09-16T22:52:08Z">16 September 2026, 22:52:08 UTC</time></span></span><a href="/timeline/#methodology">Sources &amp; date conventions</a><a class="owner-analytics" data-owner-nav hidden href="/analytics/" target="_top">Analytics</a></footer><script src="/comments.js" defer></script></body></html>

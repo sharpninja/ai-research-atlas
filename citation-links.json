@@ -1,0 +1,1191 @@
+{
+  "SchemaVersion": 1,
+  "ReviewedAtUtc": "2026-09-16T22:55:07.2317911Z",
+  "Scope": "Verified citations between current Atlas entries, including explicitly noted publication versions. Not an exhaustive citation count for a work.",
+  "Links": [
+    {
+      "Citing": "perceptron",
+      "Cited": "hebb",
+      "Note": "Reference 7 cites the 1949 book.",
+      "SourceUrl": "https://web.stanford.edu/class/psych209a/ReadingsByDate/01_30/Rosenblatt58Perceptron.pdf",
+      "Evidence": "Reference 7 cites the 1949 book.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "hopfield",
+      "Cited": "hebb",
+      "Note": "Reference 27 cites the 1949 book.",
+      "SourceUrl": "https://authors.library.caltech.edu/records/w41x7-8bn13/files/HOPpnas82.pdf?download=1",
+      "Evidence": "Reference 27 cites the 1949 book.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "shrdlu",
+      "Cited": "sir",
+      "Note": "Reference 46, printed page 461. The reference points to the later chapter version under a 1964 citation label.",
+      "SourceUrl": "https://dspace.mit.edu/server/api/core/bitstreams/bd092d44-1552-4417-a19e-a4704c94d3ff/content",
+      "Evidence": "Reference 46, printed page 461. The reference points to the later chapter version under a 1964 citation label.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "shrdlu",
+      "Cited": "student",
+      "Note": "Reference 3 cites the chapter version under a 1964 label; this entry dates the original report.",
+      "SourceUrl": "https://dspace.mit.edu/server/api/core/bitstreams/bd092d44-1552-4417-a19e-a4704c94d3ff/content",
+      "Evidence": "Reference 3 cites the chapter version under a 1964 label; this entry dates the original report.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "shrdlu",
+      "Cited": "resolution",
+      "Note": "Reference 47 names this paper, but its issue and page details conflict with the original article.",
+      "SourceUrl": "https://dspace.mit.edu/server/api/core/bitstreams/bd092d44-1552-4417-a19e-a4704c94d3ff/content",
+      "Evidence": "Reference 47 names this paper, but its issue and page details conflict with the original article.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "shrdlu",
+      "Cited": "semantic-memory",
+      "Note": "Reference 44, printed page 461, identifies the chapter version under the 1966 citation label.",
+      "SourceUrl": "https://dspace.mit.edu/server/api/core/bitstreams/bd092d44-1552-4417-a19e-a4704c94d3ff/content",
+      "Evidence": "Reference 44, printed page 461, identifies the chapter version under the 1966 citation label.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "hopfield",
+      "Cited": "temporal-recall",
+      "Note": "Reference 18 identifies the 1968 Nature letter.",
+      "SourceUrl": "https://authors.library.caltech.edu/records/w41x7-8bn13/files/HOPpnas82.pdf?download=1",
+      "Evidence": "Reference 18 identifies the 1968 Nature letter.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "shrdlu",
+      "Cited": "theorem-proving-question-answering",
+      "Note": "Reference 20: the citation label says 1969b, while the proceedings and original paper identify 1968.",
+      "SourceUrl": "https://dspace.mit.edu/server/api/core/bitstreams/bd092d44-1552-4417-a19e-a4704c94d3ff/content",
+      "Evidence": "Reference 20: the citation label says 1969b, while the proceedings and original paper identify 1968.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "shrdlu",
+      "Cited": "relational-long-term-memory",
+      "Note": "Reference 54, printed page 462.",
+      "SourceUrl": "https://dspace.mit.edu/server/api/core/bitstreams/bd092d44-1552-4417-a19e-a4704c94d3ff/content",
+      "Evidence": "Reference 54, printed page 462.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "shrdlu",
+      "Cited": "teachable-language-comprehender",
+      "Note": "Reference 45, printed page 461.",
+      "SourceUrl": "https://dspace.mit.edu/server/api/core/bitstreams/bd092d44-1552-4417-a19e-a4704c94d3ff/content",
+      "Evidence": "Reference 45, printed page 461.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "shrdlu",
+      "Cited": "qa3",
+      "Note": "Reference 19 cites Application of Theorem Proving to Problem Solving in the 1969 IJCAI proceedings.",
+      "SourceUrl": "https://dspace.mit.edu/server/api/core/bitstreams/bd092d44-1552-4417-a19e-a4704c94d3ff/content",
+      "Evidence": "Reference 19 cites Application of Theorem Proving to Problem Solving in the 1969 IJCAI proceedings.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "shrdlu",
+      "Cited": "planner",
+      "Note": "Reference 27 cites the 1969 conference paper; the later memorandum is a separate reference.",
+      "SourceUrl": "https://dspace.mit.edu/server/api/core/bitstreams/bd092d44-1552-4417-a19e-a4704c94d3ff/content",
+      "Evidence": "Reference 27 cites the 1969 conference paper; the later memorandum is a separate reference.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "shrdlu",
+      "Cited": "carps",
+      "Note": "Reference 7 cites the 1969 IJCAI paper, pages 303-316.",
+      "SourceUrl": "https://dspace.mit.edu/server/api/core/bitstreams/bd092d44-1552-4417-a19e-a4704c94d3ff/content",
+      "Evidence": "Reference 7 cites the 1969 IJCAI paper, pages 303-316.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "shrdlu",
+      "Cited": "samenlaq-ii",
+      "Note": "Reference 48 cites this paper, pages 325-346. The persistence claim is documented on printed page 326 of the original.",
+      "SourceUrl": "https://dspace.mit.edu/server/api/core/bitstreams/bd092d44-1552-4417-a19e-a4704c94d3ff/content",
+      "Evidence": "Reference 48 cites this paper, pages 325-346. The persistence claim is documented on printed page 326 of the original.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "hopfield",
+      "Cited": "persistent-neural-states",
+      "Note": "Reference 8, printed page 2558.",
+      "SourceUrl": "https://authors.library.caltech.edu/records/w41x7-8bn13/files/HOPpnas82.pdf?download=1",
+      "Evidence": "Reference 8, printed page 2558.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "hopfield",
+      "Cited": "associative-memory",
+      "Note": "Reference 19 names the 1977 book.",
+      "SourceUrl": "https://authors.library.caltech.edu/records/w41x7-8bn13/files/HOPpnas82.pdf?download=1",
+      "Evidence": "Reference 19 names the 1977 book.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "hopfield",
+      "Cited": "content-addressable-memories",
+      "Note": "Reference 10 cites the 1980 book.",
+      "SourceUrl": "https://authors.library.caltech.edu/records/w41x7-8bn13/files/HOPpnas82.pdf?download=1",
+      "Evidence": "Reference 10 cites the 1980 book.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "lstm",
+      "Cited": "dynamic-error-propagation",
+      "Note": "The bibliography cites Robinson and Fallside (1987), CUED/F-INFENG/TR.1.",
+      "SourceUrl": "https://www.bioinf.jku.at/publications/older/2604.pdf",
+      "Evidence": "The bibliography cites Robinson and Fallside (1987), CUED/F-INFENG/TR.1.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "lstm",
+      "Cited": "finding-structure-in-time",
+      "Note": "Cites the 1988 technical report.",
+      "SourceUrl": "https://www.bioinf.jku.at/publications/older/2604.pdf",
+      "Evidence": "Cites the 1988 technical report.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "word2vec",
+      "Cited": "finding-structure-in-time",
+      "Note": "Reference 8 cites the later 1990 journal version.",
+      "SourceUrl": "https://arxiv.org/pdf/1301.3781",
+      "Evidence": "Reference 8 cites the later 1990 journal version.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "llama",
+      "Cited": "finding-structure-in-time",
+      "Note": "Cites the later 1990 journal version.",
+      "SourceUrl": "https://arxiv.org/pdf/2302.13971",
+      "Evidence": "Cites the later 1990 journal version.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "lstm",
+      "Cited": "finite-state-recurrent-networks",
+      "Note": "Cites Cleeremans, Servan-Schreiber and McClelland (1989).",
+      "SourceUrl": "https://www.bioinf.jku.at/publications/older/2604.pdf",
+      "Evidence": "Cites Cleeremans, Servan-Schreiber and McClelland (1989).",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "lstm",
+      "Cited": "focused-backpropagation",
+      "Note": "Cites Mozer (1989), Complex Systems 3, 349-381, with a title variant.",
+      "SourceUrl": "https://www.bioinf.jku.at/publications/older/2604.pdf",
+      "Evidence": "Cites Mozer (1989), Complex Systems 3, 349-381, with a title variant.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "lstm",
+      "Cited": "real-time-recurrent-sequences",
+      "Note": "Cites Smith and Zipser (1989), International Journal of Neural Systems 1 (2), 125-131.",
+      "SourceUrl": "https://www.bioinf.jku.at/publications/older/2604.pdf",
+      "Evidence": "Cites Smith and Zipser (1989), International Journal of Neural Systems 1 (2), 125-131.",
+      "Verification": "prior-source-audit"
+    },
+    {
+      "Citing": "perceptron",
+      "Cited": "mcculloch-pitts",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://web.stanford.edu/class/psych209a/ReadingsByDate/01_30/Rosenblatt58Perceptron.pdf",
+      "Evidence": "in the head. In L. A. Jeffress (Ed.), Cerebral mechanisms in behavior. New York: Wiley, 1951. Pp. 42-111. 11. MCCULLOCH, W. S., & PITTS, W. A logical calculus of the ideas immanent in nervous activity. Butt. math. Biophysics, 1943, S, 115-133. 12. MILNER, P. M. The cell assembly: Mark II. Psychol. Rev., 1957,64,242252. 13. MINSKY, M. L. Some universal elements for finite automata. In C. E. Shannon & J. McCarthy (Eds.), Automata studies. Princeton: Princeton Univer. Press, 1956. Pp. 117-128. 14. RASHEVSKY, N. Mathematical biophysics. Chicago: Univer. Ch",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "student",
+      "Cited": "sir",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://bitsavers.trailing-edge.com/pdf/mit/ai/aim/AITR-219.pdf",
+      "Evidence": "stion-Answering Routine. Master's thesis, MIT Mathematics Department, 1960. 37. Quine, W.V. Word and Object. MIT Press, 1960. 38. Raphael, B. SIR: A Computer Program for Semantic Information Retrieval. Ph.D. thesis, MIT Mathematics Department, 1964. 39. Sillars, W. An Algorithm for Representing English Sentences in a Formal Language. NBS Report 7884, April 1963. 40. Simmons, R.F. Answering English Questions by Computer: A Survey. SDC Report SP-1556, April 1964. 41. Simmons, R.F., S. Klein and K.L. McConlogue. Indexing and Dependence Logic for Answe",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "eliza",
+      "Cited": "student",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://web.stanford.edu/class/cs124/p36-weizenabaum.pdf",
+      "Evidence": "age systems. Paper presented at Int. Colloq. Algebraic Linguistics and Automatic Theory, Hebrew U. of Jerusalem, Aug. 1964. 3. Bom¢ow, D . G . Natural language input for a computer problem solving system. Doctoral thesis, Math. Dept., MIT. Cambridge, Mass., 1964. 4. WEIZENB_~UM,J. Symmetric list processor. Comm. A C M 6, (Sept. 1963), 524-544. 5. ROGEaS, C. Client Centered Therapy: Current Practice, Implications and Theory. Houghton Mifflin, Boston, 1951. 6. YNGVE, J. COMIT Programndng Manual. M[T Press, Cambridge, Mass., 1961.",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "theorem-proving-question-answering",
+      "Cited": "sir",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://www.kestrel.edu/people/green/publications/green-raphael.pdf",
+      "Evidence": "nce Project Stanford University September 1963 14 B RAPHAEL A computer program which \"understands' AFIPS Proc FJCC Vol 26 1964 15 B RAPHAEL SIR: A computer program for semantic information retrieval MAC-TR2 Project MAC MIT June 1964 16 J A ROBINSON A machine-oriented logic based on the resolution principle J ACM Vol 12 No 1 January 1965 17 A NEWELL Unpublished seminar talk 18 B RAPHAEL Aspects and applications of symbol manipulation Proc 1966 National Conference ACM 1966 19 A NEWELL J C S H A W H A SIMON Empirical explorations of the logic theory",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "theorem-proving-question-answering",
+      "Cited": "resolution",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://www.kestrel.edu/people/green/publications/green-raphael.pdf",
+      "Evidence": "FJCC Vol 26 1964 15 B RAPHAEL SIR: A computer program for semantic information retrieval MAC-TR2 Project MAC MIT June 1964 16 J A ROBINSON A machine-oriented logic based on the resolution principle J ACM Vol 12 No 1 January 1965 17 A NEWELL Unpublished seminar talk 18 B RAPHAEL Aspects and applications of symbol manipulation Proc 1966 National Conference ACM 1966 19 A NEWELL J C S H A W H A SIMON Empirical explorations of the logic theory machine: a case study in heuristics Paper presented at the Western Joint Computer Conference Los Angeles Febr",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "theorem-proving-question-answering",
+      "Cited": "eliza",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://www.kestrel.edu/people/green/publications/green-raphael.pdf",
+      "Evidence": "eductive Q-A program Comm ACM Vol 8 No 12 December 1965 9 F B THOMPSON English for computer AFIPS Proc FJCC Vol 29 1966 10 J W WEIZENBAUM ELIZA---a computer program for the study of natural language communication between man and machine Comm ACM Vol 9 No 1 January 1966 11 L S COLES An on-line question-answering system with natural language and pictorial input (Paper to be presented at the ACM Conference August 1968) 12 J L D A R L I N G T O N Machine methods for improving logical arguments expressed in english Mechanical Translation Vol 8 Nos 3 and 4 pp 41-47 June and October 1965 13 J MC CARTHY Programs with common sense Memo No 7 Stanford Artificial Intelli",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "relational-long-term-memory",
+      "Cited": "theorem-proving-question-answering",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://www.ijcai.org/Proceedings/69/Papers/051.pdf",
+      "Evidence": "1965. 18. Sledd, J. A Short Introduction to English Grammar. Chicago: S c o t t , Foresman and Company. 1959. 19. Green, C.C. and Raphael, B. \"The Use of Theorem-Proving Techniques in QuestionAnswering Systems.\" Proceedings of 23rd ACM N a t i o n a l Conference. 1968. pp. 169182. 20. Kuhns, J.L. \"Answering Questions by Computer: A L o g i c a l S t u d y . \" RAND Memorandum RM-5428PR. December, 1967.",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "qa3",
+      "Cited": "resolution",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://www.ijcai.org/Proceedings/69/Papers/023.pdf",
+      "Evidence": "leteness of the Set of Support Strategy in Theorem P r o v i n g , \" J.ACM, V o l . 12, No. 4, pp. 536-541 (October 1965). 8. J. A. Robinson, \"A Machine-Oriented Logic Based on the Resolution P r i n c i p l e , \" J.ACM, V o l . 12, No. 1, pp. 23-41 (January 1965). 9. George E r n s t , \" S u f f i c i e n t Conditions f o r the Success of GPS,\" Report No. SRC-68-17, Systems Research Center, Case Western Reserve U n i v e r s i t y , Celveland, Ohio (July 1968). 10. A. Hormann, \"How a Computer System Can L e a r n , \" IEEE Spectrum ( J u l y 1964).",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "qa3",
+      "Cited": "theorem-proving-question-answering",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://www.ijcai.org/Proceedings/69/Papers/023.pdf",
+      "Evidence": "r presented at the Fourth Systems Symposium, Cleveland, Ohio, November 19-20, 1968 (proceedings to be published). 2. C. Green and B. Raphael, \"The Use of TheoremProving Techniques in Question-Answering Systems,\" Proc. 23rd N a t ' l . Conf. ACM, (Thompson Book Company, Washington, D.C., 1968). 3. C. Green, \"Theorem Proving by Resolution as a Basis for Question-Answering Systems,\" Machine I n t e l l i g e n c e 4, D. Michie and B. Meltzer, Eds. (Edinburgh University Press, Edinburgh, Scotland, 1969). 4. N. J. Nilsson, \"A Mobile Automaton: An A p p l i cation of A r t i f i c",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "planner",
+      "Cited": "theorem-proving-question-answering",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://www.ijcai.org/Proceedings/69/Papers/030.pdf",
+      "Evidence": "1 Black, F. A Deductive Question Answering System, doctoral d i s s e r t a t i o n , Harvard. 2 Green, C. C. and Raphael, B. The Use of Theorem-proving Techniques in Question-answering Systems. Proceedings of 23rd N a t i o n a l Conf. ACM. 3 Guzman, A. and Mcintosh, H. V . , Convert, Communications of ACM, Aug. 1966. 4 H e w i t t , C. , PLANNER: A Language for* Proving Theorems, A. I. memo 137, J u l y 1967. 5 McCarthy, J . ; Abrahams, P. W.; Edwards D. J . ; H a r t , T. P.; and L e v i n , Michael I. L i s p 1.5 Programmers Manual. 6 McCarthy, J. and Hay",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "carps",
+      "Cited": "student",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://www.ijcai.org/Proceedings/69/Papers/031.pdf",
+      "Evidence": "s of D i f f e r e n t i a l and I n t e g r a l C a l c u l u s , Schaum P u b l i s h i n g C o . , New Y o r k , 1 9 6 4 . 2 Bobrow, D.G. \" N a t u r a l Language Input f o r a Computer Problem Solving System\", Report MAC-TR-1, P r o j e c t MAC, M . I . T . , Cambridge, M a s s . , June 1964. 3 C h a r n i a k , E. , \"CARPS, A Program Which Solves C a l c u l u s Word P r o b l e m s \" , Report MAC-TR-51, P r o j e c t MAC, M . I . T . , C a m b r i d g e , M a s s . , J u l y 1968. 4 Guzman, A . , and M c i n t o s h , H.V., \"A M i s c e l l a n",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "samenlaq-ii",
+      "Cited": "semantic-memory",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://www.ijcai.org/Proceedings/69/Papers/034.pdf",
+      "Evidence": "Natural Language Question- Answering Systems. P-129, General Electric Company, TEMPO, Santa Barbara, California, 1966. 7. Quillian, M. R., Semantic Memory, un­ published Ph.D. dissertation, Carnegie Institute of Technology, Pittsburgh, Pennsylvania, 1966. Also AFCRL-66- 189, Bolt Beranek and Newman, I n c . , Cambridge, Massachusetts, 1966. 8. Raphael, B., Semantic Information Retrie­ val, unpublished Ph.D. dis",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "hopfield",
+      "Cited": "perceptrons",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://authors.library.caltech.edu/records/w41x7-8bn13/files/HOPpnas82.pdf?download=1",
+      "Evidence": ", G. (1980) Biol Cybern. 36, 19-31. 12. McCulloch, W. S. & Pitts, W. (1943) BulL Math Biophys. 5, 115-133. 13. Minsky, M. & Papert, S. (1969) Perceptrons: An Introduction to Computational Geometry (MIT Press, Cambridge, MA). 14. Rosenblatt, F. (1962) Principles of Perceptrons (Spartan, Washington, DC). 15. Cooper, L. N. (1973) in Proceedings of the Nobel Symposium on Collective Properties of Physical Systems, eds. Lundqvist, B. & Lundqvist, S. (Academic, New York), 252-264. 16. Cooper, L. N., Liberman, F. & Oja, E. (1979) Biol Cybern. 3",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "dynamic-error-propagation",
+      "Cited": "perceptron",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://gwern.net/doc/ai/nn/rnn/1987-robinson.pdf",
+      "Evidence": "ative Networks. M.Phil Computer Speech and Language Processing thesis , Cambridge University Engineering Depart- ment. Rosenblatt, F. (1958). The perceptron: A probabilistic model for information storage and organisation in the brain. Psychological Review, 65, 386-408. Rosenblatt, F. (1962). Principles of Neurodynamics. Spartan, New York. Rumelhart, D. E., Hinton, G. E., and Williams, R. J. (1986). Learning internal representations by error propagation. In Parallel Distributed Processing: Explorations in the Microstructure of Cognition. Vol. 1: Foundations. (eds. D. E. Rumelhart and J. L. McClel- land), Bradford Books/MIT Press, Cambridge, MA.",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "dynamic-error-propagation",
+      "Cited": "perceptrons",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://gwern.net/doc/ai/nn/rnn/1987-robinson.pdf",
+      "Evidence": "formation Processing: An Introduction to Psychology. Academic Press, Inc., Orlando, Florida, second edition. Minsky, M. and Papert, S. (1969). Perceptrons: An Introduction to Computational Geometry. MIT Press, Cambridge, MA. Pearlmutter, B. A. and Hinton, G. E. (1986). G-maximization: An unsupervised learning procedure for discovering regularities. In Proceedings of the Conference on ‘Neural Networks for Computing’, American Institute of Physics. Poggio, T. and Koch, C. (1987). Synapses that compute motion. Scientific American, May, 42",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "dynamic-error-propagation",
+      "Cited": "hopfield",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://gwern.net/doc/ai/nn/rnn/1987-robinson.pdf",
+      "Evidence": "Diego. Hofstader, D. R. (1979). Godel, Escher, Bach: An eternal golden braid. The Harvester Press, Hassocks, Sussex. Hopfield, J. J. (1982). Neural networks and physical systems with emergent collective computationalabilities. Proceedings of the National Academy of Science U.S.A., 79, 2554— 2558. Jacobs, O. L. R. (1974). Introduction to Control Theory. Clarendon Press, Oxford. Jordan, M. I. (May 1986). Serial Order: A Parallel Distributed Processing Approach. ICS Report 8604, Institute for Cognitive Science, University of California, San Diego. Kuffler, S. W., Nicholls, J. G., and Martin, A. R. (1984). From Neuron to Brain:",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "finite-state-recurrent-networks",
+      "Cited": "finding-structure-in-time",
+      "Note": "Cites the 1988 technical report. The extracted report number reads 9901; the Atlas uses the independently verified report number 8801.",
+      "SourceUrl": "https://consciousbrain.ulb.ac.be/uploads/2015/11/89-nc.pdf",
+      "Evidence": "Elman, J.L. 1988. Finding Structure in Time. CRL Tech. Rep. 9901. Center for Research in Language, University of California, San Diego, CA. McClelland, J.L. 1988. The case for interactionism in language processing. In Attention and Performaiice XII, M. Coltheart, ed. Erlbaum, London. Reber, A.S. 1967. Implicit learning of artific",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "focused-backpropagation",
+      "Cited": "finding-structure-in-time",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://home.cs.colorado.edu/~mozer/Research/Selected%20Publications/reprints/Mozer1989.pdf",
+      "Evidence": "in press. 15. K. Lang. Connectionist speech recognition. Unpublished Ph.D. thesis proposal, Carnegie-Mellon University, 1987. 16. J.L. Elman. Finding structure in time. CRL Technical Report 8801, University of California, San Diego, Center for Research in Language, 1988. 17. W.V. Stornetta, T. Hogg and B.A. Huberman. A dynamical approach to temporal pattern processing. Proceedings of the IEEE Conference on Neural Information Processing Systems, 1987.",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "deep-belief-nets",
+      "Cited": "document-recognition",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://www.cs.toronto.edu/~hinton/absps/fastnc.pdf",
+      "Evidence": ". (1995). The wake-sleep algorithm for self-organizing neural networks. Science, 268:1158–1161. LeCun, Y., Bottou, L., and Haffner, P. (1998). Gradient-based learning applied to document recognition. Proceedings of the IEEE, 86(11):2278–2324. Lee, T. S. and Mumford, D. (2003). Hierarchical bayesian inference in the visual cortex. Journal of the Optical Society of America, A., 20:1434–1448. Marks, T. K. and Movellan, J. R. (2001). Diffusion networks, product of experts, and factor analysis. In Proc. Int. Conf. on Independent Component Analy",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "alexnet",
+      "Cited": "imagenet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+      "Evidence": "orks for visual object classiﬁcation. Arxiv preprint arXiv:1102.0183, 2011. [6] J. Deng, W. Dong, R. Socher, L.-J. Li, K. Li, and L. Fei-Fei. ImageNet: A Large-Scale Hierarchical Image Database. In CVPR09, 2009. [7] J. Deng, A. Berg, S. Satheesh, H. Su, A. Khosla, and L. Fei-Fei. ILSVRC-2012, 2012. URL http://www.image-net.org/challenges/LSVRC/2012/. [8] L. Fei-Fei, R. Fergus, and P. Perona. Learning generative visual models from few training examples: An incremental bayesian approach tested on 101 object categories. Computer V",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gans",
+      "Cited": "document-recognition",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/1406.2661",
+      "Evidence": "ImageNet classiﬁcation with deep convolutional neural networks. In NIPS’2012. [23] LeCun, Y., Bottou, L., Bengio, Y., and Haffner, P. (1998). Gradient-based learning applied to document recognition. Proceedings of the IEEE, 86(11), 2278–2324. [24] Rezende, D. J., Mohamed, S., and Wierstra, D. (2014). Stochastic backpropagation and approximate inference in deep generative models. Technical report, arXiv:1401.4082. [25] Rifai, S., Bengio, Y., Dauphin, Y., and Vincent, P. (2012). A generative process for sampling contractive auto-encoders. I",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gans",
+      "Cited": "deep-belief-nets",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/1406.2661",
+      "Evidence": "The wake-sleep algorithm for unsupervised neural networks. Science, 268, 1558–1161. 8 [16] Hinton, G. E., Osindero, S., and Teh, Y. (2006). A fast learning algorithm for deep belief nets. Neural Computation, 18, 1527–1554. [17] Hinton, G. E., Srivastava, N., Krizhevsky, A., Sutskever, I., and Salakhutdinov, R. (2012b). Improving neural networks by preventing co-adaptation of feature detectors. Technical report, arXiv:1207.0580. [18] Hyva¨rinen, A. (2005). Estimation of non-normalized statistical models using s",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gans",
+      "Cited": "alexnet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/1406.2661",
+      "Evidence": "tiple layers of features from tiny images. Technical report, University of Toronto. [22] Krizhevsky, A., Sutskever, I., and Hinton, G. (2012). ImageNet classiﬁcation with deep convolutional neural networks. In NIPS’2012. [23] LeCun, Y., Bottou, L., Bengio, Y., and Haffner, P. (1998). Gradient-based learning applied to document recognition. Proceedings of the IEEE, 86(11), 2278–2324. [24] Rezende, D. J., Mohamed, S., and Wierstra, D. (2014). Stochastic backpropagation and approximate inference in deep generative models. Technical report, arXiv:1401.4082. [25] Rifa",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "dropout",
+      "Cited": "deep-belief-nets",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf",
+      "Evidence": "utdinov. Reducing the dimensionality of data with neural networks. Science, 313(5786):504 – 507, 2006. G. E. Hinton, S. Osindero, and Y. Teh. A fast learning algorithm for deep belief nets. Neural Computation, 18:1527–1554, 2006. K. Jarrett, K. Kavukcuoglu, M. Ranzato, and Y. LeCun. What is the best multi-stage architecture for object recognition? In Proceedings of the International Conference on Computer Vision (ICCV’09). IEEE, 2009. A. Krizhevsky. Learning multiple layers of features from tiny images. Technical",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "dropout",
+      "Cited": "alexnet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf",
+      "Evidence": "g multiple layers of features from tiny images. Technical report, University of Toronto, 2009. A. Krizhevsky, I. Sutskever, and G. E. Hinton. Imagenet classiﬁcation with deep convolutional neural networks. In Advances in Neural Information Processing Systems 25, pages 1106–1114, 2012. Y. LeCun, B. Boser, J. S. Denker, D. Henderson, R. E. Howard, W. Hubbard, and L. D. Jackel. Backpropagation applied to handwritten zip code recognition. Neural Computation, 1(4):541–551, 1989. Y. Lin, F. Lv, S. Zhu, M. Yang, T. Cour, K. Yu, L. Cao, Z. Li, M.-H. Tsai, X. Zhou, T. Hua",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "deep-q-learning",
+      "Cited": "document-recognition",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://web.stanford.edu/class/psych209/Readings/MnihEtAlHassibis15NatureControlDeepRL.pdf",
+      "Evidence": "istributed Processing: Explorations in the Microstructure of Cognition (MIT Press, 1986). 17. LeCun, Y., Bottou, L., Bengio, Y. & Haffner, P. Gradient-based learning applied to document recognition. Proc. IEEE 86, 2278–2324 (1998). 18. Hubel, D. H. & Wiesel, T. N. Shape and arrangement of columns in cat’s striate cortex. J. Physiol. 165, 559–568 (1963). 19. Watkins, C. J. & Dayan, P. Q-learning. Mach. Learn. 8, 279–292 (1992). 20. Tsitsiklis, J. & Roy, B. V. An analysis of temporal-difference learning with function approximation. IEEE Tran",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "deep-q-learning",
+      "Cited": "alexnet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://web.stanford.edu/class/psych209/Readings/MnihEtAlHassibis15NatureControlDeepRL.pdf",
+      "Evidence": "earning deep architectures for AI. Foundations and Trends in Machine Learning 2, 1–127 (2009). 10. Krizhevsky, A., Sutskever, I. & Hinton, G. ImageNet classification with deep convolutional neural networks. Adv.Neural Inf.Process.Syst.25, 1106–1114 (2012). 11. Hinton, G. E. & Salakhutdinov, R. R. Reducing the dimensionality of data with neural networks. Science 313, 504–507 (2006). 12. Bellemare, M. G., Naddaf, Y., Veness, J. & Bowling, M. The arcade learning environment: An evaluation platform for general agents. J. Artif. Intell. Res. 47, 253–279 (2013). 13. Le",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "resnet",
+      "Cited": "lstm",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/1512.03385",
+      "Evidence": "nov. Improving neural networks by preventing coadaptation of feature detectors. arXiv:1207.0580, 2012. [15] S. Hochreiter and J. Schmidhuber. Long short-term memory. Neural computation, 9(8):1735–1780, 1997. [16] S. Ioffe and C. Szegedy. Batch normalization: Accelerating deep network training by reducing internal covariate shift. In ICML, 2015. [17] H. Jegou, M. Douze, and C. Schmid. Product quantization for nearest neighbor search. TPAMI, 33",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "resnet",
+      "Cited": "alexnet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/1512.03385",
+      "Evidence": "20] A. Krizhevsky. Learning multiple layers of features from tiny images. Tech Report, 2009. [21] A. Krizhevsky, I. Sutskever, and G. Hinton. Imagenet classiﬁcation with deep convolutional neural networks. In NIPS, 2012. [22] Y. LeCun, B. Boser, J. S. Denker, D. Henderson, R. E. Howard, W. Hubbard, and L. D. Jackel. Backpropagation applied to handwritten zip code recognition. Neural computation, 1989. [23] Y. LeCun, L. Bottou, G. B. Orr, and K.-R. Mu¨ller. Efﬁcient backprop. In Neural Networks: Tricks of the Trade, pages 9–50. Springer, 1998. [24] C.-Y. Lee, S. X",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "alphago",
+      "Cited": "alexnet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://deepmind-media.storage.googleapis.com/alphago/AlphaGoNaturePaper.pdf",
+      "Evidence": "ffline learning in UCT. In 17th International Conference on Machine Learning, 273–280 (2007). 17. Krizhevsky, A., Sutskever, I. & Hinton, G. ImageNet classification with deep convolutional neural networks. In Advances in Neural Information Processing Systems, 1097–1105 (2012). 18. Lawrence, S., Giles, C. L., Tsoi, A. C. & Back, A. D. Face recognition: a convolutional neural-network approach. IEEE Trans. Neural Netw. 8, 98–113 (1997). 19. Mnih, V. et al. Human-level control through deep reinforcement learning. Nature 518, 529–533 (2015). 20. LeCun, Y., Bengio, Y.",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "alphago",
+      "Cited": "deep-q-learning",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://deepmind-media.storage.googleapis.com/alphago/AlphaGoNaturePaper.pdf",
+      "Evidence": "A. C. & Back, A. D. Face recognition: a convolutional neural-network approach. IEEE Trans. Neural Netw. 8, 98–113 (1997). 19. Mnih, V. et al. Human-level control through deep reinforcement learning. Nature 518, 529–533 (2015). 20. LeCun, Y., Bengio, Y. & Hinton, G. Deep learning. Nature 521, 436–444 (2015). 21. Stern, D., Herbrich, R. & Graepel, T. Bayesian pattern ranking for move prediction in the game of Go. In International Conference of Machine Learning, 873–880 (2006). 22. Sutskever, I. & Nair, V. Mimicking Go experts with convolutio",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "tensorflow",
+      "Cited": "backpropagation",
+      "Note": "Reference 64 gives a 1988 Cognitive Modeling citation but links to the original Nature paper. The Atlas dates the 1986 original.",
+      "SourceUrl": "https://arxiv.org/pdf/1605.08695",
+      "Evidence": "es 49–68. ACM, 2013. research-srv.microsoft.com/pubs/201110/sosp13dandelion-ﬁnal.pdf. [64] D. E. Rumelhart, G. E. Hinton, and R. J. Williams. Learning representations by backpropagating errors. Cognitive modeling, 5:3, 1988. www.cs.toronto.edu/ hinton/absps/naturebp.pdf. [65] O. Russakovsky, J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A. Karpathy, A. Khosla, M. Bernstein, A. C. Berg, and L. Fei-Fei. ImageNet Large Scale Visual Recognition Challenge. International Journal of Computer Vision (IJCV), 115(3):211–252, 2",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "tensorflow",
+      "Cited": "alexnet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/1605.08695",
+      "Evidence": "olutional neural networks. arXiv preprint arXiv:1404.5997, 2014. arxiv.org/abs/1404.5997. [42] A. Krizhevsky, I. Sutskever, and G. E. Hinton. ImageNet classiﬁcation with deep convolutional neural networks. In Advances in Neural Information Processing Systems, 2012. papers.nips.cc/paper/4824imagenet-classiﬁcation-with-deep-convolutionalneural-networks.pdf. [34] B. Jacob, G. Guennebaud, et al. Eigen library for linear algebra. eigen.tuxfamily.org. [35] S. Jean, K. Cho, R. Memisevic, and Y. Bengio. On using very large target vocabulary for neural machine translati",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "tensorflow",
+      "Cited": "word2vec",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/1605.08695",
+      "Evidence": "IX Association. www.usenix.org/system/ﬁles/conference/hotos15/ hotos15-paper-mcsherry.pdf. [50] T. Mikolov, K. Chen, G. Corrado, and J. Dean. Efﬁcient estimation of word representations in vector space. In International Conference on Learning Representations: Workshops Track, 2013. arxiv.org/abs/1301.3781. [51] V. Mnih, K. Kavukcuoglu, D. Silver, A. A. Rusu, J. Veness, M. G. Bellemare, A. Graves, M. Riedmiller, A. K. Fidjeland, G. Ostrovski, S. Petersen, C. Beattie, A. Sadik, I. Antonoglou, H. King, D. Kumaran, D. Wierstra, S. Legg, and D. Hassabis. Huma",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "tensorflow",
+      "Cited": "deep-q-learning",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/1605.08695",
+      "Evidence": "A. K. Fidjeland, G. Ostrovski, S. Petersen, C. Beattie, A. Sadik, I. Antonoglou, H. King, D. Kumaran, D. Wierstra, S. Legg, and D. Hassabis. Human-level control through deep reinforcement learning. Nature, 518(7540):529–533, 02 2015. dx.doi.org/10.1038/nature14236. [58] K. Ovtcharov, O. Ruwase, J.-Y. Kim, J. Fowers, K. Strauss, and E. Chung. Toward accelerating deep learning at scale using specialized logic. In Hot Chips: A Symposium on High Performance Chips. HOTCHIPS, August 2015. research.microsoft.com/apps/pubs/default.aspx?id=246506",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "tensorflow",
+      "Cited": "resnet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/1605.08695",
+      "Evidence": "eal, Quebec, Canada, pages 2672– 2680, 2014. papers.nips.cc/paper/5423-generativeadversarial-nets. [26] K. He, X. Zhang, S. Ren, and J. Sun. Deep residual learning for image recognition. CoRR, abs/1512.03385, 2015. arxiv.org/abs/1512.03385. [27] G. Heigold, V. Vanhoucke, A. Senior, P. Nguyen, M. Ranzato, M. Devin, and J. Dean. Multilingual acoustic models using distributed deep neural networks. In Acoustics, Speech and Signal Processing (ICASSP), 2013 IEEE International Conference on, pages 8619–8623. IEE",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "transformer",
+      "Cited": "dropout",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/1706.03762",
+      "Evidence": "arXiv preprint arXiv:1701.06538, 2017. [33] Nitish Srivastava, Geoffrey E Hinton, Alex Krizhevsky, Ilya Sutskever, and Ruslan Salakhutdinov. Dropout: a simple way to prevent neural networks from overfitting. Journal of Machine Learning Research, 15(1):1929–1958, 2014. [34] Sainbayar Sukhbaatar, Arthur Szlam, Jason Weston, and Rob Fergus. End-to-end memory networks. In C. Cortes, N. D. Lawrence, D. D. Lee, M. Sugiyama, and R. Garnett, editors, Advances in Neural Information Processing Systems 28, pages 2440–2448. Curran Associates, Inc., 2015. [35] Ilya Sutskever, Orio",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "transformer",
+      "Cited": "resnet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/1706.03762",
+      "Evidence": "g sequences with recurrent neural networks. arXiv preprint arXiv:1308.0850, 2013. [11] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pages 770–778, 2016. [12] Sepp Hochreiter, Yoshua Bengio, Paolo Frasconi, and Jürgen Schmidhuber. Gradient flow in recurrent nets: the difficulty of learning long-term dependencies, 2001. [13] Sepp Hochreiter and Jürgen Schmidhuber. Long shor",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "bert",
+      "Cited": "imagenet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/1810.04805",
+      "Evidence": "ng. In Advances in neural information processing systems, pages 3079–3087. J. Deng, W. Dong, R. Socher, L.-J. Li, K. Li, and L. FeiFei. 2009. ImageNet: A Large-Scale Hierarchical Image Database. In CVPR09. William B Dolan and Chris Brockett. 2005. Automatically constructing a corpus of sentential paraphrases. In Proceedings of the Third International Workshop on Paraphrasing (IWP2005). William Fedus, Ian Goodfellow, and Andrew M Dai. 2018. Maskgan: Better text generation via ﬁlling in the . arXiv preprint arXiv:1801.07736. Dan",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "bert",
+      "Cited": "transformer",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/1810.04805",
+      "Evidence": "s 384–394. Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Lukasz Kaiser, and Illia Polosukhin. 2017. Attention is all you need. In Advances in Neural Information Processing Systems, pages 6000–6010. Pascal Vincent, Hugo Larochelle, Yoshua Bengio, and Pierre-Antoine Manzagol. 2008. Extracting and composing robust features with denoising autoencoders. In Proceedings of the 25th international conference on Machine",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-2",
+      "Cited": "alexnet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf",
+      "Evidence": "-thought vectors. In Advances in neural information processing systems, pp. 3294–3302, 2015. Krizhevsky, A., Sutskever, I., and Hinton, G. E. Imagenet classiﬁcation with deep convolutional neural networks. In Advances in neural information processing systems, pp. 1097–1105, 2012. Kwiatkowski, T., Palomaki, J., Rhinehart, O., Collins, M., Parikh, A., Alberti, C., Epstein, D., Polosukhin, I., Kelcey, M., Devlin, J., et al. Natural questions: a benchmark for question answering research. 2019. Lake, B. M., Ullman, T. D., Tenenbaum, J. B., and Gershman, S. J. Building",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-2",
+      "Cited": "transformer",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf",
+      "Evidence": "preprint arXiv:1806.02847, 2018. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., and Polosukhin, I. Attention is all you need. In Advances in Neural Information Processing Systems, pp. 5998–6008, 2017. Vinyals, O. and Le, Q. A neural conversational model. arXiv preprint arXiv:1506.05869, 2015. Vinyals, O., Fortunato, M., and Jaitly, N. Pointer networks. In Advances in Neural Information Processing Systems, pp",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-2",
+      "Cited": "bert",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf",
+      "Evidence": "reit, J., and Kaiser, Ł. Universal transformers. arXiv preprint arXiv:1807.03819, 2018. Devlin, J., Chang, M.-W., Lee, K., and Toutanova, K. Bert: Pretraining of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805, 2018. Dinan, E., Roller, S., Shuster, K., Fan, A., Auli, M., and Weston, J. Wizard of wikipedia: Knowledge-powered conversational agents. arXiv preprint arXiv:1811.01241, 2018. Fan, A., Lewis, M., and Dauphin, Y. Hierarchical neural story generation. arXiv preprint arXiv:1805.04833, 2018. Language Models are Unsupervised Multitask Learners Finn, C., Abbeel,",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "scaling-laws",
+      "Cited": "alexnet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2001.08361",
+      "Evidence": "9] Aran Komatsuzaki. One epoch is all you need, 2019, arXiv:1906.06669. 18 [KSH12] Alex Krizhevsky, Ilya Sutskever, and Geoffrey E. Hinton. Imagenet classiﬁcation with deep convolutional neural networks. In Proceedings of the 25th International Conference on Neural Information Processing Systems - Volume 1, NIPS’12, pages 1097–1105, USA, 2012. Curran Associates Inc. URL http://dl.acm.org/citation.cfm?id=2999134.2999257. 19 [LCG+19] Zhenzhong Lan, Mingda Chen, Sebastian Goodman, Kevin Gimpel, Piyush Sharma, and Radu Soricut. Albert: A lite bert for self-supervi",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "scaling-laws",
+      "Cited": "transformer",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2001.08361",
+      "Evidence": "1905. 11946. 18 Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Ł ukasz Kaiser, and Illia Polosukhin. Attention is all you need. In I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, editors, Advances in Neural Information Processing Systems 30, pages 5998–6008. Curran Associates, Inc., 2017. URL http://papers.nips.cc/paper/7181-attention-is-all-you-need.pdf. 2, 6 Andreas",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "scaling-laws",
+      "Cited": "bert",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2001.08361",
+      "Evidence": "9, 1904.10509. URL http://arxiv.org/ abs/1904.10509. 19 [DCLT18] [DGV+18] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. Bert: Pre-training of deep bidirectional transformers for language understanding, 2018, arXiv:1810.04805. 2 Mostafa Dehghani, Stephan Gouws, Oriol Vinyals, Jakob Uszkoreit, and Lukasz Kaiser. Universal transformers. CoRR, abs/1807.03819, 2018, 1807.03819. URL http://arxiv.org/ abs/1807.03819. 6, 9, 23, 24 [EP94] Werner Ebeling and Thorsten Pöschel. Entropy and long-range correlations in literary english. EPL (Europhysics Letters), 26(4):241, 1994. 25 [Fou] The Common Cr",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "scaling-laws",
+      "Cited": "gpt-2",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2001.08361",
+      "Evidence": "xt-to-text transformer, 2019, arXiv:1910.10683. 2 [RWC+19] Alec Radford, Jeff Wu, Rewon Child, David Luan, Dario Amodei, and Ilya Sutskever. Language models are unsupervised multitask learners. openai.com, 2019. 2, 5, 6, 7, 8 [SCP+18] Noam Shazeer, Youlong Cheng, Niki Parmar, Dustin Tran, Ashish Vaswani, Penporn Koanantakool, Peter Hawkins, HyoukJoong Lee, Mingsheng Hong, Cliff Young, Ryan Sepassi, and Blake Hechtman. Mesh-tensorﬂow: Deep learning for supercomputers, 2018, 1811.02084. 19 [SHB15] Rico Sennrich, Barry Haddow",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-3",
+      "Cited": "word2vec",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2005.14165",
+      "Evidence": "n Advances in Neural Information Processing Systems, pages 6294–6305, 2017. [MCCD13] Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efﬁcient estimation of word representations in vector space. arXiv preprint arXiv:1301.3781, 2013. [MCH+16] Nasrin Mostafazadeh, Nathanael Chambers, Xiaodong He, Devi Parikh, Dhruv Batra, Lucy Vanderwende, Pushmeet Kohli, and James Allen. A corpus and evaluation framework for deeper understanding of commonsense stories. arXiv preprint arXiv:1604.01696, 2016. [MCKS18] Todor Mihaylov, Peter Clark, Tushar Khot, and As",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-3",
+      "Cited": "transformer",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2005.14165",
+      "Evidence": "2016. [VSP+17] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. In Advances in neural information processing systems, 2017. [WPN+19] Alex Wang, Yada Pruksachatkun, Nikita Nangia, Amanpreet Singh, Julian Michael, Felix Hill, Omer Levy, and Samuel Bowman. Superglue: A stickier benchmark for general-purpose language understanding systems. In Advances",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-3",
+      "Cited": "bert",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2005.14165",
+      "Evidence": "17] Kate Crawford. The trouble with bias. NIPS 2017 Keynote, 2017. [DCLT18] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. BERT: Pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805, 2018. 68 [DGM06] Ido Dagan, Oren Glickman, and Bernardo Magnini. The PASCAL recognising textual entailment challenge. In Machine learning challenges. evaluating predictive uncertainty, visual object classiﬁcation, and recognising textual entailment, pages 177–190. Springer, 2006. [DGV+18] Mostafa Dehghani, Stephan Gouws, Oriol Vinyals, Jakob Uszkoreit, and Lu",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-3",
+      "Cited": "gpt-2",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2005.14165",
+      "Evidence": "g with a uniﬁed text-to-text transformer, 2019. [RWC+19] Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, and Ilya Sutskever. Language models are unsupervised multitask learners, 2019. [SBBC19] Keisuke Sakaguchi, Ronan Le Bras, Chandra Bhagavatula, and Yejin Choi. Winogrande: An adversarial winograd schema challenge at scale, 2019. [SBC+19] Irene Solaiman, Miles Brundage, Jack Clark, Amanda Askell, Ariel Herbert-Voss, Jeff Wu, Alec Radford, Gretchen Krueger, Jong Wook Kim, Sarah Kreps, Miles McCain, Alex Newhous",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-3",
+      "Cited": "scaling-laws",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2005.14165",
+      "Evidence": "ared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, and Dario Amodei. Scaling laws for neural language models, 2020. [KPR+19] Tom Kwiatkowski, Jennimaria Palomaki, Olivia Redﬁeld, Michael Collins, Ankur Parikh, Chris Alberti, Danielle Epstein, Illia Polosukhin, Matthew Kelcey, Jacob Devlin, Kenton Lee, Kristina N. Toutanova, Llion Jones, Ming-Wei Chang, Andrew Dai, Jakob Uszkoreit, Quoc Le, and Slav Petrov. Natural questi",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "ddpm",
+      "Cited": "transformer",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2006.11239",
+      "Evidence": "4798, 2016. [60] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. In Advances in Neural Information Processing Systems, pages 5998–6008, 2017. [61] Pascal Vincent. A connection between score matching and denoising autoencoders. Neural Computation, 23(7):1661–1674, 2011. [62] Sheng-Yu Wang, Oliver Wang, Richard Zhang, Andrew Owens, and Alexei A Efros.",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "clip",
+      "Cited": "tensorflow",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2103.00020",
+      "Evidence": "Abadi, M., Barham, P., Chen, J., Chen, Z., Davis, A., Dean, J., Devin, M., Ghemawat, S., Irving, G., Isard, M., et al. Tensorﬂow: A system for large-scale machine learning. In 12th {USENIX} symposium on operating systems design and implementation ({OSDI} 16), pp. 265–283, 2016. Alayrac, J.-B., Recasens, A., Schneider, R., Arandjelovic´, R., Ramapuram, J., De Fauw, J., Smaira, L., Dieleman, S., and Zisserman, A. Self-supervised multimodal versatile networks. arXiv preprint arXiv:2006.16228, 2020. Alcorn, M. A.,",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "clip",
+      "Cited": "imagenet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2103.00020",
+      "Evidence": "dibility in modern machine learning. arXiv preprint arXiv:2011.03395, 2020. Deng, J., Dong, W., Socher, R., Li, L.-J., Li, K., and FeiFei, L. ImageNet: A Large-Scale Hierarchical Image Database. In CVPR09, 2009. Deng, J., Berg, A. C., Satheesh, S., Su, H., Khosla, A., and Fei-Fei, L. Ilsvrc 2012, 2012. URL http://www. image-net.org/challenges/LSVRC/2012/. Desai, K. and Johnson, J. Virtex: Learning visual representations from textual annotations. arXiv preprint arXiv:2006.06666, 2020. Devlin, J., Chang, M.-W., Lee, K., and Touta",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "clip",
+      "Cited": "scikit-learn",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2103.00020",
+      "Evidence": "Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., and Duchesnay, E. Scikit-learn: Machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011. Pennington, J., Socher, R., and Manning, C. D. Glove: Global vectors for word representation. In Proceedings of the 2014 conference on empirical methods in natural language processing (EMNLP), pp. 1532–1543, 2014. Peters, M. E., Neumann, M., Iyyer, M., Gardn",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "clip",
+      "Cited": "alexnet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2103.00020",
+      "Evidence": "ngs of the IEEE conference on computer vision and pattern recognition, pp. 2661–2671, 2019. Krizhevsky, A., Sutskever, I., and Hinton, G. E. Imagenet classiﬁcation with deep convolutional neural networks. In Advances in neural information processing systems, pp. 1097–1105, 2012. Kuhnle, A. and Copestake, A. Shapeworld-a new test methodology for multimodal language understanding. arXiv preprint arXiv:1704.04517, 2017. Ka¨rkka¨inen, K. and Joo, J. Fairface: Face attribute dataset for balanced race, gender, and age, 2019. Lake, B. M., Ullman, T. D., Tenenbaum, J. B",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "clip",
+      "Cited": "resnet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2103.00020",
+      "Evidence": "ﬁcation. In Proceedings of the IEEE international conference on computer vision, pp. 1026–1034, 2015. He, K., Zhang, X., Ren, S., and Sun, J. Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 770–778, 2016a. He, K., Zhang, X., Ren, S., and Sun, J. Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 770–778, 2016b. He, K., Fan, H., Wu, Y., Xie, S.,",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "clip",
+      "Cited": "transformer",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2103.00020",
+      "Evidence": "hops, pp. 1338–1345. IEEE, 2009. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., and Polosukhin, I. Attention is all you need. In Advances in neural information processing systems, pp. 5998–6008, 2017. Veeling, B. S., Linmans, J., Winkens, J., Cohen, T., and Welling, M. Rotation equivariant CNNs for digital pathology. June 2018. Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T., Cournapeau,",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "clip",
+      "Cited": "bert",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2103.00020",
+      "Evidence": "visual representations from textual annotations. arXiv preprint arXiv:2006.06666, 2020. Devlin, J., Chang, M.-W., Lee, K., and Toutanova, K. Bert: Pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805, 2018. Dhariwal, P., Jun, H., Payne, C., Kim, J. W., Radford, A., and Sutskever, I. Jukebox: A generative model for music. arXiv preprint arXiv:2005.00341, 2020. Learning Transferable Visual Models From Natural Language Supervision 29 Divvala, S. K., Farhadi, A., and Guestrin, C. Learning everything about anything: Webly-supervised visual concept learning. I",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "clip",
+      "Cited": "gpt-2",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2103.00020",
+      "Evidence": "I. Improving language understanding by generative pretraining, 2018. Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., and Sutskever, I. Language models are unsupervised multitask learners. 2019. Raffel, C., Shazeer, N., Roberts, A., Lee, K., Narang, S., Matena, M., Zhou, Y., Li, W., and Liu, P. J. Exploring the limits of transfer learning with a uniﬁed text-to-text transformer. arXiv preprint arXiv:1910.10683, 2019. Raji, I. D., Gebru, T., Mitchell, M., Buolamwini, J., Lee, J., and Denton, E. Saving face: Investigating th",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "clip",
+      "Cited": "pytorch",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2103.00020",
+      "Evidence": "., Desmaison, A., Kopf, A., Yang, E., DeVito, Z., Raison, M., Tejani, A., Chilamkurthy, S., Steiner, B., Fang, L., Bai, J., and Chintala, S. Pytorch: An imperative style, high-performance deep learning library. In Advances in Neural Information Processing Systems 32, pp. 8024– 8035, 2019. Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M., and Duchesnay, E. Scikit-learn: Machine learning in Python. Journal of Machine Learning",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "clip",
+      "Cited": "scaling-laws",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2103.00020",
+      "Evidence": "2008.01232, 2020. Kaplan, J., McCandlish, S., Henighan, T., Brown, T. B., Chess, B., Child, R., Gray, S., Radford, A., Wu, J., and Amodei, D. Scaling laws for neural language models. arXiv preprint arXiv:2001.08361, 2020. Karpathy, A., Joulin, A., and Fei-Fei, L. F. Deep fragment embeddings for bidirectional image sentence mapping. In Advances in neural information processing systems, pp. 1889–1897, 2014. Keyes, O. The misgendering machines: Trans/hci implications of automatic gender recognit",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "clip",
+      "Cited": "gpt-3",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2103.00020",
+      "Evidence": "s, 2000. Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., et al. Language models are few-shot learners. arXiv preprint arXiv:2005.14165, 2020. Browne, S. Dark Matters: Surveillance of Blackness. Duke University Press, 2015. Bulent Sariyildiz, M., Perez, J., and Larlus, D. Learning visual representations with caption annotations. arXiv e-prints, pp. arXiv–2008, 2020. Buolamwini, J. and Gebru, T. Gender shades: I",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "latent-diffusion",
+      "Cited": "imagenet",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2112.10752",
+      "Evidence": "nhancing VAE models. In ICLR (Poster). OpenReview.net, 2019. 2, 3 [12] Jia Deng, Wei Dong, Richard Socher, Li-Jia Li, Kai Li, and Fei-Fei Li. Imagenet: A large-scale hierarchical image database. In CVPR, pages 248–255. IEEE Computer Society, 2009. 1, 5, 7, 22 [13] Emily Denton. Ethical considerations of generative ai. AI for Content Creation Workshop, CVPR, 2021. 9 [14] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. BERT: pre-training of deep bidirectional transformers for language understanding. CoRR, abs/18",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "latent-diffusion",
+      "Cited": "gans",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2112.10752",
+      "Evidence": "6 [27] Ian J. Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron C. Courville, and Yoshua Bengio. Generative adversarial networks. CoRR, 2014. 1, 2 [28] Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, and Aaron Courville. Improved training of wasserstein gans, 2017. 3 [29] Martin Heusel, Hubert Ramsauer, Thomas Unterthiner, Bernhard Nessler, and Sepp Hochreiter. Gans trained by a two time-scale update rule c",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "latent-diffusion",
+      "Cited": "transformer",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2112.10752",
+      "Evidence": "17. 2, 4, 29 Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. Attention is all you need. In NIPS, pages 5998–6008, 2017. 3, 4, 5, 7 Rivers Have Wings. Tweet on Classiﬁer-free guidance for autoregressive models. https : / / twitter . com / RiversHaveWings / status / 1478093658716966912, 2022. 6 Thomas Wolf, Lysandre Debut, Victor Sanh, Julien Chau- mond, Clement De",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "latent-diffusion",
+      "Cited": "bert",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2112.10752",
+      "Evidence": "ions of generative ai. AI for Content Creation Workshop, CVPR, 2021. 9 [14] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. BERT: pre-training of deep bidirectional transformers for language understanding. CoRR, abs/1810.04805, 2018. 7 [15] Prafulla Dhariwal and Alex Nichol. Diffusion models beat gans on image synthesis. CoRR, abs/2105.05233, 2021. 1, 2, 3, 4, 6, 7, 8, 18, 22, 25, 26, 28 [16] Sander Dieleman. Musings on typicality, 2020. 1, 3 [17] Ming Ding, Zhuoyi Yang, Wenyi Hong, Wendi Zheng, Chang Zhou, Da Yin, Junyang Lin, Xu Zou, Zhou Shao, Hongxia Yang, and Jie Tang. Cogview: Mastering t",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "latent-diffusion",
+      "Cited": "ddpm",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2112.10752",
+      "Evidence": "cal nash equilibrium. In Adv. Neural Inform. Process. Syst., pages 6626– 6637, 2017. 1, 5, 26 [30] Jonathan Ho, Ajay Jain, and Pieter Abbeel. Denoising diffusion probabilistic models. In NeurIPS, 2020. 1, 2, 3, 4, 6, 17 [31] Jonathan Ho, Chitwan Saharia, William Chan, David J. Fleet, Mohammad Norouzi, and Tim Salimans. Cascaded diffusion models for high ﬁdelity image generation. CoRR, abs/2106.15282, 2021. 1, 3, 22 10 [32] Jonathan Ho and Tim Salimans. Classiﬁer-free diffusion guidance. In Ne",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "chain-of-thought",
+      "Cited": "bert",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2201.11903",
+      "Evidence": "eriﬁers to solve math word problems. arXiv preprint arXiv:2110.14168. Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2019. BERT: Pre-training of deep bidirectional transformers for language understanding. NAACL. Honghua Dong, Jiayuan Mao, Tian Lin, Chong Wang, Lihong Li, and Denny Zhou. 2019. Neural logic machines. ICLR. Dheeru Dua, Sameer Singh, and Matt Gardner. 2020. Beneﬁts of intermediate annotations in reading comprehension. ACL. Mor Geva, Daniel Khashabi, Elad Segal, Tushar Khot, Dan Roth, and Jonathan Berant. 2021. Did aristotle use a laptop? A question answering benchmark with implicit",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "chain-of-thought",
+      "Cited": "scaling-laws",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2201.11903",
+      "Evidence": "Kaplan, Sam McCandlish, Tom Henighan, Tom B Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, and Dario Amodei. 2020. Scaling laws for neural language models. arXiv preprint arXiv:2001.08361. Rik Koncel-Kedziorski, Subhro Roy, Aida Amini, Nate Kushman, and Hannaneh Hajishirzi. 2016. MAWPS: A math word problem repository. NAACL. Andrew K. Lampinen, Ishita Dasgupta, Stephanie C.Y. Chan, Kory Matthewson, Michael Henry Tessler, Antonia Creswell, James L. McClelland, Jane X",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "chain-of-thought",
+      "Cited": "gpt-3",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2201.11903",
+      "Evidence": "usz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, and Dario Amodei. 2020. Language models are few-shot learners. NeurIPS. Jonathon Cai, Richard Shin, and Dawn Song. 2017. Making neural programming architectures generalize via recursion. ICLR. Oana-Maria Camburu, Tim Rocktäschel, Thomas Lukasiewicz, and Phil Blunsom. 2018. e-SNLI: Natural language inference with natural language explanations. NeurIPS. Howard Chen, Jacque",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "chain-of-thought",
+      "Cited": "instructgpt",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2201.11903",
+      "Evidence": "eff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et al. 2022. Training language models to follow instructions with human feedback. arXiv preprint arXiv:2203.02155. Arkil Patel, Satwik Bhattamishra, and Navin Goyal. 2021. Are NLP models really able to solve simple math word problems? NAACL. Matthew E. Peters, Mark Neumann, Mohit Iyyer, Matt Gardner, Christopher Clark, Kenton Lee, and Luke Zettlemoyer. 2018. Deep contextualized word representations. NAACL. Xinyu Pi, Qian Liu, Bei Chen, Morteza Ziya",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "instructgpt",
+      "Cited": "gpt-2",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2203.02155",
+      "Evidence": "der-equalizing loss function. arXiv preprint arXiv:1905.12801. Radford, A., Wu, J., Child, R., Luan, D., Amodei, D., and Sutskever, I. (2019). Language models are unsupervised multitask learners. OpenAI Blog, 1(8):9. Rae, J. W., Borgeaud, S., Cai, T., Millican, K., Hoffmann, J., Song, F., Aslanides, J., Henderson, S., Ring, R., Young, S., et al. (2021). Scaling language models: Methods, analysis & insights from training gopher. arXiv preprint arXiv:2112.11446. Rajpurkar, P., Jia, R., and Liang, P. (2018). Know what you don’t kn",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "instructgpt",
+      "Cited": "gpt-3",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2203.02155",
+      "Evidence": ". Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., et al. (2020). Language models are few-shot learners. arXiv preprint arXiv:2005.14165. Buchanan, B., Lohn, A., Musser, M., and Sedova, K. (2021). Truth, lies, and automation. Technical report, Center for the Study of Emerging Technology. Caliskan, A., Bryson, J. J., and Narayanan, A. (2017). Semantics derived automatically from language corpora contain human-li",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "zero-shot-reasoning",
+      "Cited": "transformer",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2205.11916",
+      "Evidence": "abs/2201.08239. Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Ł ukasz Kaiser, and Illia Polosukhin. Attention is all you need. In I. Guyon, U. Von Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, editors, Advances in NeurIPS, 2017. URL https://proceedings.neurips.cc/paper/2017/file/ 3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf. Ben Wang and Aran Komatsuzaki. GPT-J-6B: A 6 Billion Param",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "zero-shot-reasoning",
+      "Cited": "bert",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2205.11916",
+      "Evidence": "s to solve math word problems, 2021. URL https://arxiv.org/ abs/2110.14168. Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. BERT: Pre-training of deep bidirectional transformers for language understanding. In Proceedings of NAACL, pages 4171–4186, 2019. URL https://aclanthology.org/N19-1423. Leo Gao, Stella Biderman, Sid Black, Laurence Golding, Travis Hoppe, Charles Foster, Jason Phang, Horace He, Anish Thite, Noa Nabeshima, Shawn Presser, and Connor Leahy. The pile: An 800gb dataset of diverse text for language modeling. arXiv preprint arXiv: Arxiv-2101.00027, 2020. Tianyu Gao, Adam Fisch, and",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "zero-shot-reasoning",
+      "Cited": "gpt-2",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2205.11916",
+      "Evidence": "1. URL https:// aclanthology.org/2021.naacl-main.168. Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever, et al. Language models are unsupervised multitask learners. OpenAI blog, page 9, 2019. URL http://www. persagen.com/files/misc/radford2019language.pdf. 12 Jack W. Rae, Sebastian Borgeaud, Trevor Cai, Katie Millican, Jordan Hoffmann, Francis Song, John Aslanides, Sarah Henderson, Roman Ring, Susannah Young, Eliza Rutherford, Tom Hennigan, Jacob Menick, Albin Cassirer, Richard Powell, George van",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "zero-shot-reasoning",
+      "Cited": "pytorch",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2205.11916",
+      "Evidence": ", Sam Gross, Francisco Massa, Adam Lerer, James Bradbury, Gregory Chanan, Trevor Killeen, Zeming Lin, Natalia Gimelshein, Luca Antiga, et al. Pytorch: An imperative style, high-performance deep learning library. Advances in NeurIPS, 32:8026–8037, 2019. URL https://papers.nips.cc/paper/2019/hash/ bdbca288fee7f92f2bfa9f7012727740-Abstract.html. Arkil Patel, Satwik Bhattamishra, and Navin Goyal. Are NLP models really able to solve simple math word problems? In Proceedings of NAACL, pages 2080–2094, 2021. URL https:// aclanthology.org/2021.naacl-main.168. Alec Radford, Jeffrey Wu,",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "zero-shot-reasoning",
+      "Cited": "gpt-3",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2205.11916",
+      "Evidence": ", Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, and Dario Amodei. Language models are few-shot learners. In H. Larochelle, M. Ranzato, R. Hadsell, M.F. Balcan, and H. Lin, editors, Advances in NeurIPS, volume 33, pages 1877–1901. Curran Associates, Inc., 2020. URL https://proceedings.neurips.cc/paper/2020/file/ 1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf. François Chollet. On the measure of intelligence. arXiv pr",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "zero-shot-reasoning",
+      "Cited": "chain-of-thought",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2205.11916",
+      "Evidence": ". URL https://aclanthology.org/2022.naacl-main. 167. Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Ed Chi, Quoc Le, and Denny Zhou. Chain of thought prompting elicits reasoning in large language models, 2022. URL https: //arxiv.org/abs/2201.11903. Thomas Wolf, Lysandre Debut, Victor Sanh, Julien Chaumond, Clement Delangue, Anthony Moi, Pierric Cistac, Tim Rault, Remi Louf, Morgan Funtowicz, Joe Davison, Sam Shleifer, Patrick von Platen, Clara Ma, Yacine Jernite, Julien Plu, Canwen Xu, Teven Le Scao, Sylvain Gugger, Mariama Drame, Quentin Lhoest, and Alexander Rush. Trans",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "zero-shot-reasoning",
+      "Cited": "instructgpt",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2205.11916",
+      "Evidence": "Schulman, Jacob Hilton, Fraser Kelton, Luke Miller, Maddie Simens, Amanda Askell, Peter Welinder, Paul Christiano, Jan Leike, and Ryan Lowe. Training language models to follow instructions with human feedback, 2022. URL https://arxiv.org/abs/2203.02155. Adam Paszke, Sam Gross, Francisco Massa, Adam Lerer, James Bradbury, Gregory Chanan, Trevor Killeen, Zeming Lin, Natalia Gimelshein, Luca Antiga, et al. Pytorch: An imperative style, high-performance deep learning library. Advances in NeurIPS, 32:8026–8037, 2019. URL https://papers.nips.cc/paper/2019/hash/ bdbca288fee7f92f2b",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "constitutional-ai",
+      "Cited": "chain-of-thought",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2212.08073",
+      "Evidence": "R, abs/2201.08239. [Wei et al., 2022] Wei, J., Wang, X., Schuurmans, D., Bosma, M., Ichter, B., Xia, F., Chi, E., Le, Q., and Zhou, D. (2022). Chain of thought prompting elicits reasoning in large language models. [Xu et al., 2020] Xu, J., Ju, D., Li, M., Boureau, Y.-L., Weston, J., and Dinan, E. (2020). Recipes for safety in open-domain chatbots. arXiv preprint arXiv:2010.07079. [Zhao et al., 2021] Zhao, J., Khashabi, D., Khot, T., Sabharwal, A., and Chang, K.-W. (2021). Ethical-advice taker: Do language models understand natural language interventions?",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "constitutional-ai",
+      "Cited": "instructgpt",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2212.08073",
+      "Evidence": ", 2022] Ouyang, L., Wu, J., Jiang, X., Almeida, D., Wainwright, C. L., Mishkin, P., Zhang, C., Agarwal, S., Slama, K., Ray, A., et al. (2022). Training language models to follow instructions with human feedback. arXiv preprint arXiv:2203.02155. [Perez et al., 2022] Perez, E., Huang, S., Song, F., Cai, T., Ring, R., Aslanides, J., Glaese, A., McAleese, N., and Irving, G. (2022). Red teaming language models with language models. [Saunders et al., 2022] Saunders, W., Yeh, C., Wu, J., Bills, S., Ouyang, L., Ward, J., and Leike, J. (2022). Self-critiquing models for assisting hum",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "constitutional-ai",
+      "Cited": "zero-shot-reasoning",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2212.08073",
+      "Evidence": "022). Language models (mostly) know what they know. [Kojima et al., 2022] Kojima, T., Gu, S. S., Reid, M., Matsuo, Y., and Iwasawa, Y. (2022). Large language models are zero-shot reasoners. arXiv preprint arXiv:2205.11916. 17 [Nye et al., 2021] Nye, M., Andreassen, A. J., Gur-Ari, G., Michalewski, H., Austin, J., Bieber, D., Dohan, D., Lewkowycz, A., Bosma, M., Luan, D., Sutton, C., and Odena, A. (2021). Show your work: Scratchpads for intermediate computation with language models. [Ouyang et al., 2022] Ouya",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "llama",
+      "Cited": "turing",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2302.13971",
+      "Evidence": "Blaise Aguera-Arcas, Claire Cui, Marian Croak, Ed Chi, and Quoc Le. 2022. Lamda: Language models for dialog applications. A. M. Turing. 1950. Computing Machinery and Intelligence. [Oxford University Press, Mind Association]. Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Ł ukasz Kaiser, and Illia Polosukhin. 2017. Attention is all you need. In Advances in Neural Information Processing Systems 30, pages 5998–6008. Ben Wang and Aran Komatsuzaki.",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "llama",
+      "Cited": "lstm",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2302.13971",
+      "Evidence": "hou. 2017. Deep learning scaling is predictable, empirically. arXiv preprint arXiv:1712.00409. Sepp Hochreiter and Jürgen Schmidhuber. 1997. Long short-term memory. Neural computation, 9(8):1735–1780. Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark, Tom Hennigan, Eric Noland, Katie Millican, George van den Driessche, Bog",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "llama",
+      "Cited": "transformer",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2302.13971",
+      "Evidence": "ciation]. Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Ł ukasz Kaiser, and Illia Polosukhin. 2017. Attention is all you need. In Advances in Neural Information Processing Systems 30, pages 5998–6008. Ben Wang and Aran Komatsuzaki. 2021. GPT-J6B: A 6 Billion Parameter Autoregressive Language Model. https://github.com/kingoflolz/ mesh-transformer-jax. Xuezhi Wang, Jason Wei, Dale Schuurmans, Quoc Le, Ed Chi, Sh",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "llama",
+      "Cited": "bert",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2302.13971",
+      "Evidence": "t exact attention with io-awareness. arXiv preprint arXiv:2205.14135. Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. 2018. Bert: Pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805. Jeffrey L Elman. 1990. Finding structure in time. Cognitive science, 14(2):179–211. Daniel Fried, Armen Aghajanyan, Jessy Lin, Sida Wang, Eric Wallace, Freda Shi, Ruiqi Zhong, Wentau Yih, Luke Zettlemoyer, and Mike Lewis. 2022. Incoder: A generative model for code inﬁlling and synthesis. arXiv preprint arXiv:2204.05999. Leo Gao, Stella Biderman, Sid Black, Laur",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "llama",
+      "Cited": "gpt-2",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2302.13971",
+      "Evidence": "uage understanding by generative pre-training. Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever, et al. 2019. Language models are unsupervised multitask learners. OpenAI blog, 1(8):9. Jack W. Rae, Sebastian Borgeaud, Trevor Cai, Katie Millican, Jordan Hoffmann, Francis Song, John Aslanides, Sarah Henderson, Roman Ring, Susannah Young, Eliza Rutherford, Tom Hennigan, Jacob Menick, Albin Cassirer, Richard Powell, George van den Driessche, Lisa Anne Hendricks, Maribeth Rauh, Po-Sen Huang, Amelia Gl",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "llama",
+      "Cited": "scaling-laws",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2302.13971",
+      "Evidence": "Kaplan, Sam McCandlish, Tom Henighan, Tom B Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, and Dario Amodei. 2020. Scaling laws for neural language models. arXiv preprint arXiv:2001.08361. Slava Katz. 1987. Estimation of probabilities from sparse data for the language model component of a speech recognizer. IEEE transactions on acoustics, speech, and signal processing, 35(3):400–401. Reinhard Kneser and Hermann Ney. 1995. Improved backing-off for m-gram language mod",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "llama",
+      "Cited": "gpt-3",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2302.13971",
+      "Evidence": "usz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, and Dario Amodei. 2020. Language models are few-shot learners. Christian Buck, Kenneth Heaﬁeld, and Bas Van Ooyen. 2014. N-gram counts and language models from the common crawl. In LREC, volume 2, page 4. Ciprian Chelba, Tomas Mikolov, Mike Schuster, Qi Ge, Thorsten Brants, Phillipp Koehn, and Tony Robinson. 2013. One billion word benchmark for measuring progress in stat",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "llama",
+      "Cited": "instructgpt",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2302.13971",
+      "Evidence": "man, Jacob Hilton, Fraser Kelton, Luke Miller, Maddie Simens, Amanda Askell, Peter Welinder, Paul Christiano, Jan Leike, and Ryan Lowe. 2022. Training language models to follow instructions with human feedback. In Advances in Neural Information Processing Systems. Markus N Rabe and Charles Staats. 2021. attention does not need o(n2) memory. preprint arXiv:2112.05682. SelfarXiv Alec Radford, Karthik Narasimhan, Tim Salimans, Ilya Sutskever, et al. 2018. Improving language understanding by generative pre-training. Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Am",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-4",
+      "Cited": "transformer",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2303.08774",
+      "Evidence": "ning. 2018. [39] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. NeurIPS, 2017. [40] Paul F Christiano, Jan Leike, Tom Brown, Miljan Martic, Shane Legg, and Dario Amodei. Deep reinforcement learning from human preferences. Advances in Neural Information Processing Systems, 30, 2017. [41] Joel Hestness, Sharan Narang, Newsha Ardalani, Gregory Diamos,",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-4",
+      "Cited": "bert",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2303.08774",
+      "Evidence": "mized BERT pretraining approach. arXiv preprint arXiv:1907.11692, 2019. [7] Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. BERT: Pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805, 2018. [8] Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, and Peter J Liu. Exploring the limits of transfer learning with a unified text-to-text transformer. arXiv preprint arXiv:1910.10683, 2019. [9] Noam Shazeer and Mitchell Stern. Adafactor: Adaptive learning rates with sublinear memory cost. arXiv",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-4",
+      "Cited": "gpt-2",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2303.08774",
+      "Evidence": "l Conference on Learning Representations (ICLR), 2021. [37] Alec Radford, Jeff Wu, Rewon Child, David Luan, Dario Amodei, and Ilya Sutskever. Language models are unsupervised multitask learners. 2019. [38] Alec Radford, Karthik Narasimhan, Tim Salimans, and Ilya Sutskever. Improving language understanding by generative pre-training. 2018. [39] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. NeurIPS, 2017. [40] Paul F Christia",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-4",
+      "Cited": "scaling-laws",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2303.08774",
+      "Evidence": "ared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, and Dario Amodei. Scaling laws for neural language models. arXiv preprint arXiv:2001.08361, 2020. [15] Tom Henighan, Jared Kaplan, Mor Katz, Mark Chen, Christopher Hesse, Jacob Jackson, Heewoo Jun, Tom B. Brown, Prafulla Dhariwal, Scott Gray, et al. Scaling laws for autoregressive generative modeling. arXiv preprint arXiv:2010.14701, 2020. [16] Greg Yang, Edward J. Hu, I",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-4",
+      "Cited": "gpt-3",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2303.08774",
+      "Evidence": "Mann, Nick Ryder, Melanie Subbiah, Jared D. Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al. Language models are few-shot learners. Advances in Neural Information Processing Systems, 33:1877–1901, 2020. [2] Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark, et al. Training compute-optimal large language models. arXiv pre",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-4",
+      "Cited": "chain-of-thought",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2303.08774",
+      "Evidence": "ization. arXiv preprint arXiv:1607.06450, 2016. [11] Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Ed Chi, Quoc Le, and Denny Zhou. Chain-of-thought prompting elicits reasoning in large language models. NeurIPS, 2022. [12] Jiaxin Huang, Shixiang Shane Gu, Le Hou, Yuexin Wu, Xuezhi Wang, Hongkun Yu, and Jiawei Han. Large language models can self-improve. arXiv preprint arXiv:2210.11610, 2022. 18 [13] Takeshi Kojima, Shixiang Shane Gu, Machel Reid, Yutaka Matsuo, and Yusuke Iwasawa. Large language models are zero-shot reasoners. arXiv preprint arXiv:2205.11916, 2022. [14",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-4",
+      "Cited": "instructgpt",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2303.08774",
+      "Evidence": "yang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et al. Training language models to follow instructions with human feedback. arXiv preprint arXiv:2203.02155, 2022. [64] OpenAI. OpenAI: Introducing ChatGPT, 2022. URL https://openai.com/blog/chatgpt. [65] OpenAI. OpenAI: GPT-4, 2023. URL https://openai.com/research/gpt-4. [66] Stephanie Lin, Jacob Hilton, and Owain Evans. TruthfulQA: Measuring how models mimic human falsehoods. In Proceedings of the 60th Annual Meeting of the Association for",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-4",
+      "Cited": "zero-shot-reasoning",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2303.08774",
+      "Evidence": "-improve. arXiv preprint arXiv:2210.11610, 2022. 18 [13] Takeshi Kojima, Shixiang Shane Gu, Machel Reid, Yutaka Matsuo, and Yusuke Iwasawa. Large language models are zero-shot reasoners. arXiv preprint arXiv:2205.11916, 2022. [14] Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, and Dario Amodei. Scaling laws for neural language models. arXiv preprint arXiv:2001.08361, 2020. [15] Tom Henighan, Jared Kaplan, Mor Katz, Mark Chen, Chris",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-4",
+      "Cited": "llama",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2303.08774",
+      "Evidence": "ril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, et al. LLaMA: Open and efficient foundation language models. arXiv preprint arXiv:2302.13971, 2023. [29] Alec Radford, Rafal Józefowicz, and Ilya Sutskever. Learning to generate reviews and discovering sentiment. arXiv preprint arXiv:1704.01444, 2017. 19 [30] Guillaume Lample and Alexis Conneau. Cross-lingual language model pretraining. arXiv preprint arXiv:1901.07291, 2019. [31] Tri Dao, Daniel",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gpt-4",
+      "Cited": "constitutional-ai",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2303.08774",
+      "Evidence": "ton, T. Conerly, T. Henighan, T. Hume, S. R. Bowman, Z. Hatﬁeld-Dodds, B. Mann, D. Amodei, N. Joseph, S. McCandlish, T. Brown, and J. Kaplan, “Constitutional AI: Harmlessness from AI Feedback,” Dec. 2022. [102] S. Gehman, S. Gururangan, M. Sap, Y. Choi, and N. A. Smith, “RealToxicityPrompts: Evaluating Neural Toxic Degeneration in Language Models,” Findings of the Association for Computational Linguistics: EMNLP 2020, pp. 3356–3369, 2020. [103] OpenAI, “Introducing chatgpt,” November 2022 2020. accessed 2023-03-13.",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "mistral-7b",
+      "Cited": "transformer",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2310.06825",
+      "Evidence": "9288, 2023. [27] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. Advances in neural information processing systems, 30, 2017. [28] Rowan Zellers, Ari Holtzman, Yonatan Bisk, Ali Farhadi, and Yejin Choi. Hellaswag: Can a machine really finish your sentence? arXiv preprint arXiv:1905.07830, 2019. [29] Wanjun Zhong, Ruixiang Cui, Yiduo Guo, Yaobo Liang",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "mistral-7b",
+      "Cited": "llama",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2310.06825",
+      "Evidence": "ril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, et al. Llama: Open and efficient foundation language models. arXiv preprint arXiv:2302.13971, 2023. [26] Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, et al. Llama 2: Open foundation and fine-tuned chat models. arXiv preprint arXiv:2307.09288, 2023. [27] Ashish Vaswani, Noam Shazeer, Niki P",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "mixtral",
+      "Cited": "transformer",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2401.04088",
+      "Evidence": "0937, 2018. [31] Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. Advances in neural information processing systems, 30, 2017. [32] Rowan Zellers, Ari Holtzman, Yonatan Bisk, Ali Farhadi, and Yejin Choi. Hellaswag: Can a machine really finish your sentence? arXiv preprint arXiv:1905.07830, 2019. [33] Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gemini-1-5",
+      "Cited": "transformer",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2403.05530",
+      "Evidence": "tems, 36, 2024. Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. Attention is all you need. CoRR, abs/1706.03762, 2017. URL http://arxiv.org/abs/1706.03762. Ramakrishna Vedantam, C Lawrence Zitnick, and Devi Parikh. Cider: Consensus-based image description evaluation. In Proceedings of the IEEE conference on computer vision and pattern recognition, pages 4566–4575, 2015. Elin",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gemini-1-5",
+      "Cited": "scaling-laws",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2403.05530",
+      "Evidence": "Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, and Dario Amodei. Scaling laws for neural language models. arXiv preprint arXiv:2001.08361, 2020. URL https://arxiv.org/abs/2001.08361. Vladimir Karpukhin, Barlas Oguz, Sewon Min, Patrick Lewis, Ledell Wu, Sergey Edunov, Danqi Chen, and Wen-tau Yih. Dense passage retrieval for open-domain question answering. In Bonnie Webber, Trevor Cohn, Yulan He, and Yang Liu, editors,",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gemini-1-5",
+      "Cited": "gpt-3",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2403.05530",
+      "Evidence": ", Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya Sutskever, and Dario Amodei. Language models are few-shot learners. In H. Larochelle, M. Ranzato, R. Hadsell, M.F. Balcan, and H. Lin, editors, Advances in Neural Information Processing Systems, volume 33, pages 1877–1901. Curran Associates, Inc., 2020. URL https://proceedings.neurips.cc/paper_ files/paper/2020/file/1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf. 76 Gemini 1.5:",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gemini-1-5",
+      "Cited": "constitutional-ai",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2403.05530",
+      "Evidence": "an, Tristan Hume, Samuel R. Bowman, Zac Hatfield-Dodds, Ben Mann, Dario Amodei, Nicholas Joseph, Sam McCandlish, Tom Brown, and Jared Kaplan. Constitutional AI: Harmlessness from AI feedback. arXiv preprint arXiv:2212.08073, 2022. Ivana Balažević, Yuge Shi, Pinelopi Papalampidi, Rahma Chaabouni, Skanda Koppula, and Olivier J Hénaff. Memory consolidation enables long-context video understanding. arXiv preprint arXiv:2402.05861, 2024. Suzanna Becker and Yann LeCun. Improving the convergence of back-propagation learning w",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gemini-1-5",
+      "Cited": "llama",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2403.05530",
+      "Evidence": "ée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurelien Rodriguez, Armand Joulin, Edouard Grave, and Guillaume Lample. Llama: Open and efficient foundation language models. arXiv preprint arXiv:2302.13971, 2023a. 87 Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, Dan Bikel, Lukas Blecher, Cristian Canton Ferrer, Moya",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gemini-1-5",
+      "Cited": "gpt-4",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2403.05530",
+      "Evidence": "-Choo, Eric Wallace, Florian Tramèr, and Katherine Lee. Scalable extraction of training data from (production) language models, 2023. OpenAI. GPT-4 Technical Report. 2023a. OpenAI. GPT-4V(ision) System Card, 2023b. 84 Gemini 1.5: Unlocking multimodal understanding across millions of tokens of context OpenAI. Whisper, 2023. URL https://github.com/openai/whisper. Antonio Orvieto, Samuel L Smith, Albert Gu, Anushan Fernando, Caglar Gulcehre, R",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "gemini-1-5",
+      "Cited": "mixtral",
+      "Note": "Listed in the source bibliography.",
+      "SourceUrl": "https://arxiv.org/pdf/2403.05530",
+      "Evidence": "oine Roux, Arthur Mensch, Blanche Savary, Chris Bamford, Devendra Singh Chaplot, Diego de las Casas, Emma Bou Hanna, Florian Bressand, et al. Mixtral of experts. arXiv preprint arXiv:2401.04088, 2024. Zhengbao Jiang, Luyu Gao, Zhiruo Wang, Jun Araki, Haibo Ding, Jamie Callan, and Graham Neubig. Retrieval as attention: End-to-end learning of retrieval and reading within a single transformer. In Yoav Goldberg, Zornitsa Kozareva, an",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "teachable-language-comprehender",
+      "Cited": "semantic-memory",
+      "Note": "Publisher-deposited reference 11 cites the 1968 Semantic Information Processing chapter. The Atlas entry dates the original 1966 thesis.",
+      "SourceUrl": "https://api.crossref.org/works/10.1145/363196.363214",
+      "Evidence": "1950 . PIAGET, J. The Psyehology of Intelligence. Routledge and Kegan Paul, London, 1950. 11. QUILLIAN M. R.. 1968. QUILLIAN , M. R. Semantic Memory . In Semantic Information Processing, M. Minsky , The MIT Press , Cambridge, Mass ., 1968 . QUILLIAN, M. R. Semantic Memory. In Semantic Information Processing, M. Minsky, The MIT Press, Cambridge, Mass., 1968. 12. 10.1002/bs.3830120511 13. 1965. Word concepts The programable Piaget",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "transformer",
+      "Cited": "lstm",
+      "Note": "Reference 13 cites Hochreiter and Schmidhuber, Neural Computation 9(8), 1997.",
+      "SourceUrl": "https://arxiv.org/pdf/1706.03762",
+      "Evidence": "Gradient flow in recurrent nets: the difficulty of learning long-term dependencies, 2001. [13] Sepp Hochreiter and Jürgen Schmidhuber. Long short-term memory. Neural computation, 9(8):1735–1780, 1997. [14] Zhongqiang Huang and Mary Harper. Self-training PCFG grammars with latent annotations across languages. In Proceedings of the 2009 Conference on Empirical Methods in Natural Language Processing, pages 832–841. ACL, August 2009. [15] R",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "ddpm",
+      "Cited": "gans",
+      "Note": "Reference 14 cites the 2014 conference paper under its title Generative Adversarial Nets.",
+      "SourceUrl": "https://arxiv.org/pdf/2006.11239",
+      "Evidence": "he IEEE/CVF Conference on Computer Vision and Pattern Recognition, pages 7518–7528, 2020. [14] Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, and Yoshua Bengio. Generative adversarial nets. In Advances in Neural Information Processing Systems, pages 2672–2680, 2014. [15] Anirudh Goyal, Nan Rosemary Ke, Surya Ganguli, and Yoshua Bengio. Variational walkback: Learning a trans",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "tensorflow",
+      "Cited": "gans",
+      "Note": "Reference 25 cites the 2014 conference paper under its title Generative Adversarial Nets.",
+      "SourceUrl": "https://arxiv.org/pdf/1605.08695",
+      "Evidence": "s. Neural Networks, 64:49–58, 2015. re- search.google.com/en//pubs/archive/42929.pdf. [25] I. J. Goodfellow, J. Pouget-Abadie, M. Mirza, B. Xu, D. Warde-Farley, S. Ozair, A. C. Courville, and Y. Bengio. Generative adversarial nets. In Advances in Neural Information Processing Systems 27: Annual Conference on Neural Information Processing Systems 2014, December 8-13 2014, Montreal, Quebec, Canada, pages 2672– 2680, 2014. papers.nips.c",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "hopfield",
+      "Cited": "mcculloch-pitts",
+      "Note": "Reference 12 cites McCulloch and Pitts (1943), Bulletin of Mathematical Biophysics 5, 115-133.",
+      "SourceUrl": "https://authors.library.caltech.edu/records/w41x7-8bn13/files/HOPpnas82.pdf?download=1",
+      "Evidence": "nt Addressable Memories (Springer, New York). 11. Palm, G. (1980) Biol Cybern. 36, 19-31. 12. McCulloch, W. S. & Pitts, W. (1943) BulL Math Biophys. 5, 115-133. 13. Minsky, M. & Papert, S. (1969) Perceptrons: An Introduction to Computational Geometry (MIT Press, Cambridge, MA). 14. Rosenblatt, F. (1962) Principles of Perceptrons (Spartan, Washington, DC). 15. Cooper, L. N. (1973) in Proceedings of the Nobel Symposium on Collectiv",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "backpropagation",
+      "Cited": "perceptrons",
+      "Note": "Reference 2 cites Minsky and Papert, Perceptrons (MIT, 1969).",
+      "SourceUrl": "https://www.nature.com/articles/323533a0",
+      "Evidence": "1. Rosenblatt, F. Principles of Neurodynamics (Spartan, Washington, DC, 1961). 2. Minsky, M. L. & Papert, S. Perceptrons (MIT, Cambridge, 1969). 3. Le Cun, Y. Proc. Cognitiva 85, 599–604 (1985). 4. Rumelhart, D. E., Hinton, G. E. & Williams, R. J. in Parallel Distributed Processing: Explorations in the Microstructure of Cognition. Vol. 1: Foundations (eds Rumelhart, D. E. & McClelland, J. L.) 318–362 (MIT, Cambridge, 1986).",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "universal-approximation",
+      "Cited": "perceptrons",
+      "Note": "Cites Minsky and Papert (1969), Perceptrons. The extracted title has an OCR spelling error.",
+      "SourceUrl": "https://cognitivemedium.com/magic_paper/assets/Hornik.pdf",
+      "Evidence": "J. Denker (Ed.), Neural networks for computing. New York: American Institute of Physics. Minsky, M., & Papert, S. (1969). Perceprrons. Cambridge: MIT Press. Rudin. W. (1964). Principles of mathematrcal analysts. New York: McGraw-Hill. Severini, J. A., & Wang, W. H. (1987). C.‘onvergence rates of maximum likelihood and related estimates in general parameter vpaces (Working Paper). Chicago. IL: l!niversity of Chicago Department of Statis",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "finite-state-recurrent-networks",
+      "Cited": "backpropagation",
+      "Note": "Cites Rumelhart, Hinton and Williams (1986), Nature 323, 533-536, using a variant title. The publisher DOI resolves to the original Atlas paper.",
+      "SourceUrl": "https://consciousbrain.ulb.ac.be/uploads/2015/11/89-nc.pdf",
+      "Evidence": ". Implicit learning of artificial grammars. I. Verbal Leartiing Verbal Behau. 5, 855-863. Rumelhart, D.E., Hinton, G.E., and Williams, R.J. 1986. Learning internal rep- resentations by backpropagating errors. Nature (London) 323,533-536. Sejnowski,T.J.,and Rosenberg, C. 1986. NETtalk: A Parallel Network That Learns to Read Aloud. Tech. Rep. JHU-EECS-86-01,Johns Hopkins University. Servan-Schreiber, D., Cleeremans, A,, and McClellan",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "support-vector-networks",
+      "Cited": "backpropagation",
+      "Note": "Cites Rumelhart, Hinton and Williams (1986), Nature 323, 533-536, using a variant title. The separately listed PDP chapter is a different work.",
+      "SourceUrl": "https://link.springer.com/article/10.1007/BF00994018",
+      "Evidence": "ambridge, MA. Rosenblatt, F. (1962).Principles of Neurodynamics, Spartan Books, New York. Rumelhart, D.E., Hinton, G.E., & Williams, R.J. (1986). Learning internal representations by backpropagating errors.Nature, 323:533–536. Rumelhart, D.E., Hinton, G.E., & Williams, R.J. (1987). Learning internal representations by error propagation. In James L. McClelland & David E. Rumelhart (Eds.),Parallel Distributed Processing, 1, 318–362, MIT Press. Vapnik, V.N. (1982).Estimati",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "word2vec",
+      "Cited": "backpropagation",
+      "Note": "Reference 26 cites Rumelhart, Hinton and Williams (1986), Nature 323, 533-536, using a variant title.",
+      "SourceUrl": "https://arxiv.org/pdf/1301.3781",
+      "Evidence": "orin, Y. Bengio. Hierarchical Probabilistic Neural Network Language Model. AISTATS, 2005. [26] D. E. Rumelhart, G. E. Hinton, R. J. Williams. Learning internal representations by backpropagating errors. Nature, 323:533.536, 1986. [27] H. Schwenk. Continuous space language models. Computer Speech and Language, vol. 21, 2007. [28] R. Socher, E.H. Huang, J. Pennington, A.Y. Ng, and C.D. Manning. Dynamic Pooling and Unfolding Recursive Auto",
+      "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "samenlaq-ii",
+      "Cited": "sir",
+      "Note": "Reference 8 cites the 1964 MIT thesis by Raphael using the shortened title Semantic Information Retrieval.",
+      "SourceUrl": "https://www.ijcai.org/Proceedings/69/Papers/034.pdf",
+      "Evidence": "Also AFCRL-66- 189, Bolt Beranek and Newman, I n c . , Cambridge, Massachusetts, 1966. 8. Raphael, B., Semantic Information Retrie­ val, unpublished Ph.D. dissertation, Massachusetts Institute of Technology, Cambridge, Massachusetts, 1964. Also TR-2, Project MAC, Massachusetts Institute of Technology, Cambridge Massachusetts, 1964. 9. Shapiro, S. C, A Memory Net- Structure: Present Implementation and a Proposed Lan",
+      "Verification": "reviewed-bibliography-reference"
+    }
+  ]
+}

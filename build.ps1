@@ -1,9 +1,23 @@
 $ErrorActionPreference = 'Stop'
 $siteRoot = $PSScriptRoot
-$releaseVersion = '14'
-$publishedAtUtc = '2026-09-16T22:18:46Z'
+$releaseVersion = '15'
+$publishedAtUtc = '2026-09-16T22:52:08Z'
 $publishDateLabel = [datetimeoffset]::Parse($publishedAtUtc, [Globalization.CultureInfo]::InvariantCulture).ToUniversalTime().ToString("d MMMM yyyy, HH:mm:ss 'UTC'", [Globalization.CultureInfo]::InvariantCulture)
 $entries = (Import-PowerShellDataFile (Join-Path $siteRoot 'research.psd1')).Entries
+$bibliographyIndex = Get-Content (Join-Path $siteRoot 'bibliography-index.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+$citationGraph = Get-Content (Join-Path $siteRoot 'citation-links.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+$entryBySlug=@{}; $bibliographyBySlug=@{}; $edgeKeys=@{}
+foreach($entry in $entries){$entryBySlug[$entry.Slug]=$entry}
+foreach($record in $bibliographyIndex.Entries){
+  if(-not $entryBySlug.ContainsKey($record.Slug) -or $bibliographyBySlug.ContainsKey($record.Slug)){throw ('Invalid bibliography entry: '+$record.Slug)}
+  $bibliographyBySlug[$record.Slug]=$record
+}
+if($bibliographyBySlug.Count -ne $entries.Count){throw 'Every Atlas entry requires a bibliography coverage record.'}
+foreach($edge in $citationGraph.Links){
+  $key=$edge.Citing+'|'+$edge.Cited
+  if(-not $entryBySlug.ContainsKey($edge.Citing) -or -not $entryBySlug.ContainsKey($edge.Cited) -or $edge.Citing -eq $edge.Cited -or $edgeKeys.ContainsKey($key) -or -not $edge.Evidence -or $edge.SourceUrl -notmatch '^https://'){throw ('Invalid citation: '+$key)}
+  $edgeKeys[$key]=$true
+}
 $eras = @(
   @{Id='foundations'; Name='Foundations & symbolic beginnings'; Range='1943–1966'},
   @{Id='representations'; Name='Knowledge, memory & learning'; Range='1968–1990'},
@@ -15,6 +29,14 @@ $eras = @(
   @{Id='foundation-models'; Name='Multimodal & reasoning models'; Range='2023–2025'}
 )
 function EscapeHtml([string]$value) { [System.Net.WebUtility]::HtmlEncode($value) }
+function Get-CitationList($edges,[string]$targetField,[string]$emptyText){
+  if(-not @($edges).Count){return '<p>'+ $emptyText +'</p>'}
+  $items=foreach($edge in $edges | Sort-Object { $entryBySlug[$_.$targetField].Year },{ $entryBySlug[$_.$targetField].Paper }){
+    $target=$entryBySlug[$edge.$targetField]
+    '<li><a href="/entries/'+$target.Slug+'/">'+(EscapeHtml $target.Paper)+' ('+$target.Year+')</a><p class="small">'+(EscapeHtml $edge.Note)+' <a href="'+(EscapeHtml $edge.SourceUrl)+'">Check the reference list</a>.</p></li>'
+  }
+  '<ul class="citation-list">'+($items -join '')+'</ul>'
+}
 function Get-TagId([string]$label) { ($label.ToLowerInvariant() -replace '[^a-z0-9]+','-').Trim('-') }
 $tagCatalog = @{}
 foreach($entry in $entries) {
@@ -80,16 +102,22 @@ for($i=0;$i -lt $entries.Count;$i++) {
   $second=if($entry.SecondUrl){'<li><a href="'+(EscapeHtml $entry.SecondUrl)+'">'+(EscapeHtml $entry.SecondLabel)+' <span aria-hidden="true">↗</span></a></li>'}else{''}
   $prev=if($i -gt 0){$p=$entries[$i-1];'<a href="/entries/'+$p.Slug+'/"><span>Previous · '+$p.Year+'</span>'+(EscapeHtml $p.Title)+'</a>'}else{'<a href="/"><span>Explore</span>Back to the timeline</a>'}
   $next=if($i -lt $entries.Count-1){$n=$entries[$i+1];'<a class="next" href="/entries/'+$n.Slug+'/"><span>Next · '+$n.Year+'</span>'+(EscapeHtml $n.Title)+'</a>'}else{'<a class="next" href="/"><span>Explore</span>Return to the timeline</a>'}
-  $lineage=''
-  if($entry.CitedBy) {
-    $items=foreach($citation in $entry.CitedBy) {
-      $citing=@($entries | Where-Object { $_.Slug -eq $citation.Entry })
-      if($citing.Count -ne 1) { throw ('Unknown citing entry: '+$citation.Entry) }
-      $evidence=if($citation.SourceUrl){' <a href="'+(EscapeHtml $citation.SourceUrl)+'">Check the reference list</a>.'}else{''}
-      '<li><a href="/entries/'+$citing[0].Slug+'/">'+(EscapeHtml $citing[0].Title)+' ('+$citing[0].Year+')</a>. '+(EscapeHtml $citation.Note)+$evidence+'</li>'
+  $incoming=@($citationGraph.Links | Where-Object Cited -EQ $entry.Slug)
+  $outgoing=@($citationGraph.Links | Where-Object Citing -EQ $entry.Slug)
+  $citedBy=Get-CitationList $incoming 'Citing' 'No Atlas entries are currently recorded as citing this work.'
+  $citations=Get-CitationList $outgoing 'Cited' 'No references to other Atlas entries have been recorded for this work yet.'
+  $record=$bibliographyBySlug[$entry.Slug]
+  $coverage=switch($record.Status){'indexed'{'Reference section indexed'};'partial'{'Partial reference record'};'unavailable'{'Bibliography not yet available'};'no-formal-bibliography'{'No formal bibliography located'};default{throw ('Unknown coverage status: '+$record.Status)}}
+  $notes=(@($record.Notes) | ForEach-Object {'<p class="small">'+(EscapeHtml $_)+'</p>'}) -join ''
+  $referenceText=''
+  if(@($record.Sections).Count){
+    $parts=foreach($part in $record.Sections){
+      $pageLabel=if(@($part.PdfPages).Count){' (PDF pages '+(@($part.PdfPages) -join ', ')+')'}else{''}
+      '<h3>'+ (EscapeHtml ($part.Section+$pageLabel)) +'</h3><div class="bibliography-text">'+(EscapeHtml ($part.Text -replace '\f',"`n"))+'</div>'
     }
-    $lineage='<section aria-labelledby="cited-by-title"><h2 id="cited-by-title">Cited by later work in the Atlas</h2><ul>'+($items -join '')+'</ul><p class="small">These are verified references to the work or the publication version noted above. A citation alone does not establish that the later system implements the same method.</p></section>'
+    $referenceText='<details class="bibliography"><summary>Read the indexed bibliography</summary>'+($parts -join '')+'</details>'
   }
+  $lineage='<div class="atlas-citations reading"><section aria-labelledby="cited-by-title"><h2 id="cited-by-title">Cited By</h2><p>Atlas entries whose reference lists cite this work or the publication version noted below.</p>'+$citedBy+'</section><section aria-labelledby="citations-title"><h2 id="citations-title">Citations</h2><p>Works in the Atlas cited by this entry.</p>'+$citations+'<p class="bibliography-coverage"><strong>Bibliography coverage:</strong> '+$coverage+'. <a href="'+(EscapeHtml $record.SourceUrl)+'">Open the source</a>.</p>'+$notes+$referenceText+'<p class="small"><a href="/bibliography-index.json" download>Download the bibliography index</a> · <a href="/citation-links.json" download>Download Atlas citation links</a></p></section><p class="small">These links cover verified matches within the Atlas. They are not total scholarly citation counts. A citation alone does not establish that the later system implements the same method.</p></div>'
   $content=@"
 <main id="main" class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/#$($era.Id)">Timeline</a><span aria-hidden="true">/</span><span aria-current="page">$($entry.Year)</span></nav><article><header class="detail-hero"><div class="detail-year"><time datetime="$($entry.Year)">$($entry.Year)</time><span>$(EscapeHtml $entry.Kind)</span></div><div><p class="kicker">$(EscapeHtml $entry.Topic)</p><h1>$(EscapeHtml $entry.Title)</h1><p class="detail-lede">$(EscapeHtml $entry.Summary)</p><p class="authors">$(EscapeHtml $entry.Authors)</p></div></header><div class="detail-body"><div class="reading"><h2>The contribution</h2><p>$(EscapeHtml $entry.Description)</p><section class="boundary" aria-labelledby="boundary-title"><h2 id="boundary-title">What this does not establish</h2><p>$(EscapeHtml $entry.Caveat)</p></section><h2>Why this date?</h2><p>$(EscapeHtml $entry.DateNote)</p><p class="small">This entry follows the linked publication. <a href="/#methodology">Read the source and date conventions.</a></p></div><aside class="publication" aria-labelledby="publication-title"><h2 id="publication-title">The original work</h2><p class="paper-title">$(EscapeHtml $entry.Paper)</p><dl><dt>Authors</dt><dd>$(EscapeHtml $entry.Authors)</dd><dt>Publication</dt><dd>$(EscapeHtml $entry.Venue)</dd><dt>Source type</dt><dd>$(EscapeHtml $entry.Kind)</dd></dl><ul class="source-links"><li><a href="$(EscapeHtml $entry.Url)">$(EscapeHtml $entry.LinkLabel) <span aria-hidden="true">↗</span></a></li>$second</ul><p class="source-note">The links above support the description and dating of this entry. Full text may be open or publisher-restricted.</p></aside></div></article><nav class="detail-pagination" aria-label="Adjacent timeline entries">$prev$next</nav></main>
 "@
@@ -97,7 +125,7 @@ for($i=0;$i -lt $entries.Count;$i++) {
     $explore='<div class="source-links"><h3>Explore further</h3><p><a href="'+(EscapeHtml $entry.ExploreUrl)+'">'+(EscapeHtml $entry.ExploreLabel)+'</a></p></div>'
     $content=$content.Replace('</aside>', $explore+'</aside>')
   }
-  if($lineage) { $content=$content.Replace('<p class="small">This entry follows', $lineage+'<p class="small">This entry follows') }
+  $content=$content.Replace('</article>', '</article>'+$lineage)
   $tagCloud='<section class="entry-topics" aria-labelledby="entry-topics-title"><div><h2 id="entry-topics-title">AI topics</h2><p>Explore related entries. Larger tags appear on more entries.</p></div><nav class="topic-cloud" aria-label="AI topics">'+(Get-TagLinks $entry.Tags)+'</nav></section>'
   $content=$content.Replace('</header><div class="detail-body">', '</header>'+$tagCloud+'<div class="detail-body">')
   Save-Page ('entries/'+$entry.Slug+'/index.html') $entry.Title $entry.Summary $content
