@@ -5,8 +5,8 @@ import worker from '../dist/server/index.js';
 const html=[];
 function walk(path) {for(const entry of readdirSync(path,{withFileTypes:true})) {if(['server','.openai'].includes(entry.name))continue;const p=path+'/'+entry.name;if(entry.isDirectory())walk(p);else if(p.endsWith('.html'))html.push(p);}}
 walk('dist');
-test('75 documents retain valid local links, unique headings/IDs, and clean encoding',()=>{
-  assert.equal(html.length,75); let checked=0;
+test('76 documents retain valid local links, unique headings/IDs, and clean encoding',()=>{
+  assert.equal(html.length,76); let checked=0;
   for(const path of html) {
     const content=readFileSync(path,'utf8');
     assert.equal([...content.matchAll(/<h1(?:\s|>)/g)].length,1,path);
@@ -33,15 +33,20 @@ test('all 67 entry pages have independent comments and top-level OpenAI sign-in 
     assert.match(content,/Submit for approval/);
   }
 });
-test('welcome has seven narrative chapters and working research links',()=>{
+test('welcome introduces the precursors and seven research chapters',()=>{
   const content=readFileSync('dist/index.html','utf8');
-  assert.equal([...content.matchAll(/<section id=/g)].length,7);
+  assert.equal([...content.matchAll(/<section id=/g)].length,8);
+  assert.ok(content.indexOf('id="before-the-research"') < content.indexOf('id="early-questions"'));
+  assert.match(content,/href="\/precursors\/"/);
+  const timeline=readFileSync('dist/timeline/index.html','utf8');
+  assert.match(timeline,/id="precursor-title">Precursor to AI<\/h2>/);
+  assert.match(timeline,/href="\/precursors\/"/);
   assert.ok([...content.matchAll(/href="\/entries\//g)].length>=30);
   assert.match(content,/aria-current="page">Welcome/);assert.match(content,/href="\/timeline\/">/);
 });
 test('built artifact exports a callable Worker and serves public pages',async()=>{
   assert.equal(typeof worker.fetch,'function');
-  for(const path of ['/','/welcome/','/timeline/','/entries/mcculloch-pitts/','/entries/the-ai-toy/','/entries/deepseek-r1/','/comments.js']) {
+  for(const path of ['/','/welcome/','/timeline/','/precursors/','/entries/mcculloch-pitts/','/entries/the-ai-toy/','/entries/deepseek-r1/','/comments.js']) {
     const response=await worker.fetch(new Request('https://atlas.example'+path),{});assert.equal(response.status,200,path);
   }
   assert.equal((await worker.fetch(new Request('https://atlas.example/no-such-page'),{})).status,404);

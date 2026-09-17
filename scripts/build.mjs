@@ -23,6 +23,8 @@ function enhance(html) {
     .replace('</body>', '<a class="return-to-top" href="#page-top" aria-label="Return to top" title="Return to top"><span aria-hidden="true">↑</span></a><script src="/navigation.js" defer></script><script src="/comments.js" defer></script></body>');
 }
 const timeline = enhance(readFileSync('dist/index.html','utf8')).replace('<a href="/timeline/">Timeline</a>', '<a href="/timeline/" aria-current="page">Timeline</a>')
+  .replace('<section class="topic-filter"', readFileSync('precursor-timeline.html','utf8') + '<section class="topic-filter"')
+  .replace('<p class="nav-label">Explore the timeline</p><ol>', '<p class="nav-label">Explore the timeline</p><ol><li><a href="#precursor-to-ai"><span>1816–1899</span>Precursor to AI</a></li>')
   .replace('</body>', '<script src="/topics.js" defer></script></body>');
 mkdirSync('dist/timeline',{recursive:true}); writeFileSync('dist/timeline/index.html',timeline);
 const shell = enhance(readFileSync('dist/index.html','utf8'));
@@ -37,6 +39,10 @@ const welcome = withMain(readFileSync('welcome.html','utf8'), 'Welcome: a plain-
   .replace('</body>', '<script src="/welcome.js" defer></script></body>');
 writeFileSync('dist/index.html',welcome);
 mkdirSync('dist/welcome',{recursive:true}); writeFileSync('dist/welcome/index.html',welcome);
+mkdirSync('dist/precursors',{recursive:true});
+const precursors = withMain(readFileSync('precursors.html','utf8'), 'Literary and philosophical precursors', 'Explore The Sandman, Erewhon, and Moxon’s Master: nineteenth-century ideas about artificial beings, machine intelligence, and human control.')
+  .replace(/<a href="https?:\/\/[^\"]+"/g, '$& target="_blank" rel="noopener noreferrer"');
+writeFileSync('dist/precursors/index.html',precursors);
 writeFileSync('dist/welcome.js', `const oldSections = new Set(['foundations','representations','learning-at-scale','deep-learning','transformers','scale-and-generation','alignment-and-reasoning','foundation-models','methodology']);\nif (oldSections.has(location.hash.slice(1))) location.replace('/timeline/' + location.hash);\n`);
 for (const entry of entries) {
   const file = 'dist/entries/' + entry + '/index.html';
