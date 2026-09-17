@@ -52,13 +52,36 @@ test('all reviewed relationships appear in both directions and preserve the orig
     assert.ok(!citations.includes(slug) && !citedBy.includes(slug), `${slug}: self link`);
     forward += citations.length; reverse += citedBy.length;
   }
-  assert.equal(forward, 156); assert.equal(reverse, forward);
+  assert.equal(forward, 159); assert.equal(reverse, forward);
   assert.ok(targets('student', 'citations').includes('sir'));
   assert.ok(targets('finite-state-recurrent-networks', 'citations').includes('backpropagation'));
-  for (const slug of ['lisp', 'sir', 'theorem-proving-question-answering']) {
-    assert.ok(!targets(slug, 'citations').includes('logic-theory-machine'), 'Do not conflate distinct 1957 papers with the 1956 report');
-  }
   assert.ok(!targets('dynamic-error-propagation', 'citations').includes('backpropagation'), 'The PDP chapter is not the Nature paper');
+});
+
+test('Logic Theory Machine connections identify the related 1957 papers in both directions', () => {
+  const slugs = ['lisp', 'sir', 'theorem-proving-question-answering'];
+  assert.deepEqual(targets('logic-theory-machine', 'cited-by').sort(), [...slugs].sort());
+  const incoming = section('logic-theory-machine', 'cited-by');
+  assert.match(incoming, /1957/);
+  assert.match(incoming, /not direct citations to the 1956 report/);
+  for (const slug of slugs) {
+    assert.ok(targets(slug, 'citations').includes('logic-theory-machine'), slug);
+    const link = graph.Links.find(edge => edge.Citing === slug && edge.Cited === 'logic-theory-machine');
+    assert.equal(link.Relationship, 'related-system-publication', slug);
+    assert.equal(link.CitedPublication.Year, 1957, slug);
+    assert.match(link.CitedPublication.Title, /logic theory machine/i, slug);
+    assert.match(link.Note, /1956/);
+    assert.match(link.SourceUrl, /#page=\d+$/);
+    const outgoing = section(slug, 'citations');
+    for (const content of [incoming, outgoing]) {
+      assert.match(content, /Related paper about this system/);
+      assert.ok(content.includes(link.SourceUrl), `${slug}: missing evidence link`);
+    }
+  }
+  assert.equal(graph.Links.filter(edge => edge.Relationship === 'related-system-publication').length, 3);
+  assert.equal(graph.Links.filter(edge => edge.Relationship !== 'related-system-publication').length, 156);
+  assert.match(pages.get('logic-theory-machine'), /RAND report P-868/);
+  assert.match(pages.get('logic-theory-machine'), /12 July 1956/);
 });
 
 test('empty citation sections describe recording coverage and both directions retain evidence and version notes', () => {

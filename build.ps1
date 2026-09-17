@@ -1,7 +1,7 @@
 $ErrorActionPreference = 'Stop'
 $siteRoot = $PSScriptRoot
-$releaseVersion = '18'
-$publishedAtUtc = '2026-09-17T00:11:35Z'
+$releaseVersion = '19'
+$publishedAtUtc = '2026-09-17T00:50:32Z'
 $publishDateLabel = [datetimeoffset]::Parse($publishedAtUtc, [Globalization.CultureInfo]::InvariantCulture).ToUniversalTime().ToString("d MMMM yyyy, HH:mm:ss 'UTC'", [Globalization.CultureInfo]::InvariantCulture)
 $entries = (Import-PowerShellDataFile (Join-Path $siteRoot 'research.psd1')).Entries
 $bibliographyIndex = Get-Content (Join-Path $siteRoot 'bibliography-index.json') -Raw -Encoding UTF8 | ConvertFrom-Json
@@ -33,7 +33,9 @@ function Get-CitationList($edges,[string]$targetField,[string]$emptyText){
   if(-not @($edges).Count){return '<p>'+ $emptyText +'</p>'}
   $items=foreach($edge in $edges | Sort-Object { $entryBySlug[$_.$targetField].Year },{ $entryBySlug[$_.$targetField].Paper }){
     $target=$entryBySlug[$edge.$targetField]
-    '<li><a href="/entries/'+$target.Slug+'/">'+(EscapeHtml $target.Paper)+' ('+$target.Year+')</a><p class="small">'+(EscapeHtml $edge.Note)+' <a href="'+(EscapeHtml $edge.SourceUrl)+'">Check the reference list</a>.</p></li>'
+    $relationshipLabel=if($edge.Relationship -eq 'related-system-publication'){'<strong>Related paper about this system.</strong> '}else{''}
+    $bodyLink=if($edge.BodySourceUrl){' <a href="'+(EscapeHtml $edge.BodySourceUrl)+'">Read the source passage</a>.'}else{''}
+    '<li><a href="/entries/'+$target.Slug+'/">'+(EscapeHtml $target.Paper)+' ('+$target.Year+')</a><p class="small">'+$relationshipLabel+(EscapeHtml $edge.Note)+' <a href="'+(EscapeHtml $edge.SourceUrl)+'">Check the reference list</a>.'+$bodyLink+'</p></li>'
   }
   '<ul class="citation-list">'+($items -join '')+'</ul>'
 }
@@ -117,7 +119,9 @@ for($i=0;$i -lt $entries.Count;$i++) {
     }
     $referenceText='<details class="bibliography"><summary>Read the indexed bibliography</summary>'+($parts -join '')+'</details>'
   }
-  $lineage='<div class="atlas-citations reading"><section aria-labelledby="cited-by-title"><h2 id="cited-by-title">Cited By</h2><p>Atlas entries whose reference lists cite this work or the publication version noted below.</p>'+$citedBy+'</section><section aria-labelledby="citations-title"><h2 id="citations-title">Citations</h2><p>Works in the Atlas cited by this entry.</p>'+$citations+'<p class="bibliography-coverage"><strong>Bibliography coverage:</strong> '+$coverage+'. <a href="'+(EscapeHtml $record.SourceUrl)+'">Open the source</a>.</p>'+$notes+$referenceText+'<p class="small"><a href="/bibliography-index.json" download>Download the bibliography index</a> · <a href="/citation-links.json" download>Download Atlas citation links</a></p></section><p class="small">These links cover verified matches within the Atlas. They are not total scholarly citation counts. A citation alone does not establish that the later system implements the same method.</p></div>'
+  $incomingDescription=if(@($incoming | Where-Object Relationship -eq 'related-system-publication').Count){'Atlas entries that reference this system. The related 1957 papers are identified below; these are not direct citations to the 1956 report.'}else{'Atlas entries whose reference lists cite this work or the publication version noted below.'}
+  $outgoingDescription=if(@($outgoing | Where-Object Relationship -eq 'related-system-publication').Count){'Works and systems referenced by this entry. Related publications are identified below.'}else{'Works in the Atlas cited by this entry.'}
+  $lineage='<div class="atlas-citations reading"><section aria-labelledby="cited-by-title"><h2 id="cited-by-title">Cited By</h2><p>'+$incomingDescription+'</p>'+$citedBy+'</section><section aria-labelledby="citations-title"><h2 id="citations-title">Citations</h2><p>'+$outgoingDescription+'</p>'+$citations+'<p class="bibliography-coverage"><strong>Bibliography coverage:</strong> '+$coverage+'. <a href="'+(EscapeHtml $record.SourceUrl)+'">Open the source</a>.</p>'+$notes+$referenceText+'<p class="small"><a href="/bibliography-index.json" download>Download the bibliography index</a> · <a href="/citation-links.json" download>Download Atlas citation links</a></p></section><p class="small">These links cover verified matches within the Atlas. They are not total scholarly citation counts. A citation alone does not establish that the later system implements the same method.</p></div>'
   $content=@"
 <main id="main" class="wrap"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="/#$($era.Id)">Timeline</a><span aria-hidden="true">/</span><span aria-current="page">$($entry.Year)</span></nav><article><header class="detail-hero"><div class="detail-year"><time datetime="$($entry.Year)">$($entry.Year)</time><span>$(EscapeHtml $entry.Kind)</span></div><div><p class="kicker">$(EscapeHtml $entry.Topic)</p><h1>$(EscapeHtml $entry.Title)</h1><p class="detail-lede">$(EscapeHtml $entry.Summary)</p><p class="authors">$(EscapeHtml $entry.Authors)</p></div></header><div class="detail-body"><div class="reading"><h2>The contribution</h2><p>$(EscapeHtml $entry.Description)</p><section class="boundary" aria-labelledby="boundary-title"><h2 id="boundary-title">What this does not establish</h2><p>$(EscapeHtml $entry.Caveat)</p></section><h2>Why this date?</h2><p>$(EscapeHtml $entry.DateNote)</p><p class="small">This entry follows the linked publication. <a href="/#methodology">Read the source and date conventions.</a></p></div><aside class="publication" aria-labelledby="publication-title"><h2 id="publication-title">The original work</h2><p class="paper-title">$(EscapeHtml $entry.Paper)</p><dl><dt>Authors</dt><dd>$(EscapeHtml $entry.Authors)</dd><dt>Publication</dt><dd>$(EscapeHtml $entry.Venue)</dd><dt>Source type</dt><dd>$(EscapeHtml $entry.Kind)</dd></dl><ul class="source-links"><li><a href="$(EscapeHtml $entry.Url)">$(EscapeHtml $entry.LinkLabel) <span aria-hidden="true">↗</span></a></li>$second</ul><p class="source-note">The links above support the description and dating of this entry. Full text may be open or publisher-restricted.</p></aside></div></article><nav class="detail-pagination" aria-label="Adjacent timeline entries">$prev$next</nav></main>
 "@

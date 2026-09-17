@@ -1,7 +1,7 @@
 {
   "SchemaVersion": 1,
-  "ReviewedAtUtc": "2026-09-17T00:09:07.2610287Z",
-  "Scope": "Verified citations between current Atlas entries, including explicitly noted publication versions. Not an exhaustive citation count for a work.",
+  "ReviewedAtUtc": "2026-09-17T00:51:46.9819535Z",
+  "Scope": "Verified citations between current Atlas entries, including explicitly noted publication versions, plus explicitly typed related-system-publication connections. Related-system-publication links identify distinct papers about the same system and are not direct citations to the target entry's original report. Not an exhaustive citation count for a work.",
   "Links": [
     {
       "Citing": "perceptron",
@@ -1250,6 +1250,50 @@
       "SourceUrl": "https://link.springer.com/content/pdf/bbm%3A978-3-642-96552-4/1",
       "Evidence": "References 1.1 and 2.94: T. Kohonen, Associative Memory - A System-Theoretical Approach, Communication and Cybernetics 17, Springer, 1978.",
       "Verification": "recovered-bibliography-source-review"
+    },
+    {
+      "Citing": "lisp",
+      "Cited": "logic-theory-machine",
+      "Relationship": "related-system-publication",
+      "CitedPublication": {
+        "Title": "Programming the logic theory machine",
+        "Year": 1957,
+        "Authors": "A. Newell and J. C. Shaw"
+      },
+      "Note": "Reference 2 cites Newell and Shaw, Programming the logic theory machine (1957), a separate paper about this system, rather than the 1956 RAND report.",
+      "SourceUrl": "https://www-formal.stanford.edu/jmc/recursive.pdf#page=34",
+      "Evidence": "Author-hosted PDF, page 34, reference 2: A. Newell and J. C. Shaw, Programming the logic theory machine, Proc. Western Joint Computer Conference, Feb. 1957.",
+      "Verification": "source-page-visual-check-2026-09-17"
+    },
+    {
+      "Citing": "sir",
+      "Cited": "logic-theory-machine",
+      "Relationship": "related-system-publication",
+      "CitedPublication": {
+        "Title": "Empirical Explorations of the Logic Theory Machine: A Case Study in Heuristics",
+        "Year": 1957,
+        "Authors": "Allen Newell, J. C. Shaw and Herbert A. Simon"
+      },
+      "Note": "Page 117 discusses Newell and Simon's Logic Theorist. Reference 27 on page 144 cites Empirical Explorations of the Logic Theory Machine: A Case Study in Heuristics (1957), a separate paper from the 1956 RAND report.",
+      "SourceUrl": "https://bitsavers.trailing-edge.com/pdf/mit/ai/aim/AITR-220.pdf#page=144",
+      "BodySourceUrl": "https://bitsavers.trailing-edge.com/pdf/mit/ai/aim/AITR-220.pdf#page=117",
+      "Evidence": "Printed/PDF page 117 discusses the Logic Theorist (LT) with citation 27. Printed/PDF page 144, reference 27, identifies the 1957 WJCC paper.",
+      "Verification": "source-page-visual-check-2026-09-17"
+    },
+    {
+      "Citing": "theorem-proving-question-answering",
+      "Cited": "logic-theory-machine",
+      "Relationship": "related-system-publication",
+      "CitedPublication": {
+        "Title": "Empirical Explorations of the Logic Theory Machine: A Case Study in Heuristics",
+        "Year": 1957,
+        "Authors": "Allen Newell, J. C. Shaw and Herbert A. Simon"
+      },
+      "Note": "Page 173 compares VFIND's backward-chaining heuristic with the Logic Theory Machine. Reference 19 on page 181 cites Empirical Explorations of the Logic Theory Machine: A Case Study in Heuristics (1957), a separate paper from the 1956 RAND report.",
+      "SourceUrl": "https://www.kestrel.edu/people/green/publications/green-raphael.pdf#page=13",
+      "BodySourceUrl": "https://www.kestrel.edu/people/green/publications/green-raphael.pdf#page=5",
+      "Evidence": "Printed page 173 (PDF page 5) explicitly names the Logic Theory Machine and cites reference 19. Printed page 181 (PDF page 13) identifies the 1957 WJCC paper.",
+      "Verification": "source-page-visual-check-2026-09-17"
     }
   ]
 }
