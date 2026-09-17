@@ -5,8 +5,8 @@ import worker from '../dist/server/index.js';
 const html=[];
 function walk(path) {for(const entry of readdirSync(path,{withFileTypes:true})) {if(['server','.openai'].includes(entry.name))continue;const p=path+'/'+entry.name;if(entry.isDirectory())walk(p);else if(p.endsWith('.html'))html.push(p);}}
 walk('dist');
-test('76 documents retain valid local links, unique headings/IDs, and clean encoding',()=>{
-  assert.equal(html.length,76); let checked=0;
+test('77 documents retain valid local links, unique headings/IDs, and clean encoding',()=>{
+  assert.equal(html.length,77); let checked=0;
   for(const path of html) {
     const content=readFileSync(path,'utf8');
     assert.equal([...content.matchAll(/<h1(?:\s|>)/g)].length,1,path);
@@ -38,6 +38,7 @@ test('welcome introduces the precursors and seven research chapters',()=>{
   assert.equal([...content.matchAll(/<section id=/g)].length,8);
   assert.ok(content.indexOf('id="before-the-research"') < content.indexOf('id="early-questions"'));
   assert.match(content,/href="\/precursors\/"/);
+  assert.match(content,/href="\/literary-timeline\/"/);
   const timeline=readFileSync('dist/timeline/index.html','utf8');
   assert.match(timeline,/id="precursor-title">Precursor to AI<\/h2>/);
   assert.match(timeline,/href="\/precursors\/"/);
@@ -46,7 +47,7 @@ test('welcome introduces the precursors and seven research chapters',()=>{
 });
 test('built artifact exports a callable Worker and serves public pages',async()=>{
   assert.equal(typeof worker.fetch,'function');
-  for(const path of ['/','/welcome/','/timeline/','/precursors/','/entries/mcculloch-pitts/','/entries/the-ai-toy/','/entries/deepseek-r1/','/comments.js']) {
+  for(const path of ['/','/welcome/','/timeline/','/precursors/','/literary-timeline/','/entries/mcculloch-pitts/','/entries/the-ai-toy/','/entries/deepseek-r1/','/comments.js']) {
     const response=await worker.fetch(new Request('https://atlas.example'+path),{});assert.equal(response.status,200,path);
   }
   assert.equal((await worker.fetch(new Request('https://atlas.example/no-such-page'),{})).status,404);

@@ -11,7 +11,7 @@ const encoded = Buffer.from("$ErrorActionPreference='Stop'; [Console]::InputEnco
 execFileSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-EncodedCommand',encoded], {input:generator,encoding:'utf8',stdio:['pipe','pipe','pipe']});
 
 const entries = [...readFileSync('research.psd1','utf8').matchAll(/Slug='([^']+)'/g)].map(m => m[1]);
-const newNav = '<a href="/welcome/">Welcome</a><a href="/timeline/">Timeline</a><a href="/entries/the-ai-toy/">The AI Toy</a><a href="/submit/" target="_top">Submit a link</a><a href="/timeline/#methodology">About the sources</a>';
+const newNav = '<a href="/welcome/">Welcome</a><a href="/timeline/">Timeline</a><a href="/literary-timeline/">Books &amp; films</a><a href="/entries/the-ai-toy/">The AI Toy</a><a href="/submit/" target="_top">Submit a link</a><a href="/timeline/#methodology">About the sources</a>';
 function enhance(html) {
   return html.replace(/<nav class="topnav"[^>]*>[\s\S]*?<\/nav>/, '<nav class="topnav" aria-label="Main navigation">' + newNav + '</nav>')
     .replace('<header class="masthead">', '<header class="masthead" id="page-top" tabindex="-1">')
@@ -43,6 +43,11 @@ mkdirSync('dist/precursors',{recursive:true});
 const precursors = withMain(readFileSync('precursors.html','utf8'), 'Literary and philosophical precursors', 'Explore The Sandman, Erewhon, and Moxon’s Master: nineteenth-century ideas about artificial beings, machine intelligence, and human control.')
   .replace(/<a href="https?:\/\/[^\"]+"/g, '$& target="_blank" rel="noopener noreferrer"');
 writeFileSync('dist/precursors/index.html',precursors);
+mkdirSync('dist/literary-timeline',{recursive:true});
+const literaryTimeline = withMain(readFileSync('literary-timeline.html','utf8'), 'Automatons and AI in books and films', 'A separate cultural timeline of 30 significant books, stories, plays, and films about automatons and artificial intelligence, from 1816 to 2024.')
+  .replace('<a href="/literary-timeline/">Books &amp; films</a>', '<a href="/literary-timeline/" aria-current="page">Books &amp; films</a>')
+  .replace(/<a href="https?:\/\/[^\"]+"/g, '$& target="_blank" rel="noopener noreferrer"');
+writeFileSync('dist/literary-timeline/index.html',literaryTimeline);
 writeFileSync('dist/welcome.js', `const oldSections = new Set(['foundations','representations','learning-at-scale','deep-learning','transformers','scale-and-generation','alignment-and-reasoning','foundation-models','methodology']);\nif (oldSections.has(location.hash.slice(1))) location.replace('/timeline/' + location.hash);\n`);
 for (const entry of entries) {
   const file = 'dist/entries/' + entry + '/index.html';
