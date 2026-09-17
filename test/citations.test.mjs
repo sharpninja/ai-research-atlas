@@ -52,7 +52,7 @@ test('all reviewed relationships appear in both directions and preserve the orig
     assert.ok(!citations.includes(slug) && !citedBy.includes(slug), `${slug}: self link`);
     forward += citations.length; reverse += citedBy.length;
   }
-  assert.equal(forward, 148); assert.equal(reverse, forward);
+  assert.equal(forward, 156); assert.equal(reverse, forward);
   assert.ok(targets('student', 'citations').includes('sir'));
   assert.ok(targets('finite-state-recurrent-networks', 'citations').includes('backpropagation'));
   for (const slug of ['lisp', 'sir', 'theorem-proving-question-answering']) {
@@ -84,7 +84,7 @@ test('all 67 works have explicit bibliography coverage, source provenance and re
     if (['indexed', 'partial'].includes(entry.Status)) assert.ok(entry.Sections.some(section => section.Text.trim()), entry.Slug);
     assert.match(section(entry.Slug, 'citations'), /Bibliography coverage/);
   }
-  assert.deepEqual(counts, {indexed: 54, unavailable: 7, partial: 5, 'no-formal-bibliography': 1});
+  assert.deepEqual(counts, {indexed: 65, partial: 1, unavailable: 1});
   for (const [slug, pageCount] of [['student', 4], ['focused-backpropagation', 2], ['shrdlu', 5]]) {
     const entry = bibliography.Entries.find(entry => entry.Slug === slug);
     assert.equal(entry.OcrPages.length, pageCount);
@@ -108,4 +108,35 @@ test('all 67 works have explicit bibliography coverage, source provenance and re
 test('published bibliography and citation data match the reviewed sources', () => {
   assert.deepEqual(JSON.parse(readFileSync('dist/bibliography-index.json', 'utf8').replace(/^\uFEFF/, '')), bibliography);
   assert.deepEqual(JSON.parse(readFileSync('dist/citation-links.json', 'utf8').replace(/^\uFEFF/, '')), graph);
+});
+
+test('recovered bibliographies retain complete page boundaries, OCR receipts and edition provenance', () => {
+  const bySlug = new Map(bibliography.Entries.map(entry => [entry.Slug, entry]));
+  for (const slug of ['hebb', 'logic-theory-machine', 'semantic-memory', 'temporal-recall', 'perceptrons', 'teachable-language-comprehender', 'persistent-neural-states', 'associative-memory', 'content-addressable-memories', 'finding-structure-in-time', 'the-ai-toy']) {
+    assert.equal(bySlug.get(slug).Status, 'indexed', slug);
+  }
+  for (const [slug, first, last] of [['hebb', 328, 342], ['semantic-memory', 175, 184], ['finding-structure-in-time', 31, 33]]) {
+    const entry = bySlug.get(slug);
+    assert.deepEqual(entry.OcrPages.map(page => page.PdfPage), Array.from({length: last - first + 1}, (_, i) => first + i));
+    for (const page of entry.OcrPages) {
+      assert.equal(page.Receipt.Engine, 'Windows.Media.Ocr');
+      assert.match(page.Receipt.ImageSha256, /^[A-F0-9]{64}$/);
+      assert.match(page.Receipt.TextSha256, /^[A-F0-9]{64}$/);
+      assert.ok(page.Text.trim(), `${slug}: page ${page.PdfPage}`);
+    }
+  }
+  assert.match(bySlug.get('hebb').Sections[0].Text, /Adams/);
+  assert.match(bySlug.get('hebb').Sections[0].Text, /Zolling/);
+  assert.match(bySlug.get('semantic-memory').Sections[0].Text, /Banerji/);
+  assert.match(bySlug.get('semantic-memory').Sections[0].Text, /Comit Programmer/);
+  assert.match(bySlug.get('associative-memory').Sections[0].Text, /147/);
+  assert.match(bySlug.get('content-addressable-memories').Sections[0].Text, /6\.261/);
+  assert.equal(bySlug.get('teachable-language-comprehender').ReferenceCount, 22);
+  assert.equal(bySlug.get('temporal-recall').ReferenceCount, 4);
+  assert.equal(bySlug.get('persistent-neural-states').ReferenceCount, 12);
+  assert.match(bySlug.get('finding-structure-in-time').BibliographyEdition, /1990/);
+  assert.match(bySlug.get('perceptrons').BibliographyEdition, /1988.*1972/);
+  assert.match(bySlug.get('the-ai-toy').Sections[0].Text, /Wasserman/);
+  assert.ok(!targets('the-ai-toy', 'citations').includes('backpropagation'), 'PDP books are distinct from the Nature paper');
+  assert.ok(!targets('perceptrons', 'citations').includes('perceptron'), 'Rosenblatt 1959 and 1962 are distinct from his 1958 paper');
 });

@@ -1,6 +1,6 @@
 {
   "SchemaVersion": 1,
-  "ReviewedAtUtc": "2026-09-16T22:55:07.2317911Z",
+  "ReviewedAtUtc": "2026-09-17T00:09:07.2610287Z",
   "Scope": "Verified citations between current Atlas entries, including explicitly noted publication versions. Not an exhaustive citation count for a work.",
   "Links": [
     {
@@ -1186,6 +1186,70 @@
       "SourceUrl": "https://www.ijcai.org/Proceedings/69/Papers/034.pdf",
       "Evidence": "Also AFCRL-66- 189, Bolt Beranek and Newman, I n c . , Cambridge, Massachusetts, 1966. 8. Raphael, B., Semantic Information Retrie­ val, unpublished Ph.D. dissertation, Massachusetts Institute of Technology, Cambridge, Massachusetts, 1964. Also TR-2, Project MAC, Massachusetts Institute of Technology, Cambridge Massachusetts, 1964. 9. Shapiro, S. C, A Memory Net- Structure: Present Implementation and a Proposed Lan",
       "Verification": "reviewed-bibliography-reference"
+    },
+    {
+      "Citing": "semantic-memory",
+      "Cited": "student",
+      "Note": "The 1966 bibliography cites Bobrow's 1964 dissertation and Project MAC report.",
+      "SourceUrl": "https://archive.org/download/DTIC_AD0641671/DTIC_AD0641671.pdf",
+      "Evidence": "Printed page 166: Bobrow, D. G. Natural language input for a computer problem solving system. Unpublished PhD dissertation, MIT, 1964; Project MAC Report TR-1.",
+      "Verification": "recovered-bibliography-source-review"
+    },
+    {
+      "Citing": "perceptrons",
+      "Cited": "mcculloch-pitts",
+      "Note": "Bibliographic Notes cite the 1943 paper. The printed citation changes the title ending to neural nets and gives page 137 instead of 133. Checked in the 1988 edition retaining the original text.",
+      "SourceUrl": "https://www.scribd.com/document/424210282/Perceptrons",
+      "Evidence": "Bibliographic Notes, printed page 284: McCulloch, W. S., and Walter Pitts (1943), A logical calculus of the ideas immanent in neural nets, Bulletin of Mathematical Biophysics 5, 115-137.",
+      "Verification": "recovered-bibliography-source-review"
+    },
+    {
+      "Citing": "perceptrons",
+      "Cited": "hebb",
+      "Note": "Bibliographic Notes cite the 1949 book; checked in the 1988 edition retaining the original text.",
+      "SourceUrl": "https://www.scribd.com/document/424210282/Perceptrons",
+      "Evidence": "Bibliographic Notes, printed page 287: Hebb, Donald O. (1949), The Organization of Behavior, Wiley, New York.",
+      "Verification": "recovered-bibliography-source-review"
+    },
+    {
+      "Citing": "associative-memory",
+      "Cited": "hebb",
+      "Note": "Reference 89 cites the 1949 book.",
+      "SourceUrl": "https://link.springer.com/content/pdf/bbm%3A978-3-642-96384-1/1",
+      "Evidence": "Reference 89: D. O. Hebb, The Organization of Behavior, Wiley, New York, 1949.",
+      "Verification": "recovered-bibliography-source-review"
+    },
+    {
+      "Citing": "associative-memory",
+      "Cited": "temporal-recall",
+      "Note": "Reference 100 identifies the 1968 Nature article by author, volume and page.",
+      "SourceUrl": "https://link.springer.com/content/pdf/bbm%3A978-3-642-96384-1/1",
+      "Evidence": "Reference 100: H. C. Longuet-Higgins, Nature 217, 104 (1968).",
+      "Verification": "recovered-bibliography-source-review"
+    },
+    {
+      "Citing": "associative-memory",
+      "Cited": "mcculloch-pitts",
+      "Note": "Reference 102 identifies the 1943 article by authors, journal, volume and first page.",
+      "SourceUrl": "https://link.springer.com/content/pdf/bbm%3A978-3-642-96384-1/1",
+      "Evidence": "Reference 102: W. S. McCulloch, W. Pitts, Bulletin of Mathematical Biophysics 5, 115 (1943).",
+      "Verification": "recovered-bibliography-source-review"
+    },
+    {
+      "Citing": "associative-memory",
+      "Cited": "perceptron",
+      "Note": "Reference 137 identifies Rosenblatt's 1958 Psychological Review paper.",
+      "SourceUrl": "https://link.springer.com/content/pdf/bbm%3A978-3-642-96384-1/1",
+      "Evidence": "Reference 137: F. Rosenblatt, Psychological Review 65, 386 (1958).",
+      "Verification": "recovered-bibliography-source-review"
+    },
+    {
+      "Citing": "content-addressable-memories",
+      "Cited": "associative-memory",
+      "Note": "References 1.1 and 2.94 cite Associative Memory with a 1978 publication date; the Atlas entry dates its first edition to 1977.",
+      "SourceUrl": "https://link.springer.com/content/pdf/bbm%3A978-3-642-96552-4/1",
+      "Evidence": "References 1.1 and 2.94: T. Kohonen, Associative Memory - A System-Theoretical Approach, Communication and Cybernetics 17, Springer, 1978.",
+      "Verification": "recovered-bibliography-source-review"
     }
   ]
 }
