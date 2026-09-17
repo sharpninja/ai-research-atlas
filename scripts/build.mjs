@@ -44,7 +44,7 @@ const precursors = withMain(readFileSync('precursors.html','utf8'), 'Literary an
   .replace(/<a href="https?:\/\/[^\"]+"/g, '$& target="_blank" rel="noopener noreferrer"');
 writeFileSync('dist/precursors/index.html',precursors);
 mkdirSync('dist/literary-timeline',{recursive:true});
-const literaryTimeline = withMain(readFileSync('literary-timeline.html','utf8'), 'Automatons and AI in books and films', 'A separate cultural timeline of 30 significant books, stories, plays, and films about automatons and artificial intelligence, from 1816 to 2024.')
+const literaryTimeline = withMain(readFileSync('literary-timeline.html','utf8'), 'Automatons and AI in books and films', 'A separate cultural timeline of 36 significant works about automatons and artificial intelligence, from Greek epics and Indian and Arabic tales to books and films of 2024.')
   .replace('<a href="/literary-timeline/">Books &amp; films</a>', '<a href="/literary-timeline/" aria-current="page">Books &amp; films</a>')
   .replace(/<a href="https?:\/\/[^\"]+"/g, '$& target="_blank" rel="noopener noreferrer"');
 writeFileSync('dist/literary-timeline/index.html',literaryTimeline);
