@@ -8,6 +8,8 @@ Successful public HTML requests increment daily D1 counters by canonical path an
 
 These are page views, not unique visitors. No IP addresses, user identifiers, raw user agents, or full referrer URLs are stored. The exclusion cookie contains no visitor identifier. `waitUntil` retains writes after the response; failures do not prevent reading. Tracking starts with the first eligible view, with no historical traffic backfill. Dates use UTC, with unavailable earlier days distinguished from observed zeroes. Comment/submission period totals use existing creation dates; pending queues cover all dates.
 
+The owner dashboard can also read aggregated Google search queries without storing them in D1. Configure `SEARCH_CONSOLE_SITE_URL`, `GOOGLE_SERVICE_ACCOUNT_EMAIL`, and the secret `GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY`; grant that service-account email access to the matching Search Console property. Query rows include landing page, clicks, impressions, click-through rate, and average position. They cannot be matched to individual visits, Google may omit low-volume rows, and recent results can lag.
+
 The additive analytics migration preserves existing content. Tests cover route/API authorization, missing configuration, aggregate persistence, filtering, referrer minimization, period bounds, failure handling, and the welcome page's closing link to the first chronological entry.
 
 The welcome page introduces AI research in plain language. `/timeline/` presents a 67-entry chronology; every `/entries/:slug/` page has moderated comments. The 1990 entry, `/entries/the-ai-toy/`, describes Kevin E. Martin's Gazette articles and C64 programs, with its extended narrative in `ai-toy.html`. Legacy homepage era fragments forward to the timeline.

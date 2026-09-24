@@ -102,7 +102,7 @@ function collect(directory) {
 }
 collect('dist');
 mkdirSync('dist/server',{recursive:true}); mkdirSync('dist/.openai',{recursive:true});
-const source = readFileSync('src/analytics.js','utf8').replaceAll('export async function','async function') + '\n' + readFileSync('src/worker.js','utf8').replace("import {recordPageView, analyticsSummary} from './analytics.js';", '').replace('export function createWorker','function createWorker');
+const source = readFileSync('src/analytics.js','utf8').replaceAll('export async function','async function') + '\n' + readFileSync('src/search-console.js','utf8').replace('export async function','async function') + '\n' + readFileSync('src/worker.js','utf8').replace("import {recordPageView, analyticsSummary} from './analytics.js';", '').replace("import {searchConsoleSummary} from './search-console.js';", '').replace('export function createWorker','function createWorker');
 writeFileSync('dist/server/index.js',source + '\nconst assets = ' + JSON.stringify(assets) + ';\nexport default createWorker(assets, ' + JSON.stringify(entries) + ');\n');
 cpSync('.openai/hosting.json','dist/.openai/hosting.json'); cpSync('drizzle','dist/.openai/drizzle',{recursive:true});
 execFileSync(process.execPath,['--check','dist/server/index.js'],{stdio:'inherit'});

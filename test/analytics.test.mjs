@@ -28,6 +28,10 @@ test('dashboard aliases and API enforce owner access independently of UI',async 
   assert.equal((await call('/api/analytics?isModerator=true',reader)).status,403);
   assert.equal((await call('/api/analytics',{Cookie:'isModerator=true; role=owner'})).status,401);
   assert.equal((await call('/api/analytics',owner,'POST')).status,405);
+  assert.equal((await call('/api/search-console')).status,401);
+  assert.equal((await call('/api/search-console',reader)).status,403);
+  assert.equal((await call('/api/search-console',owner,'POST')).status,405);
+  assert.deepEqual(await (await call('/api/search-console?days=30',owner)).json(),{configured:false,rows:[]});
   delete env.COMMENT_MODERATOR_EMAIL;
   assert.equal((await call('/api/analytics',owner)).status,403);
   assert.equal((await call('/analytics/',owner)).status,403);

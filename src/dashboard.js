@@ -29,6 +29,31 @@ function chart(data) {
   svg.append(create('text', {x:50,y:219,fill:'#576477','font-size':12}, dateLabel(data.start)),create('text', {x:940,y:219,'text-anchor':'end',fill:'#576477','font-size':12},dateLabel(data.end)));
   target.append(svg);
 }
+async function loadSearchConsole() {
+  const status = document.getElementById('search-console-status');
+  const target = document.getElementById('search-console-queries'); target.replaceChildren();
+  status.textContent = 'Loading Search Console data…';
+  try {
+    const response = await fetch('/api/search-console?days=' + select.value, {credentials:'same-origin',cache:'no-store'});
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'Search Console data is temporarily unavailable.');
+    if (!data.configured) {
+      const row=el('tr'); const cell=el('td','Connect a verified Google Search Console property to display search queries.'); cell.colSpan=6; row.append(cell); target.append(row);
+      status.textContent='Search Console is not configured yet.'; return;
+    }
+    if (!data.rows.length) {
+      const row=el('tr'); const cell=el('td','No Google search query data was returned for this period.'); cell.colSpan=6; row.append(cell); target.append(row);
+    }
+    for (const item of data.rows) {
+      const row=el('tr'); const landing=el('td');
+      try {const url=new URL(item.page); if (url.origin===location.origin) {const link=el('a',url.pathname); link.href=url.pathname+url.search; landing.append(link);} else landing.textContent=url.pathname;} catch {landing.textContent=item.page;}
+      row.append(el('td',item.query),landing,el('td',number(item.clicks)),el('td',number(item.impressions)),el('td',(item.ctr*100).toFixed(1)+'%'),el('td',item.position.toFixed(1))); target.append(row);
+    }
+    status.textContent='Google results for '+dateLabel(data.start)+' – '+dateLabel(data.end)+'.';
+  } catch(error) {
+    const row=el('tr'); const cell=el('td','Search Console data could not be loaded.'); cell.colSpan=6; row.append(cell); target.append(row); status.textContent=error.message;
+  }
+}
 async function load() {
   select.disabled = refresh.disabled = true; results.hidden = true; results.setAttribute('aria-busy','true'); notice.textContent = 'Loading analytics…';
   try {
@@ -47,7 +72,7 @@ async function load() {
     const deviceLabels = {desktop:'Desktop',mobile:'Mobile',tablet:'Tablet',unknown:'Unknown / not collected'};
     table('analytics-devices', data.devices, 'No device data recorded in this period.', (cell,row) => cell.textContent=deviceLabels[row.deviceType] || 'Unknown');
     document.getElementById('analytics-device-coverage').textContent = (data.deviceStartedAt ? 'Device collection began ' + new Date(data.deviceStartedAt).toLocaleString(undefined, {timeZone:'UTC'}) + ' UTC. ' : 'Device collection starts with the next eligible public visit. ') + 'Estimated from browser signals. Unknown includes older visits and unrecognized devices.';
-    chart(data); results.hidden = false;
+    chart(data); results.hidden = false; await loadSearchConsole();
     notice.textContent = 'Updated ' + new Date(data.generatedAt).toLocaleTimeString(undefined, {timeZone:'UTC'}) + ' UTC.';
   } catch(error) {notice.textContent=error.message;}
   finally {select.disabled = refresh.disabled = false; results.setAttribute('aria-busy','false');}

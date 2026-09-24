@@ -1,4 +1,5 @@
 import {recordPageView, analyticsSummary} from './analytics.js';
+import {searchConsoleSummary} from './search-console.js';
 // The Sites dispatcher owns sign-in and supplies the trusted identity headers.
 // Never deploy this handler behind a proxy that passes visitor-supplied identity headers.
 function userFrom(request) {
@@ -52,13 +53,13 @@ export function createWorker(assets, entries) {
     const isModerator = moderator(user, env);
     try {
       if (url.pathname.startsWith('/api/')) {
-        if (url.pathname === '/api/analytics') {
+        if (url.pathname === '/api/analytics' || url.pathname === '/api/search-console') {
           if (!user) return bad('Sign in with ChatGPT to continue.', 401);
           if (!isModerator) return bad('Analytics are limited to the site owner.', 403);
           if (request.method !== 'GET') return bad('Method not allowed.', 405);
           const days = Number(url.searchParams.get('days') || 30);
           if (![7, 30, 90].includes(days)) return bad('Choose 7, 30, or 90 days.');
-          return json(await analyticsSummary({DB: db(env)}, days, pageNames));
+          return json(url.pathname === '/api/analytics' ? await analyticsSummary({DB: db(env)}, days, pageNames) : await searchConsoleSummary(env, days));
         }
         if (!['GET', 'POST'].includes(request.method)) return bad('Method not allowed.', 405);
         if (request.method === 'POST') {
@@ -220,6 +221,7 @@ export function createWorker(assets, entries) {
     } catch (error) {
       console.error('Atlas request failed', error instanceof Error ? error.message : 'Unknown error');
       if (url.pathname.startsWith('/api/analytics')) return bad('Analytics are temporarily unavailable. Please refresh to try again.', 503);
+      if (url.pathname.startsWith('/api/search-console')) return bad('Search Console data are temporarily unavailable. Check the Google connection and try again.', 503);
       const feature = url.pathname.startsWith('/api/submissions') ? 'Submissions' : 'Comments';
       return bad(feature + ' are temporarily unavailable. Please try again; your draft has not been cleared.', 503);
     }
