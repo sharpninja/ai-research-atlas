@@ -11,7 +11,7 @@ const encoded = Buffer.from("$ErrorActionPreference='Stop'; [Console]::InputEnco
 execFileSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-EncodedCommand',encoded], {input:generator,encoding:'utf8',stdio:['pipe','pipe','pipe']});
 
 const entries = [...readFileSync('research.psd1','utf8').matchAll(/Slug='([^']+)'/g)].map(m => m[1]);
-const newNav = '<a href="/welcome/">Welcome</a><a href="/timeline/">Timeline</a><a href="/entries/the-ai-toy/">The AI Toy</a><a href="/submit/" target="_top">Submit a link</a><a href="/timeline/#methodology">About the sources</a>';
+const newNav = '<a href="/welcome/">Welcome</a><a href="/timeline/">Timeline</a><a href="/literary-timeline/">Books &amp; films</a><a href="/agi-pros-cons/">AGI</a><a href="/entries/the-ai-toy/">The AI Toy</a><a href="/submit/" target="_top">Submit a link</a><a href="/timeline/#methodology">About the sources</a>';
 function enhance(html) {
   return html.replace(/<nav class="topnav"[^>]*>[\s\S]*?<\/nav>/, '<nav class="topnav" aria-label="Main navigation">' + newNav + '</nav>')
     .replace('<header class="masthead">', '<header class="masthead" id="page-top" tabindex="-1">')
@@ -23,6 +23,8 @@ function enhance(html) {
     .replace('</body>', '<a class="return-to-top" href="#page-top" aria-label="Return to top" title="Return to top"><span aria-hidden="true">↑</span></a><script src="/navigation.js" defer></script><script src="/comments.js" defer></script></body>');
 }
 const timeline = enhance(readFileSync('dist/index.html','utf8')).replace('<a href="/timeline/">Timeline</a>', '<a href="/timeline/" aria-current="page">Timeline</a>')
+  .replace('<section class="topic-filter"', readFileSync('precursor-timeline.html','utf8') + '<section class="topic-filter"')
+  .replace('<p class="nav-label">Explore the timeline</p><ol>', '<p class="nav-label">Explore the timeline</p><ol><li><a href="#precursor-to-ai"><span>1816–1899</span>Precursor to AI</a></li>')
   .replace('</body>', '<script src="/topics.js" defer></script></body>');
 mkdirSync('dist/timeline',{recursive:true}); writeFileSync('dist/timeline/index.html',timeline);
 const shell = enhance(readFileSync('dist/index.html','utf8'));
@@ -37,6 +39,20 @@ const welcome = withMain(readFileSync('welcome.html','utf8'), 'Welcome: a plain-
   .replace('</body>', '<script src="/welcome.js" defer></script></body>');
 writeFileSync('dist/index.html',welcome);
 mkdirSync('dist/welcome',{recursive:true}); writeFileSync('dist/welcome/index.html',welcome);
+mkdirSync('dist/precursors',{recursive:true});
+const precursors = withMain(readFileSync('precursors.html','utf8'), 'Literary and philosophical precursors', 'Explore The Sandman, Erewhon, and Moxon’s Master: nineteenth-century ideas about artificial beings, machine intelligence, and human control.')
+  .replace(/<a href="https?:\/\/[^\"]+"/g, '$& target="_blank" rel="noopener noreferrer"');
+writeFileSync('dist/precursors/index.html',precursors);
+mkdirSync('dist/literary-timeline',{recursive:true});
+const literaryTimeline = withMain(readFileSync('literary-timeline.html','utf8'), 'Automatons and AI in books and films', 'A separate cultural timeline of 38 significant works about automatons and artificial intelligence, from Greek epics and Indian and Arabic tales to books and films of 2024.')
+  .replace('<a href="/literary-timeline/">Books &amp; films</a>', '<a href="/literary-timeline/" aria-current="page">Books &amp; films</a>')
+  .replace(/<a href="https?:\/\/[^\"]+"/g, '$& target="_blank" rel="noopener noreferrer"');
+writeFileSync('dist/literary-timeline/index.html',literaryTimeline);
+mkdirSync('dist/agi-pros-cons',{recursive:true});
+const agiArticle = withMain(readFileSync('agi-pros-cons.html','utf8'), 'The Pros and Cons of AGI', 'Weigh the potential benefits and risks of AGI, with a close reading of Alien, synthetic ego, human control, and current American anxiety about AI.')
+  .replace('<a href="/agi-pros-cons/">AGI</a>', '<a href="/agi-pros-cons/" aria-current="page">AGI</a>')
+  .replace(/<a href="https?:\/\/[^\"]+"/g, '$& target="_blank" rel="noopener noreferrer"');
+writeFileSync('dist/agi-pros-cons/index.html',agiArticle);
 writeFileSync('dist/welcome.js', `const oldSections = new Set(['foundations','representations','learning-at-scale','deep-learning','transformers','scale-and-generation','alignment-and-reasoning','foundation-models','methodology']);\nif (oldSections.has(location.hash.slice(1))) location.replace('/timeline/' + location.hash);\n`);
 for (const entry of entries) {
   const file = 'dist/entries/' + entry + '/index.html';
