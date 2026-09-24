@@ -58,7 +58,7 @@ export function createWorker(assets, entries) {
           if (!isModerator) return bad('Analytics are limited to the site owner.', 403);
           if (request.method !== 'GET') return bad('Method not allowed.', 405);
           const days = Number(url.searchParams.get('days') || 30);
-          if (![7, 30, 90].includes(days)) return bad('Choose 7, 30, or 90 days.');
+          if (![1, 7, 30, 90].includes(days)) return bad('Choose today, 7, 30, or 90 days.');
           return json(url.pathname === '/api/analytics' ? await analyticsSummary({DB: db(env)}, days, pageNames) : await searchConsoleSummary(env, days));
         }
         if (!['GET', 'POST'].includes(request.method)) return bad('Method not allowed.', 405);

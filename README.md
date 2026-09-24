@@ -2,7 +2,7 @@
 
 ## Owner analytics
 
-`/analytics/` and `GET /api/analytics?days=7|30|90` use the same server-enforced owner identity as moderation. Anonymous requests are sent to ChatGPT sign-in; other accounts receive 403. Missing owner configuration denies access. Dashboard/API responses are private and uncached; a footer link appears for the signed-in owner.
+`/analytics/` and `GET /api/analytics?days=1|7|30|90` use the same server-enforced owner identity as moderation. Anonymous requests are sent to ChatGPT sign-in; other accounts receive 403. Missing owner configuration denies access. Dashboard/API responses are private and uncached; a footer link appears for the signed-in owner.
 
 Successful public HTML requests increment daily D1 counters by canonical path and referring domain, plus separate daily device totals in the same transaction. Device type is estimated as desktop, mobile, tablet, or unknown from browser signals; raw user agents are never stored. Earlier views remain unknown. The Worker excludes recognized owner traffic, known bots, prefetch, private pages, redirects, errors, assets, and HEAD requests. Verified owner responses set the host-only `__Host-atlas_analytics_excluded=1` cookie (Secure, HttpOnly, SameSite=Lax, one year), preserving exclusion after sign-out in that browser. Sign in once on each browser; clearing cookies resets the preference. The preference never grants access to private pages or APIs. Older anonymous owner visits cannot be separated from existing aggregate totals.
 

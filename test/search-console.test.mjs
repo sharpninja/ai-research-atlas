@@ -16,7 +16,7 @@ test('Search Console signs in with a service account and minimizes returned fiel
   assert.deepEqual(result.rows[0],{query:'artificial intelligence history',page:'https://atlas.example/timeline/',clicks:3,impressions:40,ctr:.075,position:4.2});
   assert.equal(calls[0].url,'https://oauth2.googleapis.com/token'); assert.match(calls[0].options.body.toString(),/assertion=/);
   assert.match(calls[1].url,/searchAnalytics\/query$/); assert.equal(calls[1].options.headers.Authorization,'Bearer test-token');
-  const body=JSON.parse(calls[1].options.body); assert.deepEqual(body.dimensions,['query','page']); assert.equal(body.rowLimit,1000);
+  const body=JSON.parse(calls[1].options.body); assert.deepEqual(body.dimensions,['query','page']); assert.equal(body.dataState,'all'); assert.equal(body.rowLimit,1000);
 });
 
 test('Search Console reports unconfigured state without making a network request', async () => {

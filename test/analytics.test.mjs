@@ -45,6 +45,7 @@ test('private analytics responses do not permit shared caching',async t=>{
 test('empty analytics is real zero, and dates before collection are unavailable',async t=>{
   const {summary,call}=setup(t);const data=await summary('7');
   assert.equal(data.startedAt,null);assert.equal(data.totals.pageViews,0);assert.equal(data.daily.length,7);assert.ok(data.daily.every(row=>!row.collected));
+  assert.equal((await summary('1')).daily.length,1);
   for (const days of ['0','31','100000',"7' OR 1=1--"]) assert.equal((await call('/api/analytics?days='+encodeURIComponent(days),owner)).status,400);
 });
 test('public requests aggregate atomically and referrers retain only their host',async t=>{
