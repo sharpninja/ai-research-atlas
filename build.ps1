@@ -63,7 +63,7 @@ function Save-Page([string]$file,[string]$title,[string]$description,[string]$co
   $navCurrent = if($isHome){' aria-current="page"'}else{''}
   $html = @"
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>$(EscapeHtml $title) | AI Research Atlas</title><meta name="description" content="$(EscapeHtml $description)"><meta name="theme-color" content="#14233b"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="google-site-verification" content="yLr5CtiREvCP7s4_rMtyxWKic9jqcMIMFQTCEJ_Bx-A"><title>$(EscapeHtml $title) | AI Research Atlas</title><meta name="description" content="$(EscapeHtml $description)"><meta name="theme-color" content="#14233b"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"></head>
 <body><a class="skip" href="#main">Skip to content</a><header class="masthead"><div class="wrap masthead-inner"><a class="brand" href="/" aria-label="AI Research Atlas home"><span class="brand-mark" aria-hidden="true">ai</span>AI Research Atlas</a><nav class="topnav" aria-label="Main navigation"><a href="/"$navCurrent>Timeline</a><a href="/#methodology">About the sources</a></nav></div></header>
 $content
 <footer class="wrap footer"><span>AI Research Atlas · Selected works, 1943–2025<span class="footer-release">Version $(EscapeHtml $releaseVersion) · Published <time datetime="$publishedAtUtc">$(EscapeHtml $publishDateLabel)</time></span></span><a href="/#methodology">Sources &amp; date conventions</a></footer></body></html>
